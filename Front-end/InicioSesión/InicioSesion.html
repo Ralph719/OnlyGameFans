@@ -3,7 +3,6 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/InicioSesion.css">
-        <script src="js/InicioSesion.js"></script>
         <title>Inicio Sesión</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,7 +36,7 @@
                 </div>
 
                 <div class="contenedor-botones">
-                    <button class="boton seis">
+                    <button class="boton seis" onclick="iniciarSesion()">
                         <span>¡Dale!</span>
                         <svg>
                             <rect x="0" y="0" fill="none"></rect>
@@ -45,22 +44,19 @@
                     </button>
                 </div>
                 
-
-                <!--
-                <div class="submit-button">
-                    <form action="">
-                        <input type="submit" value="¡Dale!">
-                    </form>
-                </div>
-                -->
             </div>
 
             <span class="link-box">
                 <a href=""><p>Registrate aquí si no tienes una cuenta</p></a> <!-- EL LINK REDIRIGIRÁ A UNA PÁGINA EXTERNA CON UNA ESTRUCTURA SIMILAR PERO PARA REGISTRARSE --> 
             </span>
         </div>
+
+        <script src="js/InicioSesion.js"></script>
+
     </body>
     <footer>
+
+        <!-- TODO -->
 
     </footer>
 </html>
