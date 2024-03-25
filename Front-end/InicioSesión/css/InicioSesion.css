@@ -4,16 +4,17 @@
     box-sizing: border-box;
 }
 
+
 /* CONTENEDOR DONDE IRÁ TODA LA INFORMACIÓN */
 .container {
     position: relative;
-    border: 2px solid blue;
+    border: 2px solid rgb(76, 0, 255);
     padding: 20px;
-    height: fit-content;
     text-align: center;
     margin: 0 auto;
-    margin-top: 1.3rem;
+    margin-top: .6rem;
     width: 40%;
+    border-radius: 18%;
 }
 
 /* TEXTO -> "Iniciar sesión" */
@@ -22,6 +23,7 @@
     text-align: center;
     font-size: 4rem;
     padding: 10px;
+    color: rgb(255, 145, 0);
 }
 
 /* ICONO DE USUARIO */
@@ -40,22 +42,25 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border: 2px solid rgb(28, 255, 28);
-    border-radius: 10px;
-    height: 30rem;
+    border: 2px solid rgb(255, 0, 255);
+    border-radius: 13.6%;
+    height: 35rem;
     margin-top: 2rem;
+    background-color: rgba(21, 180, 74, 0.644);
 }
 
 /* CONTENEDOR DONDE IRÁN CADA UNO DE LOS DATOS NECESARIOS (usuario y contraseña) PARA INICIAR SESIÓN */
 .container-form-child {
+    margin-top: 15px;
     display: block;
     width: 40rem;
     padding: 20px;
-    border: 2px solid rgb(44, 44, 44);
+    border: 2px solid rgb(255, 0, 0);
     border-radius: 5px;
-    background: rgba(255, 255, 255, .25);
+    background: rgba(255, 255, 255, 0.25);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
+    border-radius: 17px;
 }
 
 /* ESPACIO DONDE PONER EL USUARIO */
@@ -73,8 +78,10 @@ input[type="text"] {
     text-align:center; 
     transition: .2s ease-out;
     border-radius: 3px;
-    text-shadow: 2px 1px 2.5px rgb(129, 177, 101);
-    background-color: transparent;
+    text-shadow: 2px 1px 2.5px rgb(90, 71, 194);
+    background-color: rgb(255, 0, 0);
+    filter:drop-shadow(1px 1px 19px rgb(0, 0, 0));
+    color: rgb(255, 255, 255);
 }
 
 /* ESPACIO DONDE PONER LA CONTRASEÑA */
@@ -92,13 +99,15 @@ input[type="password"] {
     text-align:center; 
     transition: .2s ease-out;
     border-radius: 3px;
-    background-color: transparent;
+    background-color: rgb(255, 0, 0);
+    filter:drop-shadow(1px 1px 19px rgb(0, 0, 0));
 }
 
 input:focus {
-    outline: .5px solid rgb(65, 62, 240);
+    outline: .5px solid rgb(255, 55, 205);
     width: 70%;
-    background-color: rgb(233, 230, 230);
+    background-color: rgb(255, 255, 255);
+    color: rgb(30, 255, 0);
 }
 
 /* INDICADORES "USUARIO" Y "CONTRASEÑA" */
@@ -108,6 +117,8 @@ input:focus {
     text-align: center;
     display: inline-block;
     font-size: 30px;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
 }
 
 .contenedor-botones {
@@ -138,7 +149,7 @@ input:focus {
 
 .boton:hover {
     border: none;
-    box-shadow: 0 0 12px blue;
+    box-shadow: 0 0 12px rgb(255, 255, 255);
 }
 
 .boton span {
@@ -149,7 +160,7 @@ input:focus {
 
 .boton.seis {
 	background: none;
-	color: #000;
+	color: #ff006a;
 }
 
 .boton.seis svg {
@@ -164,7 +175,7 @@ input:focus {
 .boton.seis rect {
 	width: 100%;
 	height: 100%;
-    stroke: rgb(88, 47, 202);
+    stroke: rgb(89, 0, 255);
 	stroke-width: 10px;
 	stroke-dasharray: 1000;
 	stroke-dashoffset: 1000;
@@ -190,7 +201,7 @@ input:focus {
 .link-box a {
     text-decoration: none;
     display: flex;
-    color: green;
+    color: rgb(16, 62, 105);
     font-family:cairo;
     transition: .2s;
 }
@@ -217,7 +228,7 @@ input:focus {
         width: 90%; 
     }
     .link-box {
-        width: 100%; 
+        width: 40%; 
     }
     .indx {
         font-size: 30px;
