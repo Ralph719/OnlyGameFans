@@ -110,7 +110,7 @@ Create table `pertenece` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
  -- Se crean diferentes índices para realizar busquedas de manera más rápida y eficiente
-Create index usuario_index on usuario (direccion, nombre);
+Create index usuario_index on usuario (email, nombre);
 Create index articulo_index on articulo (precio, disponibilidad);
-Create index pedido_index on pedido (pago_total, direccion);
+Create index pedido_index on pedido (fecha_compra);
 Create index genero_index on genero (nombre);
