@@ -7,4 +7,6 @@ function iniciarSesion() {
     } else {
         alert("¡Has iniciado sesión con éxito!");
     }
+
 }
+

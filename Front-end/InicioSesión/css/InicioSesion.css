@@ -4,17 +4,25 @@
     box-sizing: border-box;
 }
 
+/* IMÁGEN DE FONDO */
+body {
+    background-color: rgb(26, 25, 25);
+    background-image: url(../imgs/halo.webp);
+    background-attachment: fixed;
+    background-position: cover;
+}
 
 /* CONTENEDOR DONDE IRÁ TODA LA INFORMACIÓN */
 .container {
     position: relative;
-    border: 2px solid rgb(76, 0, 255);
     padding: 20px;
     text-align: center;
     margin: 0 auto;
     margin-top: .6rem;
     width: 40%;
-    border-radius: 18%;
+    border-radius: 5%;
+    border: 2px solid rgb(63, 65, 63);
+    background-color: rgba(100, 99, 95, 0.664);
 }
 
 /* TEXTO -> "Iniciar sesión" */
@@ -23,7 +31,11 @@
     text-align: center;
     font-size: 4rem;
     padding: 10px;
-    color: rgb(255, 145, 0);
+    color: rgb(26, 207, 198);
+    font-weight: 630;
+    border-bottom: 5px solid rgb(29, 133, 133);
+    border-top: 2px solid rgb(206, 188, 32);
+    border-radius: 25%;
 }
 
 /* ICONO DE USUARIO */
@@ -34,6 +46,7 @@
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: -10px;
+    filter: drop-shadow(2px 2px 3px rgb(143, 133, 133));
 }
 
 /* CONTENEDOR DONDE IRÁ TODO EL FORMULARIO PARA RELLENAR CON DATOS */
@@ -42,11 +55,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border: 2px solid rgb(255, 0, 255);
-    border-radius: 13.6%;
+    border-radius: 4%;
     height: 35rem;
     margin-top: 2rem;
-    background-color: rgba(21, 180, 74, 0.644);
+    background-color: rgba(0, 0, 0, 0.644);
 }
 
 /* CONTENEDOR DONDE IRÁN CADA UNO DE LOS DATOS NECESARIOS (usuario y contraseña) PARA INICIAR SESIÓN */
@@ -54,13 +66,12 @@
     margin-top: 15px;
     display: block;
     width: 40rem;
-    padding: 20px;
-    border: 2px solid rgb(255, 0, 0);
+    padding: 15px;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(139, 136, 136, 0.25);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-    border-radius: 17px;
+    border-radius: 12px;
 }
 
 /* ESPACIO DONDE PONER EL USUARIO */
@@ -77,11 +88,10 @@ input[type="text"] {
     font-size: 20px;
     text-align:center; 
     transition: .2s ease-out;
-    border-radius: 3px;
-    text-shadow: 2px 1px 2.5px rgb(90, 71, 194);
-    background-color: rgb(255, 0, 0);
-    filter:drop-shadow(1px 1px 19px rgb(0, 0, 0));
+    border-radius: 8px;
+    background-color: rgba(78, 78, 75, 0.596);
     color: rgb(255, 255, 255);
+    font-weight: 300;
 }
 
 /* ESPACIO DONDE PONER LA CONTRASEÑA */
@@ -98,16 +108,18 @@ input[type="password"] {
     font-size: 20px;
     text-align:center; 
     transition: .2s ease-out;
-    border-radius: 3px;
-    background-color: rgb(255, 0, 0);
-    filter:drop-shadow(1px 1px 19px rgb(0, 0, 0));
+    border-radius: 8px;
+    background-color: rgba(78, 78, 75, 0.596);
 }
 
+/* AL HACER CLICK EN CUALQUIER INPUT */
 input:focus {
-    outline: .5px solid rgb(255, 55, 205);
+    outline: 3px solid rgb(81, 129, 133);
+    border: none;
     width: 70%;
-    background-color: rgb(255, 255, 255);
-    color: rgb(30, 255, 0);
+    background-color: rgb(46, 105, 112);
+    color: rgb(0, 0, 0);
+    font-weight: 500;
 }
 
 /* INDICADORES "USUARIO" Y "CONTRASEÑA" */
@@ -118,7 +130,8 @@ input:focus {
     display: inline-block;
     font-size: 30px;
     margin-bottom: 10px;
-    color: rgb(0, 0, 0);
+    color: rgb(228, 200, 46);
+    font-weight: 550;
 }
 
 .contenedor-botones {
@@ -135,21 +148,21 @@ input:focus {
 	height: 80px;
 	background: #141414;
 	color: #fff;
-	font-family: 'Roboto', sans-serif;
-	font-size: 20px;
+	font-family: cairo;
+	font-size: 25px;
 	font-weight: 500;
 	border: none;
 	cursor: pointer;
-	text-transform: uppercase;
 	transition: .3s ease all;
 	border-radius: 5px;
 	position: relative;
 	overflow: hidden;
 }
 
-.boton:hover {
+.boton.seis:hover {
     border: none;
-    box-shadow: 0 0 12px rgb(255, 255, 255);
+    box-shadow: 0 0 12px rgb(32, 100, 102);
+    color: gold;
 }
 
 .boton span {
@@ -159,8 +172,9 @@ input:focus {
 }
 
 .boton.seis {
-	background: none;
-	color: #ff006a;
+	background: rgba(0, 0, 0, 0.63);
+    border: .2px solid rgb(58, 56, 56);
+	color: #ffffff;
 }
 
 .boton.seis svg {
@@ -175,15 +189,16 @@ input:focus {
 .boton.seis rect {
 	width: 100%;
 	height: 100%;
-    stroke: rgb(89, 0, 255);
+    stroke: rgb(66, 146, 155);
 	stroke-width: 10px;
 	stroke-dasharray: 1000;
 	stroke-dashoffset: 1000;
-	transition: .6s ease all;
+	transition: .7s ease all;
 }
 
 .boton.seis:hover rect {
 	stroke-dashoffset: 0;
+    stroke: gold;
 }
 
 /* CAJA DONDE SE ENCUENTRA EL LINK */
@@ -201,13 +216,20 @@ input:focus {
 .link-box a {
     text-decoration: none;
     display: flex;
-    color: rgb(16, 62, 105);
+    color: rgb(0, 0, 0);
     font-family:cairo;
     transition: .2s;
+    font-weight: 700;
+    font-size: 17.8px;
 }
 
 /* PARA DISPOSITIVOS MÁS PEQUEÑOS */
 @media (max-width: 1505px) {
+    body {
+        background-position-x: 1200px;
+        background-attachment: fixed;
+        background-size: cover;
+    }
     .titulo{
         font-size: 3rem;
     }
