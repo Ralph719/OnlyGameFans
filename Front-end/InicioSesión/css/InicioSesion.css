@@ -20,7 +20,7 @@ body {
     margin: 0 auto;
     margin-top: .6rem;
     width: 40%;
-    border-radius: 5%;
+    border-radius: 8px;
     border: 2px solid rgb(63, 65, 63);
     background-color: rgba(100, 99, 95, 0.664);
 }
@@ -31,9 +31,9 @@ body {
     text-align: center;
     font-size: 4rem;
     padding: 10px;
-    color: rgb(26, 207, 198);
+    color: rgb(56, 182, 204);
     font-weight: 630;
-    border-bottom: 5px solid rgb(29, 133, 133);
+    border-bottom: 5px solid rgb(41, 133, 133);
     border-top: 2px solid rgb(206, 188, 32);
     border-radius: 25%;
 }
@@ -55,10 +55,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border-radius: 4%;
-    height: 35rem;
+    border-radius: 2%;
+    height: 30rem;
     margin-top: 2rem;
     background-color: rgba(0, 0, 0, 0.644);
+    background-image: url(../imgs/fallout-okay.webp);
+    background-position-y: 190px;
+    background-position-x: 276px;
+    background-blend-mode:screen ;
 }
 
 /* CONTENEDOR DONDE IRÁN CADA UNO DE LOS DATOS NECESARIOS (usuario y contraseña) PARA INICIAR SESIÓN */
@@ -66,8 +70,9 @@ body {
     margin-top: 15px;
     display: block;
     width: 40rem;
+    height: 10rem;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 1px;
     background: rgba(139, 136, 136, 0.25);
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
@@ -88,7 +93,11 @@ input[type="text"] {
     font-size: 20px;
     text-align:center; 
     transition: .2s ease-out;
-    border-radius: 8px;
+    border-radius: 6.8px;
+    border-bottom: 2px solid rgb(31, 82, 112);
+    border-right: 2px solid rgb(49, 99, 146);
+    border-top: 2px solid rgb(64, 117, 167);
+    border-left: 2px solid rgb(102, 146, 187);
     background-color: rgba(78, 78, 75, 0.596);
     color: rgb(255, 255, 255);
     font-weight: 300;
@@ -108,16 +117,28 @@ input[type="password"] {
     font-size: 20px;
     text-align:center; 
     transition: .2s ease-out;
-    border-radius: 8px;
+    border-radius: 6.8px;
+    border-bottom: 2px solid rgb(102, 15, 124);
+    border-right: 2px solid rgb(97, 17, 97);
+    border-top: 2px solid rgb(111, 32, 114);
+    border-left: 2px solid rgb(123, 51, 129);
+    color: rgb(74, 159, 192);
     background-color: rgba(78, 78, 75, 0.596);
 }
 
+input[type="checkbox"]{
+    display: block;
+    font-size: 20px;
+    color: wheat;
+}
+
 /* AL HACER CLICK EN CUALQUIER INPUT */
-input:focus {
+input[type="text"], input[type="password"]:focus {
     outline: 3px solid rgb(81, 129, 133);
     border: none;
     width: 70%;
-    background-color: rgb(46, 105, 112);
+    height: 3rem;
+    background-color: rgb(83, 86, 87);
     color: rgb(0, 0, 0);
     font-weight: 500;
 }
@@ -157,6 +178,7 @@ input:focus {
 	border-radius: 5px;
 	position: relative;
 	overflow: hidden;
+    margin-bottom: 6px;
 }
 
 .boton.seis:hover {
@@ -210,17 +232,27 @@ input:focus {
     display: flex;
     width: fit-content;
     height: fit-content;
+    transition: .3s ease;
 }
 
 /* LINK DE REGISTRO */
 .link-box a {
     text-decoration: none;
     display: flex;
-    color: rgb(0, 0, 0);
+    color: rgb(133, 189, 179);
     font-family:cairo;
     transition: .2s;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 17.8px;
+}
+
+.link-box:hover {
+    
+}
+
+.link-box a:hover {
+    filter: grayscale(1);
+    box-shadow: 2px solid green;
 }
 
 /* PARA DISPOSITIVOS MÁS PEQUEÑOS */
