@@ -29,7 +29,7 @@ body {
 .titulo {
     font-family: cairo, sans-serif;
     text-align: center;
-    font-size: 4rem;
+    font-size: 3.2rem;
     padding: 10px;
     color: rgb(56, 182, 204);
     font-weight: 630;
@@ -60,7 +60,7 @@ body {
     margin-top: 2rem;
     background-color: rgba(0, 0, 0, 0.644);
     background-image: url(../imgs/fallout-okay.webp);
-    background-position-y: 190px;
+    background-position-y: 187.5px;
     background-position-x: 276px;
     background-blend-mode:screen ;
 }
@@ -69,7 +69,7 @@ body {
 .container-form-child {
     margin-top: 15px;
     display: block;
-    width: 40rem;
+    width: 33rem;
     height: 10rem;
     padding: 15px;
     border-radius: 1px;
@@ -77,6 +77,14 @@ body {
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     border-radius: 12px;
+}
+
+form {
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ESPACIO DONDE PONER EL USUARIO */
@@ -87,17 +95,18 @@ body {
 }
 
 input[type="text"] {
-    padding: 10px;
-    width: 55%;
+    padding: 5px;
+    width: 70%;
     margin-bottom: 2rem;
     font-size: 20px;
+    font-family: cairo;
     text-align:center; 
     transition: .2s ease-out;
     border-radius: 6.8px;
-    border-bottom: 2px solid rgb(31, 82, 112);
-    border-right: 2px solid rgb(49, 99, 146);
-    border-top: 2px solid rgb(64, 117, 167);
-    border-left: 2px solid rgb(102, 146, 187);
+    border-bottom: .8px solid rgb(31, 82, 112);
+    border-right: .8px solid rgb(49, 99, 146);
+    border-top: .8px solid rgb(64, 117, 167);
+    border-left: .8px solid rgb(102, 146, 187);
     background-color: rgba(78, 78, 75, 0.596);
     color: rgb(255, 255, 255);
     font-weight: 300;
@@ -111,48 +120,65 @@ input[type="text"] {
 }
 
 input[type="password"] {
-    padding: 10px;
-    width: 55%;
+    padding: 5px;
+    width: 70%;
     margin-bottom: 2rem;
     font-size: 20px;
+    font-family: cairo;
     text-align:center; 
     transition: .2s ease-out;
     border-radius: 6.8px;
-    border-bottom: 2px solid rgb(102, 15, 124);
-    border-right: 2px solid rgb(97, 17, 97);
-    border-top: 2px solid rgb(111, 32, 114);
-    border-left: 2px solid rgb(123, 51, 129);
+    border-bottom: .8px solid rgb(102, 15, 124);
+    border-right: .8px solid rgb(97, 17, 97);
+    border-top: .8px solid rgb(111, 32, 114);
+    border-left: .8px solid rgb(123, 51, 129);
     color: rgb(74, 159, 192);
     background-color: rgba(78, 78, 75, 0.596);
 }
 
 input[type="checkbox"]{
-    display: block;
     font-size: 20px;
     color: wheat;
 }
 
+.showpwd {
+    margin-left: 90px;
+    position: relative;
+    display: flex;
+    font-size: 15px;
+    font-family: cairo;
+    color: white;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    top: -15px;
+}
+
+.showpwd input[type="checkbox"] {
+    margin-right: 5px;
+}
+
 /* AL HACER CLICK EN CUALQUIER INPUT */
-input[type="text"], input[type="password"]:focus {
-    outline: 3px solid rgb(81, 129, 133);
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: .8px solid rgb(81, 129, 133);
     border: none;
-    width: 70%;
-    height: 3rem;
+    width: 73%;
     background-color: rgb(83, 86, 87);
     color: rgb(0, 0, 0);
     font-weight: 500;
 }
 
+
 /* INDICADORES "USUARIO" Y "CONTRASEÑA" */
 .indx {
     display: inline-block;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: prompt;
     text-align: center;
     display: inline-block;
-    font-size: 30px;
+    font-size: 23px;
     margin-bottom: 10px;
     color: rgb(228, 200, 46);
-    font-weight: 550;
+    font-weight: 400;
 }
 
 .contenedor-botones {
@@ -243,7 +269,7 @@ input[type="text"], input[type="password"]:focus {
     font-family:cairo;
     transition: .2s;
     font-weight: 600;
-    font-size: 17.8px;
+    font-size: 16px;
 }
 
 .link-box:hover {
@@ -266,7 +292,10 @@ input[type="text"], input[type="password"]:focus {
         font-size: 3rem;
     }
     .container {
-        width: 60%; 
+        width: 60%;
+    }
+    .container-form {
+        background-position-x: 190px;
     }
     .container-form-child {
         width: 80%; 
@@ -278,14 +307,14 @@ input[type="text"], input[type="password"]:focus {
     .user-icon {
         width: 16%; 
     }
-    .contenedor-botones {
-        width: 90%; 
-    }
     .link-box {
         width: 40%; 
     }
     .indx {
         font-size: 30px;
+    }
+    footer {
+
     }
 
     /*MODIFICAR EL BOTÓN DE ENVIO,
@@ -293,4 +322,21 @@ input[type="text"], input[type="password"]:focus {
     EL ACTIVE SE QUEDA CHUECO EN CUANTO AL EFECTO DEL BOTÓN
     (PARA ACCEDER A LA VISTA DESDE OTROS DISPOSITIVOS F12 Y SIMBOLO DE ORDENADOR CON MOVIL)
     */
+}
+
+@media (max-width: 1002px){
+    .container-form {
+        background-position-x: 150px;
+    }
+    footer {
+        
+    }
+
+}
+
+
+footer {
+    margin-top: 70px;
+    background-color: rgb(59, 57, 57);
+    height: 14rem;
 }
