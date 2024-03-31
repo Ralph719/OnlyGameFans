@@ -1,0 +1,99 @@
+.todo {
+    background-color: black;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    height:fit-content;
+    padding: 0.5%;
+    padding-top: 0;
+    color: white;
+}
+.todo p {
+    text-align: center;
+    padding-top: 2.5%;
+    font-size: 150%;
+    font-family: "Gideon Roman", serif;
+}
+.menos {
+    background-color: transparent;
+    list-style: none;
+}
+
+/* Texto con div transparente sobre la imagen */
+.subdiv {
+    height: 100%;
+    width: 35%;
+    z-index: 2;
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-bottom-right-radius: 1000px;
+    display: flex;
+}
+.subdiv p {
+    font-family: "Gideon Roman", serif;
+    font-weight: bold;
+    font-size: 400%;
+    color: white;
+    margin-left: 25%;
+    margin-top: 15%;
+}
+
+/* Retoques del contenedor  */ 
+.contenedor {
+    height: 25vh;
+    width: 55vw;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Retoques de la imagen de fondo de los contenedores */
+.imagen_fondo {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+.imagen_fondo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* Colores de fondo sobre las imagenes, en orden descendente */
+.imagen_fondo[data-color="color1"]::before {
+    background-color: rgb(0, 0, 255, 0.45);
+}
+.imagen_fondo[data-color="color2"]::before {
+    background-color: rgb(255, 0, 0, 0.45);
+}
+.imagen_fondo[data-color="color3"]::before {
+    background-color: rgb(255, 255, 0, 0.45);
+}
+.imagen_fondo[data-color="color4"]::before {
+    background-color: rgb(0, 128, 0, 0.45);
+}
+.imagen_fondo[data-color="color5"]::before {
+    background-color: rgb(0, 0, 0, 0.45);
+}
+
+/* Efecto hover de la imagen */
+.imagen_fondo:hover {
+    animation: animacionImagen 0.5s ease;
+    animation-fill-mode: forwards;
+}
+@keyframes animacionImagen {
+    from {
+        transform: scale(1) rotate3d(1, 1, 1, 0deg);
+    }
+    to {
+        transform: scale(1.15) rotate3d(1, 1, 1, 3deg);
+    }
+}
