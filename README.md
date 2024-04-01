@@ -7,3 +7,4 @@ He creado una especie de apartado que podemos incluir en la pagina principal com
 
 Ralph: 01/04/2024
 He terminado de añadir algunas animaciones a la página de inicio de sesión, pueden revisarlo y sugerir cambios si lo consideran oportuno. Por último, faltaría añadir el pie de página, pero creo que podríamos dejarlo para cuando ya tengamos la mayoría de páginas hechas o, al menos, establecidas.
+También he creado un diagrama de Gantt para poder organizar las tareas asignadas a cada uno, si desean comenzar comenzar con algo nuevo o sugerir una nueva tarea pueden colocarlo ahí.
