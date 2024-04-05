@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-green: rgb(24, 107, 107);
+    --clr-green-light: rgb(0, 175, 175);
+    --clr-yellow: rgb(206, 188, 32);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: var(--clr-green);
+    min-height: 100%;
+    min-width: 100%;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    color: whitesmoke;
+    position: sticky;
+    top: 0;
+    height: 100%;
+    padding-right: 0;
+}
+
+.logo {
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.botonCategoria {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    color: whitesmoke;
+    font-weight: 600;
+    font-size: 0.85rem;
+    gap: 1rem;
+    padding: 0.9rem;
+
+    cursor: pointer;
+}
+
+.botonCategoria.active {
+    position: relative;
+    background-color: whitesmoke;
+    color: var(--clr-green);
+    width: 100%;
+    border-radius: 1rem 0 0 1rem;
+}
+
+.botonCategoria.active::before {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    bottom: 100%;
+    right: 0;
+    background-color: transparent;
+    border-radius: 0 0 0.5rem 0;
+    box-shadow: 0 1rem 0 whitesmoke;
+
+    cursor: default;
+}
+
+.botonCategoria.active::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 2rem;
+    top: 100%;
+    right: 0;
+    background-color: transparent;
+    border-radius: 0 0.5rem 0 0;
+    box-shadow: 0 -1rem 0 whitesmoke;
+
+    cursor: default;
+}
+
+.botonCategoria i, 
+.carrito i {
+    transform: scale(1.5);
+}
+
+.botonCategoria.carrito {
+    margin-top: 2rem;
+}
+
+.textoFooter {
+    color: var(--clr-green-light);
+    font-size: 0.85rem;
+}
+
+main {
+    background-color: whitesmoke;
+    margin: 1rem;
+    margin-left: 0;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+
+.tituloPrincipal {
+    color: var(--clr-green);
+    margin-bottom: 2rem;
+}
+
+.containerProductos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.producto img {
+    max-width: 70%;
+    border-radius: 0rem;
+}
+
+.detalles {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--clr-green);
+    color: whitesmoke;
+    margin: 0.3rem 0;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    width: 70%;
+}
+
+.nombreProducto {
+    font-size: 1rem;
+}
+
+.agregarProducto {
+    border: 0;
+    background-color: whitesmoke;
+    color: var(--clr-green);
+    padding: 0.25rem;
+    text-transform: uppercase;
+    border-radius: 2rem;
+    border: 2px solid whitesmoke;
+    
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.agregarProducto:hover {
+    background-color: var(--clr-green);
+    color: whitesmoke;
+}
+
+.carritoCantidad {
+    background-color: whitesmoke;
+    color: var(--clr-green);
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.3rem;
+}
+
+.botonCategoria.carrito .active .carritoCantidad {
+    background-color: var(--clr-green);
+    color: whitesmoke;
+}
