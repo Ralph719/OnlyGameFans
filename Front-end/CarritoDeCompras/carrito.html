@@ -10,6 +10,7 @@
     <body>
         
         <div class="wrapper">
+
             <aside>
                 <header>
                     <h1>Carrito</h1>
@@ -33,66 +34,22 @@
                     <p class="textoFooter">© 2024 Videogames Shop</p>
                 </footer>
             </aside>
+            
             <main>
                 <h2 class="tituloPrincipal">Carrito</h2>
                 <div class="containerCarrito">
     
-                    <p class="carritoVacio">Tu carrito está vacío. <i class="bi bi-emoji-frown-fill"></i></p>
+                    <!--MENSAJE QUE SE MUESTRA CUANDO EL CARRITO ESTÁ VACÍO-->
+                    <p id="carritoVacio" class="carritoVacio">Tu carrito está vacío. <i class="bi bi-emoji-frown-fill"></i></p>
     
-                    <div class="carritoProductos">
-    
-                        <div class="producto">
-                            <img src="imgJuegos/theWitcher3PS4.jpg" alt="The Witcher 3">
-                            <div class="nombreProducto">
-                                <small>Nombre</small>
-                                <h3>Videojuego 1</h3>
-                            </div>
-                            <div class="cantidadProducto">
-                                <small>Cantidad</small>
-                                <p>1</p>
-                            </div>
-                            <div class="precioProducto">
-                                <small>Precio</small>
-                                <p>100 €</p>
-                            </div>
-                            <div class="subtotalProducto">
-                                <small>Subtotal</small>
-                                <p>100 €</p>
-                            </div>
-                            <button class="eliminarProducto">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>
-                        </div>
-    
-                        <div class="producto">
-                            <img src="imgJuegos/returnalPS5.jpg" alt="The Witcher 3">
-                            <div class="nombreProducto">
-                                <small>Nombre</small>
-                                <h3>Videojuego 2</h3>
-                            </div>
-                            <div class="cantidadProducto">
-                                <small>Cantidad</small>
-                                <p>1</p>
-                            </div>
-                            <div class="precioProducto">
-                                <small>Precio</small>
-                                <p>100 €</p>
-                            </div>
-                            <div class="subtotalProducto">
-                                <small>Subtotal</small>
-                                <p>100 €</p>
-                            </div>
-                            <button class="eliminarProducto">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>
-                        </div>
-    
+                    <div id="carritoProductos" class="carritoProductos disabled">
+                        <!--LOS PRODUCTOS SERÁN CARGADOS CON JAVASCRIPT-->
                     </div>
     
-                    <div class="accionesCarrito disabled">
+                    <div id="accionesCarrito" class="accionesCarrito disabled">
                         
                         <div class="accionesIzquierda">
-                            <button class="vaciar">Vaciar carrito</button>
+                            <button id="vaciarCarrito" class="vaciarCarrito">Vaciar carrito</button>
                         </div>
     
                         <div class="accionesDerecha">
@@ -100,16 +57,17 @@
                                 <p>Total: </p>
                                 <p id="total">200 €</p>
                             </div>
-                            <button class="comprar">Comprar ahora</button>
+                            <button id="comprarCarrito" class="comprarCarrito">Comprar ahora</button>
                         </div>
 
                     </div>
 
-                    <p class="carritoComprado disabled">Gracias por tu compra! <i class="bi bi-emoji-laughing-fill"></i></p>
+                    <p id="carritoComprado" class="carritoComprado disabled">Gracias por tu compra! <i class="bi bi-emoji-laughing-fill"></i></p>
 
                 </div>
             </main>
         </div>
 
+        <script src="js/compras.js"></script>
     </body>
 </html>

@@ -16,21 +16,22 @@
                     <h1>Videogames Shop</h1>
                 </header>
 
+                <!--MENÚ LATERAL-->
                 <nav>
                     <ul class="menu">
                         <li>
-                            <button class="botonCategoria active"><i class="bi bi-controller"></i> Todos los productos</button>
+                            <button id="todos" class="botonCategoria active"><i class="bi bi-controller"></i> Todos los productos</button>
                         </li>
                         <li>
-                            <button class="botonCategoria">Juegos</button>
+                            <button id="juegos" class="botonCategoria">Juegos</button>
                         </li>
                         <li>
-                            <button class="botonCategoria">Consolas</button>
+                            <button id="consolas" class="botonCategoria">Consolas</button>
                         </li>
                         <li>
                             <a class="botonCategoria carrito" href="carrito.html">
                                 <i class="bi bi-cart2"></i>Carrito 
-                                <span class="carritoCantidad">0</span>
+                                <span id="carritoCantidad" class="carritoCantidad">0</span>
                             </a>
                         </li>
                     </ul>
@@ -40,32 +41,16 @@
                 </footer>
             </aside>
 
+            <!--DE ESTE LADO SE MOSTRARÁN LOS PRODUCTOS-->
             <main>
-                <h2 class="tituloPrincipal">Todos los productos</h2>
+                <h2 class="tituloPrincipal" id="tituloPrincipal">Todos los productos</h2>
 
-                <div class="containerProductos">
-
-                    <div class="producto">
-                        <img src="imgJuegos/theWitcher3PS4.jpg" alt="The Witcher 3">
-                        <div class="detalles">
-                            <h3 class="nombreProducto">The Witcher 3</h3>
-                            <p class="precioProducto">100.00 €</p>
-                            <button class="agregarProducto">Agregar</button>
-                        </div>
-                    </div>
-
-                    <div class="producto">
-                        <img src="imgJuegos/returnalPS5.jpg" alt="Returnal">
-                        <div class="detalles">
-                            <h3 class="nombreProducto">Returnal</h3>
-                            <p class="precioProducto">100.00 €</p>
-                            <button class="agregarProducto">Agregar</button>
-                        </div>
-                    </div>
-
+                <div class="containerProductos" id="containerProductos">
+                    <!--LOS PRODUCTOS SERÁN CARGADOS CON JAVASCRIPT-->
                 </div>
             </main>
         </div>
 
+        <script src="js/articulos.js"></script>
     </body>
 </html>
