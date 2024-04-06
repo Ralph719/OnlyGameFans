@@ -13,3 +13,6 @@ Ralph: 05/04/2024
 He creado la estructura básica de la página para el carrito de compras, y también lo que vendría siendo la página principal de la tienda, el cual es un diseño provisional.
 A partir de ahora iré trabajando en las funcionalidades con JavaScript para el carrito.
 Extra: Se aceptan sugerencias para una nueva paleta de colores para la tienda, y para el tipo de fuente del texto.
+
+Ralph: 06/04/2024
+He terminado de agregar las funcionalidades con JavaScript al carrito, además hice algunos ajustes en el html y en el css, también agregué más productos.
