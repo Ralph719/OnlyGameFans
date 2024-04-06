@@ -60,13 +60,13 @@ const articulos = [
     {
         id_articulo: "0005",
         nombre: "Crash Bandicoot 4",
-        imagen: "imgJuegos/crash4PS5.jpg",
+        imagen: "imgJuegos/crash4PS4.jpg",
         precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Activision",
             genero: "Aventuras",
-            plataforma: "PlayStation 5",
+            plataforma: "PlayStation 4",
         },
         disponibilidad: true,
     },
@@ -115,7 +115,7 @@ const articulos = [
 
     {
         id_articulo: "0009",
-        nombre: "Crash Bandicoot 4",
+        nombre: "Spiderman 2",
         imagen: "imgJuegos/spiderman2PS5.png",
         precio: 59.99,
         categoria: {
