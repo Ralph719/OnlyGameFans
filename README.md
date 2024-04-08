@@ -16,3 +16,6 @@ Extra: Se aceptan sugerencias para una nueva paleta de colores para la tienda, y
 
 Ralph: 06/04/2024
 He terminado de agregar las funcionalidades con JavaScript al carrito, además hice algunos ajustes en el html y en el css, también agregué más productos.
+
+Niky: 08/04/2024
+He rediseñado la página cambiando los colores, el tipo de letra, parte de la estructura y comenzado con el trabajo para hacerlo responsive. 
