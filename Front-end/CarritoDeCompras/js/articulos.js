@@ -127,11 +127,69 @@ const articulos = [
         disponibilidad: true,
     },
 
+    {
+        id_articulo: "0010",
+        nombre: "Mortal Kombat 1",
+        imagen: "imgJuegos/mortalKombat1PS5.png",
+        precio: 39.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "NetherRealm",
+            genero: "Lucha",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0011",
+        nombre: "Ark Ascended",
+        imagen: "imgJuegos/arkAscendedPS5.png",
+        precio: 44.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Studio Wildcard",
+            genero: "Acción",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0012",
+        nombre: "Splatoon 3",
+        imagen: "imgJuegos/splatoon3Nintendo.png",
+        precio: 49.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Nintendo",
+            genero: "Disparos",
+            plataforma: "Nintendo Switch"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0013",
+        nombre: "Final Fantasy VII Rebirth",
+        imagen: "imgJuegos/ffviiRebirth(1).png",
+        precio: 79.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Square Enix",
+            genero: "Lucha, RPG, Aventura",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+
+
     // CONSOLAS
     {
         id_articulo: "00100",
         nombre: "PlayStation 5",
-        imagen: "imgConsolas/ps5_fisica.jpg",
+        imagen: "imgConsolas/PS5.png",
         precio: 499.99,
         categoria: {
             id_categoria: "consolas",
@@ -144,7 +202,7 @@ const articulos = [
     {
         id_articulo: "00200",
         nombre: "Nintendo Switch Oled",
-        imagen: "imgConsolas/nintendoSwitch_oled.jpg",
+        imagen: "imgConsolas/Nintendo-Switch-Oled.png",
         precio: 399.99,
         categoria: {
             id_categoria: "consolas",
@@ -157,7 +215,7 @@ const articulos = [
     {
         id_articulo: "00300",
         nombre: "Xbox Series X",
-        imagen: "imgConsolas/xbox_seriesX.jpg",
+        imagen: "imgConsolas/Xbox-Series-X.png",
         precio: 499.99,
         categoria: {
             id_categoria: "consolas",
@@ -168,9 +226,9 @@ const articulos = [
     },
 
     {
-        id_articulo: "00300",
+        id_articulo: "00400",
         nombre: "Asus Rog Ally",
-        imagen: "imgConsolas/asus_rogAlly.jpg",
+        imagen: "imgConsolas/Asus-Rog-Ally.png",
         precio: 559.99,
         categoria: {
             id_categoria: "consolas",
@@ -178,8 +236,23 @@ const articulos = [
             plataforma: "Portatil",
         },
         disponibilidad: true,
-    }
+    },
+
+    /*{
+        id_articulo: "00500",
+        nombre: "PlayStation 4 Slim",
+        imagen: "imgConsolas/ps4_slim.png",
+        precio: 229.99,
+        categoria: {
+            id_categoria: "consolas",
+            fabricante: "Sony",
+            plataforma: "Sobremesa",
+        },
+        disponibilidad: true,
+    }*/
+
 ]
+
 
 // VARIABLES
 const contenedorArticulos = document.querySelector("#containerProductos");
@@ -262,7 +335,7 @@ if (articulosEnCarritoLS) {
 } else {
     articulosEnCarrito = [];
 }
-
+console.log(articulosEnCarrito);
 
 function agregarAlCarrito(e) {
 

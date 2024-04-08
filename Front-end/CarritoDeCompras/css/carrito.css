@@ -5,7 +5,7 @@
 }
 
 :root {
-    --clr-green: rgb(24, 107, 107);
+    --clr-almostBlack: rgb(29, 28, 28);
     --clr-green-light: rgb(0, 175, 175);
     --clr-yellow: rgb(206, 188, 32);
     --clr-gray: rgb(230, 230, 230);
@@ -21,10 +21,10 @@ a {
 }
 
 .wrapper {
-    position: absolute; /*MODIFICACIÓN-----!*/
+    position: absolute;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    background-color: var(--clr-green);
+    background-color: var(--clr-almostBlack);
     min-height: 100%;
     min-width: 100%;
 }
@@ -39,6 +39,13 @@ aside {
     top: 0;
     height: 100%;
     padding-right: 0;
+    font-family: cairo;
+}
+
+aside h1 {
+    font-family: cairo;
+    font-weight: 300;
+    font-size: 3.5rem;
 }
 
 .logo {
@@ -69,9 +76,10 @@ aside {
 .botonCategoria.active {
     position: relative;
     background-color: whitesmoke;
-    color: var(--clr-green);
+    color: var(--clr-almostBlack);
     width: 100%;
     border-radius: 1rem 0 0 1rem;
+    font-size: 18px;
 }
 
 .botonCategoria.active::before {
@@ -125,8 +133,11 @@ main {
 }
 
 .tituloPrincipal {
-    color: var(--clr-green);
+    color: var(--clr-almostBlack);
     margin-bottom: 2rem;
+    font-family: cairo;
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
 
 .containerCarrito {
@@ -136,7 +147,7 @@ main {
 }
 
 .carritoVacio {
-    color: var(--clr-green);
+    color: var(--clr-almostBlack);
 }
 
 .carritoProductos {
@@ -153,7 +164,7 @@ main {
     align-items: center;
     justify-content: space-between;*/
     background-color: var(--clr-gray);
-    color: var(--clr-green);
+    color: var(--clr-almostBlack);
     padding: 0.5rem;
     padding-right: 1.5rem;
     border-radius: 1rem;
@@ -170,6 +181,8 @@ main {
 
 .producto p {
     font-size: 1.1rem;
+    font-family: cairo;
+    font-weight: 700;
 }
 
 .nombreProducto {
@@ -196,6 +209,7 @@ main {
     background-color: transparent;
     color: var(--clr-red);
     padding-left: 5rem;
+    font-size: 1.26rem;
 
     cursor: pointer;
 }
@@ -222,15 +236,19 @@ main {
     background-color: var(--clr-gray);
     padding: 1rem;
     border-radius: 1rem;
-    color: var(--clr-green);
+    color: var(--clr-almostBlack);
     text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: cairo;
+    letter-spacing: .6px;
 
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .vaciarCarrito:hover {
-    background-color: var(--clr-green);
+    background-color: var(--clr-almostBlack);
     color: whitesmoke;
 }
 
@@ -243,17 +261,26 @@ main {
     background-color: var(--clr-gray);
     padding: 1rem;
     border-radius: 1rem 0 0 1rem;
-    color: var(--clr-green);
+    color: var(--clr-almostBlack);
     text-transform: uppercase;
     gap: 0.5rem;
 }
 
+.accionesDerecha .precioTotal p {
+    font-size: 18.8px;
+    font-weight: 700;
+    font-family: cairo;
+}
+
 .accionesDerecha .comprarCarrito {
     border: 0;
-    background-color: var(--clr-green);
+    background-color: var(--clr-almostBlack);
     padding: 1rem;
     border-radius: 0 1rem 1rem 0;
     color: whitesmoke;
+    font-family: cairo;
+    font-size: 16.6px;
+    font-weight: 500;
     text-transform: uppercase;
 
     cursor: pointer;
@@ -266,9 +293,19 @@ main {
 }
 
 .carritoComprado {
-    color: var(--clr-green);
+    color: var(--clr-almostBlack);
 }
 
 .disabled {
     display: none;
+}
+
+h3 {
+    font-family: cairo;
+}
+
+small {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 550;
+    font-size: px;
 }

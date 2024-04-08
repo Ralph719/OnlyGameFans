@@ -5,10 +5,10 @@
 }
 
 :root {
-    --clr-green: rgb(24, 107, 107);
-    --clr-green-light: rgb(0, 175, 175);
+    --clr-green: rgb(27, 30, 77);
+    --clr-sky-blue: rgb(156, 182, 255);
     --clr-yellow: rgb(206, 188, 32);
-    --clr-gray: rgb(230, 230, 230);
+    --clr-gray: rgb(255, 255, 255);
 }
 
 ul {
@@ -33,11 +33,17 @@ aside {
     flex-direction: column;
     justify-content: space-between;
     padding: 2rem;
-    color: whitesmoke;
+    color: rgb(255, 255, 255);
     position: sticky;
     top: 0;
     height: 100vh;
     padding-right: 0;
+}
+
+aside h1 {
+    font-family: cairo;
+    font-weight: 300;
+    font-size: 3.5rem;
 }
 
 .logo {
@@ -62,6 +68,7 @@ aside {
     gap: 1rem;
     padding: 0.9rem;
     width: 100%;
+    font-family: cairo;
 
     cursor: pointer;
 }
@@ -71,6 +78,7 @@ aside {
     background-color: whitesmoke;
     color: var(--clr-green);
     border-radius: 1rem 0 0 1rem;
+    font-size: 18px;
 }
 
 .botonCategoria.active::before {
@@ -111,8 +119,9 @@ aside {
 }
 
 .textoFooter {
-    color: var(--clr-green-light);
+    color: var(--clr-sky-blue);
     font-size: 0.85rem;
+    font-family: cairo;
 }
 
 main {
@@ -120,13 +129,16 @@ main {
     margin: 1rem;
     margin-left: 0;
     border-radius: 2rem;
-    padding: 2rem;
+    padding: 2rem 1rem 2rem 4rem;
 }
 
 .tituloPrincipal {
     color: var(--clr-green);
     margin-bottom: 2rem;
     text-transform: uppercase;
+    font-family: cairo;
+    letter-spacing: 1.3px;
+    font-size: 2.7rem;
 }
 
 .containerProductos {
@@ -135,11 +147,13 @@ main {
     gap: 1rem;
 }
 
+/* IMÁGEN DEL PRODUCTO */
 .producto img {
     max-width: 70%;
     border-radius: 0rem;
 }
 
+/* ESPECIFICACIONES DEL PRODUCTO */
 .detalles {
     position: relative;
     display: flex;
@@ -148,17 +162,20 @@ main {
     color: whitesmoke;
     margin: 0.3rem 0;
     padding: 0.5rem 0.7rem;
-    border-radius: 1rem;
+    border-radius: .67rem;
     width: 70%;
+    font-family: cairo;
 }
 
 .detalles small {
     font-size: 0.8rem;
+    line-height: 12px;
 }
 
 .nombreProducto {
     font-size: 1rem;
     font-weight: 600;
+    line-height: 20px;
 }
 
 .precioProducto,
@@ -166,6 +183,7 @@ main {
     margin-top: 0.5rem;
 }
 
+/* BOTÓN AGREGAR PRODUCTO */
 .agregarProducto {
     border: 0;
     background-color: whitesmoke;
@@ -174,24 +192,47 @@ main {
     text-transform: uppercase;
     border-radius: 2rem;
     border: 2px solid whitesmoke;
+    font-weight: 700;
+    letter-spacing: .5px;
     
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .agregarProducto:hover {
-    background-color: var(--clr-green);
+    background-color: var(--clr-almostBlack);
     color: whitesmoke;
 }
 
+/* AL DAR CLICK AL BOTÓN DE AGREGAR */
+.agregarProducto:active {
+    transition: .01s;
+    color: rgb(62, 156, 24);
+    background-color: rgba(22, 117, 22, 0.397);
+    outline: 2px solid rgb(251, 255, 21);
+}
+
+/*  */
 .carritoCantidad {
     background-color: whitesmoke;
     color: var(--clr-green);
-    padding: 0.15rem 0.5rem;
+    padding: 0.15rem 0.7rem;
     border-radius: 0.3rem;
+    font-size: 16px;
 }
 
 .botonCategoria.carrito .active .carritoCantidad {
-    background-color: var(--clr-green);
+    background-color: var(--clr-almostBlack);
     color: whitesmoke;
+}
+
+@media (max-width: 1024px) {
+    main {
+        margin-left: 20px;
+    }
+
+    .botonCategoria.active {
+        width: 112%;
+        font-size: 15px;
+    }
 }
