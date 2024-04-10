@@ -19,3 +19,6 @@ He terminado de agregar las funcionalidades con JavaScript al carrito, además h
 
 Niky: 08/04/2024
 He rediseñado la página cambiando los colores, el tipo de letra, parte de la estructura y comenzado con el trabajo para hacerlo responsive. 
+
+Niky : 10/04/2024
+He solucionado el problema que había de los decimales de los precios de los artículos, desarrollado más la página web de registro de cuenta y cambiado el título de las páginas web a uno más elaborado.
