@@ -207,9 +207,7 @@ main {
 /* AL DAR CLICK AL BOTÓN DE AGREGAR */
 .agregarProducto:active {
     transition: .01s;
-    color: rgb(62, 156, 24);
-    background-color: rgba(22, 117, 22, 0.397);
-    outline: 2px solid rgb(251, 255, 21);
+    filter: opacity(.3);
 }
 
 /*  */

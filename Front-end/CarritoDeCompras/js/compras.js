@@ -41,11 +41,11 @@ function cargarArticulosCarrito() {
                 </div>
                 <div class="precioProducto">
                     <small>Precio</small>
-                    <p>${articulo.precio} €</p>
+                    <p>${parseFloat(articulo.precio).toFixed(2)} €</p>
                 </div>
                 <div class="subtotalProducto">
                     <small>Subtotal</small>
-                    <p>${articulo.precio * articulo.cantidad} €</p>
+                    <p>${(articulo.precio * articulo.cantidad).toFixed(2)} €</p>
                 </div>
                 <button class="eliminarProducto" id="${articulo.id_articulo}">
                     <i class="bi bi-trash3-fill"></i>
@@ -96,7 +96,8 @@ function vaciarCarrito() {
 
 function actualizarTotal() {
     const totalCalculado = articulosEnCarrito.reduce((acc, articulo) => acc + (articulo.precio * articulo.cantidad), 0);
-    precioTotal.innerText = `${totalCalculado} €`;
+    const totalFormateado = parseFloat(totalCalculado.toFixed(2));
+    precioTotal.innerText = `${totalFormateado} €`;
 }
 
 botonComprar.addEventListener("click", comprarCarrito);

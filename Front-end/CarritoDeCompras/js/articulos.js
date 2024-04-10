@@ -238,7 +238,7 @@ const articulos = [
         disponibilidad: true,
     },
 
-    /*{
+    {
         id_articulo: "00500",
         nombre: "PlayStation 4 Slim",
         imagen: "imgConsolas/ps4_slim.png",
@@ -249,7 +249,7 @@ const articulos = [
             plataforma: "Sobremesa",
         },
         disponibilidad: true,
-    }*/
+    }
 
 ]
 

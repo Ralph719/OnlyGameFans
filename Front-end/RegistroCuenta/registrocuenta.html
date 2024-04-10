@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/RegistroCuenta.css">
-        <title>Inicio Sesión</title>
+        <title>Registra una cuenta | Gamestore.com</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
@@ -145,86 +145,84 @@
 
             <div class="container-form">
 
-                <div class="container-form-child izquierda">
+                <div class="formularios">
+                    <div class="container-form-child izquierda">
 
-                    <div class="container-form-child-nephew">
-
-                            <h2 class="indx">Nombre real</h2>
-
-                        <form>
-                            <input autofocus type="text" id="user" name="nombre">
-                        </form>
+                        <div class="container-form-child-nephew">
+    
+                                <h2 class="indx">Nombre real</h2>
+    
+                            <form id="formularioNombreReal">
+                                <input autofocus type="text" id="realname" name="nombrereal">
+                            </form>
+                        </div>
+                        <div class="container-form-child-nephew">
+    
+                                <h2 class="indx">Apellidos</h2>
+    
+                            <form id="formularioApellidos">
+                                <input autofocus type="text" id="surname" name="apellidos">
+                            </form>
+                        </div>
+    
+                        <div class="container-form-child-nephew">
+    
+    
+                                <h2 class="indx">Nombre de usuario</h2>
+    
+                            <form id="formularioUsuario">
+                                <input autofocus type="text" id="username" name="nombreusuario">
+                            </form>
+                        </div>
                     </div>
-                    <div class="container-form-child-nephew">
-
-                            <h2 class="indx">Apellidos</h2>
-
-                        <form>
-                            <input autofocus type="text" id="user" name="nombre">
-                        </form>
-                    </div>
-
-                    <div class="container-form-child-nephew">
-
-
-                            <h2 class="indx">Nombre de usuario</h2>
-
-                        <form>
-                            <input autofocus type="text" id="user" name="nombre">
-                        </form>
+    
+                    <div class="container-form-child derecha">
+    
+                        <div class="container-form-child-nephew">
+    
+                                <h2 class="indx">Correo electrónico</h2>
+    
+                            <form id="formularioEmail">
+                                <input autofocus type="text" id="email" name="correoelectronico">
+                            </form>
+                        </div>
+    
+                        <div class="container-form-child-nephew">
+    
+                                <h2 class="indx">Contraseña</h2>
+    
+                            <form id="formularioPassword">
+                                <input type="password" id="password" name="contraseña">
+                                <!--<span class="showpwd">
+                                    <input type="checkbox" onclick="mostrarContraseña()">
+                                    <label for="contraseñaVisible">Mostrar contraseña</label>
+                                </span>-->
+                                <!-- AÑADIR ICONO/CHECKBOX PARA VER CONTRASEÑA -->
+                            </form>
+                        </div>
+    
+                        <div class="container-form-child-nephew">
+    
+                            <span class="password-space">
+    
+                                <h2 class="indx">Repetir contraseña</h2>
+                            </span>
+    
+                            <form id="formularioRepetirPassword">
+                                <input type="password" id="pwd" name="cts">
+                            </form>
+                        </div>
                     </div>
                 </div>
 
-                <div class="container-form-child derecha">
-
-                    <div class="container-form-child-nephew">
-
-                            <h2 class="indx">Correo electrónico</h2>
-
-                        <form>
-                            <input autofocus type="text" id="user" name="nombre">
-                        </form>
-                    </div>
-
-                    <div class="container-form-child-nephew">
-
-                            <h2 class="indx">Contraseña</h2>
-
-                        <form>
-                            <input type="password" id="pwd" name="cts">
-                            <!--<span class="showpwd">
-                                <input type="checkbox" onclick="mostrarContraseña()">
-                                <label for="contraseñaVisible">Mostrar contraseña</label>
-                            </span>-->
-                            <!-- AÑADIR ICONO/CHECKBOX PARA VER CONTRASEÑA -->
-                        </form>
-                    </div>
-
-                    <div class="container-form-child-nephew">
-
-                        <span class="password-space">
-
-                            <h2 class="indx">Repetir contraseña</h2>
-                        </span>
-
-                        <form>
-                            <input type="password" id="pwd" name="cts">
-                        </form>
-                    </div>
-                </div>
-
-                
-
-                <!-- 
                 <div class="contenedor-botones">
-                    <button class="boton seis" onclick="iniciarSesion()">
-                        <span>Iniciar sesión</span>
+                    <button class="boton-seis" id="boton">
+                        <span>Crear cuenta</span>
                         <svg>
                             <rect x="0" y="0" fill="none"></rect>
                         </svg>
                     </button>
                 </div>
-                -->
                 
             </div>
 
