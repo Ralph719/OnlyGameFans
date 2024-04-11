@@ -31,7 +31,6 @@ body {
 }
 
 /*---< ANIMACIÓN DE FIGURAS >---*/
-
 /*---CUADRADOS---*/
 .cuadrados {
     position: absolute;
@@ -722,11 +721,11 @@ body {
     backdrop-filter: blur(5px);
 }
 
-.container-form-child.izquierda {
+#container-form-child-izquierda {
     border-radius: 1.5rem 0rem 0rem 1.5rem;
 }
 
-.container-form-child.derecha {
+#container-form-child-derecha {
     border-radius: 0rem 1.5rem 1.5rem 0rem;
 }
 
@@ -940,4 +939,73 @@ footer {
     margin-top: 70px;
     background-color: rgb(0, 42, 53);
     height: 14rem;
+}
+
+@media (max-width:1505px) {
+    .container {
+        width: 80%;
+    }
+    .container-form{
+        background-position: center;
+    }
+    .container-form-child {
+        width: 37rem;
+    }
+    .indx {
+        font-size: 22px;
+    }
+    input[type="text"], input[type="password"]{
+        width: 18rem;
+    }
+}
+
+@media (max-width: 1215px){
+    .indx {
+        font-size: 18px;
+    }
+    input[type="text"], input[type="password"]{
+        width: 15rem;
+    }
+    .container-form-child {
+        width:26rem;
+    }
+    .container-form-child-nephew{
+        width: 60%;
+    }
+}
+
+@media (max-width: 950px) {
+    .container-form-child {
+        width: 19rem;
+        padding: 0;
+        margin: 0;
+    }
+    .indx {
+        font-size: 16px;
+    }
+    .contenedor-botones {
+        display: flex;
+        width: 15rem;
+    }
+}
+
+/* DIMENSIONES IPAD */
+@media (max-width: 820px){
+    .container{
+        margin-top: 3rem;
+    }
+    .indx {
+        font-size: 17px;
+    }
+    .container-form-child {
+        width: 19.5rem;
+    }
+    input[type="text"], input[type="password"]{
+        width: 28rem;
+        height: 1.8rem;
+    }
+    .contenedor-botones {
+        display: flex;
+        width: 15rem;
+    }
 }
