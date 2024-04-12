@@ -22,3 +22,6 @@ He rediseñado la página cambiando los colores, el tipo de letra, parte de la e
 
 Niky : 10/04/2024
 He solucionado el problema que había de los decimales de los precios de los artículos, desarrollado más la página web de registro de cuenta y cambiado el título de las páginas web a uno más elaborado.
+
+Niky: 12/04/2024
+He creado el apartado de cuenta y añadido más consolas y videojuegos.
