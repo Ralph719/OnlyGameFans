@@ -249,6 +249,32 @@ const articulos = [
             plataforma: "Sobremesa",
         },
         disponibilidad: true,
+    },
+
+    {
+        id_articulo: "00600",
+        nombre: "Xbox One",
+        imagen: "imgConsolas/Xbox_one.png",
+        precio: 149.99,
+        categoria: {
+            id_categoria: "consolas",
+            fabricante: "Microsoft",
+            plataforma: "Sobremesa",
+        },
+        disponibilidad: true,
+    }, 
+
+    {
+        id_articulo: "00700",
+        nombre: "SteamDeck",
+        imagen: "imgConsolas/Valve_Steam_Deck.png",
+        precio: 519.99,
+        categoria: {
+            id_categoria: "consolas",
+            fabricante: "ValveCorporation",
+            plataforma: "Portatil",
+        },
+        disponibilidad: true,
     }
 
 ]
