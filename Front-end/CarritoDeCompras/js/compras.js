@@ -80,7 +80,13 @@ function eliminarDelCarrito(e) {
     const idBoton = e.currentTarget.id;
     const index = articulosEnCarrito.findIndex(articulo => articulo.id_articulo === idBoton);
 
-    articulosEnCarrito.splice(index, 1);
+    // SI LA CANTIDAD DEL ARTÍCULO ES MAYOR A 1, DISMINUYE LA CANTIDAD EN 1
+    if (articulosEnCarrito[index].cantidad > 1) {
+        articulosEnCarrito[index].cantidad--;
+    } else {
+        // SI LA CANTIDAD ES 1, ELIMINA EL ARTÍCULO DEL CARRITO
+        articulosEnCarrito.splice(index, 1);
+    }
     cargarArticulosCarrito();
 
     localStorage.setItem("articulos-en-carrito", JSON.stringify(articulosEnCarrito));

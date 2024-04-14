@@ -98,7 +98,8 @@ aside h1 {
 }
 
 .user-space p:hover {
-    color: rgb(196, 193, 193);
+    color: rgb(226, 217, 217);
+    filter: opacity(.8);
 }
 
 .logo {
@@ -250,22 +251,25 @@ main {
 /* BOTÓN AGREGAR PRODUCTO */
 .agregarProducto {
     border: 0;
-    background-color: whitesmoke;
+    /*background-color: whitesmoke;*/
     color: var(--clr-green);
     padding: 0.25rem;
     text-transform: uppercase;
-    border-radius: 2rem;
-    border: 2px solid whitesmoke;
+    border-radius: .3rem;
+    /*border: 2px solid whitesmoke;*/
     font-weight: 700;
     letter-spacing: .5px;
+    padding: .35rem;
     
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .agregarProducto:hover {
-    background-color: var(--clr-almostBlack);
-    color: whitesmoke;
+    /*background-color: var(--clr-almostBlack);*/
+    color: rgb(0, 0, 0);
+    filter: opacity(.8);
+    outline: .2px solid rgb(0, 0, 0);
 }
 
 /* AL DAR CLICK AL BOTÓN DE AGREGAR */

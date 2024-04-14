@@ -4,12 +4,12 @@ const articulos = [
     {
         id_articulo: "0001",
         nombre: "The Witcher 3",
-        imagen: "imgJuegos/theWitcher3PS4.jpg",
+        imagen: "imgJuegos/theWitcher3_PS4.jpg",
         precio: 39.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "CD Projekt Red",
-            genero: "Fantasía",
+            genero: "Fantasia",
             plataforma: "PlayStation 4",
         },
         disponibilidad: true,
@@ -18,7 +18,7 @@ const articulos = [
     {
         id_articulo: "0002",
         nombre: "Returnal",
-        imagen: "imgJuegos/returnalPS5.jpg",
+        imagen: "imgJuegos/returnal_PS5.jpg",
         precio: 59.99,
         categoria: {
             id_categoria: "juegos",
@@ -32,12 +32,12 @@ const articulos = [
     {
         id_articulo: "0003",
         nombre: "Elden Ring",
-        imagen: "imgJuegos/eldenRingPS5.png",
+        imagen: "imgJuegos/eldenRing_PS5.png",
         precio: 59.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Bandai Namco",
-            genero: "De rol",
+            genero: "Rol",
             plataforma: "PlayStation 5",
         },
         disponibilidad: true,
@@ -46,12 +46,12 @@ const articulos = [
     {
         id_articulo: "0004",
         nombre: "Assassin's Creed Valhalla",
-        imagen: "imgJuegos/acValhallaPS5.png",
+        imagen: "imgJuegos/acValhalla_PS5.png",
         precio: 59.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Ubisoft",
-            genero: "Acción",
+            genero: "Accion",
             plataforma: "PlayStation 5",
         },
         disponibilidad: true,
@@ -60,7 +60,7 @@ const articulos = [
     {
         id_articulo: "0005",
         nombre: "Crash Bandicoot 4",
-        imagen: "imgJuegos/crash4PS4.jpg",
+        imagen: "imgJuegos/crash4_PS4.jpg",
         precio: 49.99,
         categoria: {
             id_categoria: "juegos",
@@ -74,7 +74,7 @@ const articulos = [
     {
         id_articulo: "0006",
         nombre: "Super Mario Wonder",
-        imagen: "imgJuegos/marioWonder.png",
+        imagen: "imgJuegos/marioWonder_NINTENDO.png",
         precio: 59.99,
         categoria: {
             id_categoria: "juegos",
@@ -88,7 +88,7 @@ const articulos = [
     {
         id_articulo: "0007",
         nombre: "Overcooked 2",
-        imagen: "imgJuegos/overcooked2Nintendo.png",
+        imagen: "imgJuegos/overcooked2_NINTENDO.png",
         precio: 39.99,
         categoria: {
             id_categoria: "juegos",
@@ -102,12 +102,12 @@ const articulos = [
     {
         id_articulo: "0008",
         nombre: "Persona 5",
-        imagen: "imgJuegos/persona5PS5.png",
+        imagen: "imgJuegos/persona5_PS5.png",
         precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Atlus",
-            genero: "De rol",
+            genero: "Rol",
             plataforma: "PlayStation 5",
         },
         disponibilidad: true,
@@ -116,12 +116,12 @@ const articulos = [
     {
         id_articulo: "0009",
         nombre: "Spiderman 2",
-        imagen: "imgJuegos/spiderman2PS5.png",
+        imagen: "imgJuegos/spiderman2_PS5.png",
         precio: 59.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Insomniac",
-            genero: "Acción",
+            genero: "Accion",
             plataforma: "PlayStation 5",
         },
         disponibilidad: true,
@@ -130,7 +130,7 @@ const articulos = [
     {
         id_articulo: "0010",
         nombre: "Mortal Kombat 1",
-        imagen: "imgJuegos/mortalKombat1PS5.png",
+        imagen: "imgJuegos/mortalKombat1_PS5.png",
         precio: 39.99,
         categoria: {
             id_categoria: "juegos",
@@ -144,12 +144,12 @@ const articulos = [
     {
         id_articulo: "0011",
         nombre: "Ark Ascended",
-        imagen: "imgJuegos/arkAscendedPS5.png",
+        imagen: "imgJuegos/arkAscended_PS5.png",
         precio: 44.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Studio Wildcard",
-            genero: "Acción",
+            genero: "Accion",
             plataforma: "PlayStation 5"
         },
         disponibilidad: true,
@@ -158,7 +158,7 @@ const articulos = [
     {
         id_articulo: "0012",
         nombre: "Splatoon 3",
-        imagen: "imgJuegos/splatoon3Nintendo.png",
+        imagen: "imgJuegos/splatoon3_NINTENDO.png",
         precio: 49.99,
         categoria: {
             id_categoria: "juegos",
@@ -170,18 +170,482 @@ const articulos = [
     },
 
     {
-        id_articulo: "0013",
-        nombre: "Final Fantasy VII Rebirth",
-        imagen: "imgJuegos/ffviiRebirth(1).png",
-        precio: 79.99,
+        id_articulo: "0014",
+        nombre: "Final Fantasy XV",
+        imagen: "imgJuegos/ffXV_PS4.png",
+        precio: 19.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Square Enix",
-            genero: "Lucha, RPG, Aventura",
+            genero: "RPG",
+            plataforma: "PlayStation 4"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0015",
+        nombre: "Ride 5",
+        imagen: "imgJuegos/ride5_PS5.png",
+        precio: 44.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Milestone S.r.l",
+            genero: "Carreras",
             plataforma: "PlayStation 5"
         },
         disponibilidad: true,
     },
+    
+
+    {
+        id_articulo: "0016",
+        nombre: "Gran Turismo 7",
+        imagen: "imgJuegos/GranTurismo7_PS5.png",
+        precio: 58.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Carreras",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0017",
+        nombre: "Final Fantasy VII Rebirth",
+        imagen: "imgJuegos/ffviiRebirth_PS5.png",
+        precio: 79.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Square Enix",
+            genero: "RPG",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0018",
+        nombre: "Rise of the Ronin",
+        imagen: "imgJuegosTransformarAPNG/RiseRonin_PS5.webp",
+        precio: 59.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Team Ninja",
+            genero: "Aventuras",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0019",
+        nombre: "Hogwarts Legacy",
+        imagen: "imgJuegosTransformarAPNG/HogwartsLegacy_PS5.jpg",
+        precio: 59.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Avalanche Software",
+            genero: "Accion",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0020",
+        nombre: "Unravel Two",
+        imagen: "imgJuegosTransformarAPNG/UnravelTwo_Nintendo.webp",
+        precio: 39.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Coldwood Interactive",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0021",
+        nombre: "Mario Kart Deluxe 8",
+        imagen: "imgJuegosTransformarAPNG/MarioKartDeluxe8_Nintendo.webp",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Nintendo",
+            genero: "Carreras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0022",
+        nombre: "The Crew Motorfest",
+        imagen: "imgJuegosTransformarAPNG/TheCrewMotorfest_PS5.jpg",
+        precio: 35.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Ubisoft Ivory Tower",
+            genero: "Carreras",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0023",
+        nombre: "Cyberpunk",
+        imagen: "imgJuegosTransformarAPNG/Cyberpunk_PS5.jpg",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "CD Projekt",
+            genero: "Accion",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0024",
+        nombre: "Pokemon Purpura",
+        imagen: "imgJuegosTransformarAPNG/PokemonPurpura_Nintendo.webp",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Game Freak",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0025",
+        nombre: "Pokemon Escarlata",
+        imagen: "imgJuegosTransformarAPNG/PokemonEscarlata_Nintendo.webp",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Game Freak",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0026",
+        nombre: "Far Cry 6",
+        imagen: "imgJuegosTransformarAPNG/",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Ubisoft",
+            genero: "Accion",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0027",
+        nombre: "Super Mario 3D Worlds + Bowser's Fury",
+        imagen: "imgJuegosTransformarAPNG/Mario3DWorldsBF_Nintendo.webp",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Nintendo",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0028",
+        nombre: "POR DEFINIR - PS4",
+        imagen: "imgJuegos/GranTurismo7_PS4.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Aventuras",
+            plataforma: "PlayStation 4"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0029",
+        nombre: "The Leyend of Zelda : Tears of the Kingdom",
+        imagen: "imgJuegosTransformarAPNG/LeyendOfZelda.TOTK_Nintendo.jpg",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Nintendo",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0030",
+        nombre: "Super Mario Odyssey ",
+        imagen: "imgJuegosTransformarAPNG/SuperMarioOdyssey.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Nintendo",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0031",
+        nombre: "Mario Strikers Battle League Football",
+        imagen: "imgJuegosTransformarAPNG/MarioStrikersBattleLeagueFootball_Nintendo.jpg",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Next Level Games",
+            genero: "Deportes",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0032",
+        nombre: "POR DEFINIR - PS4",
+        imagen: "imgJuegos/GranTurismo7_PS4.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Aventuras",
+            plataforma: "PlayStation 4"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0033",
+        nombre: "POR DEFINIR - PS4",
+        imagen: "imgJuegos/GranTurismo7_PS4.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Aventuras",
+            plataforma: "PlayStation 4"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0034",
+        nombre: "God of War Ragnarok",
+        imagen: "imgJuegosTransformarAPNG/GOWRagnarok_PS5.webp",
+        precio: 69.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "SIE",
+            genero: "Aventuras",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0035",
+        nombre: "Cuphead",
+        imagen: "imgJuegosTransformarAPNG/",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Studio MDHR",
+            genero: "Accion",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0036",
+        nombre: "POR DEFINIR - PS4/PS5",
+        imagen: "imgJuegos/GranTurismo7_PS4.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Aventuras",
+            plataforma: "PlayStation 4/5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0037",
+        nombre: "Kirby y la tierra olvidada",
+        imagen: "imgJuegosTransformarAPNG/KirbyTO_Nintendo.jpg",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "HAL Laboratory",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0038",
+        nombre: "Hogwarts Lecacy",
+        imagen: "imgJuegosTransformarAPNG/HogwartsLegacy_Nintendo.jpg",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Avalanche Software",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0039",
+        nombre: "Animal Crossing : New Horizons",
+        imagen: "imgJuegosTransformarAPNG/AnimalCrossing.NH_Nintendo.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Nintendo",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0040",
+        nombre: "POR DEFINIR - PS4",
+        imagen: "imgJuegos/GranTurismo7_PS4.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Aventuras",
+            plataforma: "PlayStation 4"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0041",
+        nombre: "POR DEFINIR - PS4",
+        imagen: "imgJuegos/GranTurismo7_PS4.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Aventuras",
+            plataforma: "PlayStation 4"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0042",
+        nombre: "Resident Evil 4 Remake",
+        imagen: "imgJuegosTransformarAPNG/ResidentEvil4Remake_PS5.jpg",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Capcom",
+            genero: "Terror",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0043",
+        nombre: "POR DEFINIR - PS4/PS5",
+        imagen: "imgJuegos/GranTurismo7_PS4.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Aventuras",
+            plataforma: "PlayStation 4/5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0044",
+        nombre: "Gang Beasts",
+        imagen: "imgJuegosTransformarAPNG/GangBeasts_Nintendo.jpg",
+        precio: 24.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Lucha",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0044",
+        nombre: "POR DEFINIR - PS4/PS5",
+        imagen: "imgJuegos/GranTurismo7_PS4.png",
+        precio: 49.90,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Polyphony Digital",
+            genero: "Aventuras",
+            plataforma: "PlayStation 4/5"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0044",
+        nombre: "It takes two",
+        imagen: "imgJuegosTransformarAPNG/ItTakesTwo_Nintendo.jpg",
+        precio: 32.50,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Hazelight Studios",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
+        id_articulo: "0044",
+        nombre: "Final Fantasy XVI",
+        imagen: "imgJuegosTransformarAPNG/FFVXI_PS5.png",
+        precio: 69.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Square Enix",
+            genero: "RPG",
+            plataforma: "PlayStation 5"
+        },
+        disponibilidad: true,
+    },
+
 
 
 
@@ -275,7 +739,10 @@ const articulos = [
             plataforma: "Portatil",
         },
         disponibilidad: true,
-    }
+    },
+
+    
+
 
 ]
 
