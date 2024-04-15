@@ -229,7 +229,7 @@ const articulos = [
     {
         id_articulo: "0018",
         nombre: "Rise of the Ronin",
-        imagen: "imgJuegosTransformarAPNG/RiseRonin_PS5.webp",
+        imagen: "imgJuegos/RiseRonin_PS5.png",
         precio: 59.99,
         categoria: {
             id_categoria: "juegos",
@@ -243,7 +243,7 @@ const articulos = [
     {
         id_articulo: "0019",
         nombre: "Hogwarts Legacy",
-        imagen: "imgJuegosTransformarAPNG/HogwartsLegacy_PS5.jpg",
+        imagen: "imgJuegos/HogwartsLegacy_PS5.png",
         precio: 59.99,
         categoria: {
             id_categoria: "juegos",
@@ -257,7 +257,7 @@ const articulos = [
     {
         id_articulo: "0020",
         nombre: "Unravel Two",
-        imagen: "imgJuegosTransformarAPNG/UnravelTwo_Nintendo.webp",
+        imagen: "imgJuegos/UnravelTwo_Nintendo.png",
         precio: 39.90,
         categoria: {
             id_categoria: "juegos",
@@ -271,7 +271,7 @@ const articulos = [
     {
         id_articulo: "0021",
         nombre: "Mario Kart Deluxe 8",
-        imagen: "imgJuegosTransformarAPNG/MarioKartDeluxe8_Nintendo.webp",
+        imagen: "imgJuegos/MarioKartDeluxe8_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -285,7 +285,7 @@ const articulos = [
     {
         id_articulo: "0022",
         nombre: "The Crew Motorfest",
-        imagen: "imgJuegosTransformarAPNG/TheCrewMotorfest_PS5.jpg",
+        imagen: "imgJuegos/TheCrewMotorfest_PS5.png",
         precio: 35.90,
         categoria: {
             id_categoria: "juegos",
@@ -299,7 +299,7 @@ const articulos = [
     {
         id_articulo: "0023",
         nombre: "Cyberpunk",
-        imagen: "imgJuegosTransformarAPNG/Cyberpunk_PS5.jpg",
+        imagen: "imgJuegos/Cyberpunk_PS5.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -313,7 +313,7 @@ const articulos = [
     {
         id_articulo: "0024",
         nombre: "Pokemon Purpura",
-        imagen: "imgJuegosTransformarAPNG/PokemonPurpura_Nintendo.webp",
+        imagen: "imgJuegos/PokemonPurpura_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -327,7 +327,7 @@ const articulos = [
     {
         id_articulo: "0025",
         nombre: "Pokemon Escarlata",
-        imagen: "imgJuegosTransformarAPNG/PokemonEscarlata_Nintendo.webp",
+        imagen: "imgJuegos/PokemonEscarlata_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -341,7 +341,7 @@ const articulos = [
     {
         id_articulo: "0026",
         nombre: "Far Cry 6",
-        imagen: "imgJuegosTransformarAPNG/",
+        imagen: "imgJuegos/",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -355,7 +355,7 @@ const articulos = [
     {
         id_articulo: "0027",
         nombre: "Super Mario 3D Worlds + Bowser's Fury",
-        imagen: "imgJuegosTransformarAPNG/Mario3DWorldsBF_Nintendo.webp",
+        imagen: "imgJuegos/Mario3DWorldsBF_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -383,7 +383,7 @@ const articulos = [
     {
         id_articulo: "0029",
         nombre: "The Leyend of Zelda : Tears of the Kingdom",
-        imagen: "imgJuegosTransformarAPNG/LeyendOfZelda.TOTK_Nintendo.jpg",
+        imagen: "imgJuegos/LeyendOfZeldaTOTK_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -397,7 +397,7 @@ const articulos = [
     {
         id_articulo: "0030",
         nombre: "Super Mario Odyssey ",
-        imagen: "imgJuegosTransformarAPNG/SuperMarioOdyssey.png",
+        imagen: "imgJuegos/SuperMarioOdyssey_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -411,7 +411,7 @@ const articulos = [
     {
         id_articulo: "0031",
         nombre: "Mario Strikers Battle League Football",
-        imagen: "imgJuegosTransformarAPNG/MarioStrikersBattleLeagueFootball_Nintendo.jpg",
+        imagen: "imgJuegos/MarioStrikersBattleLeagueFootball_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -453,7 +453,7 @@ const articulos = [
     {
         id_articulo: "0034",
         nombre: "God of War Ragnarok",
-        imagen: "imgJuegosTransformarAPNG/GOWRagnarok_PS5.webp",
+        imagen: "imgJuegos/GOWRagnarok_PS5.jpg",
         precio: 69.99,
         categoria: {
             id_categoria: "juegos",
@@ -467,7 +467,7 @@ const articulos = [
     {
         id_articulo: "0035",
         nombre: "Cuphead",
-        imagen: "imgJuegosTransformarAPNG/",
+        imagen: "imgJuegos/Cuphead_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -495,7 +495,7 @@ const articulos = [
     {
         id_articulo: "0037",
         nombre: "Kirby y la tierra olvidada",
-        imagen: "imgJuegosTransformarAPNG/KirbyTO_Nintendo.jpg",
+        imagen: "imgJuegos/KirbyTO_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -509,7 +509,7 @@ const articulos = [
     {
         id_articulo: "0038",
         nombre: "Hogwarts Lecacy",
-        imagen: "imgJuegosTransformarAPNG/HogwartsLegacy_Nintendo.jpg",
+        imagen: "imgJuegos/HogwartsLegacy_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -523,7 +523,7 @@ const articulos = [
     {
         id_articulo: "0039",
         nombre: "Animal Crossing : New Horizons",
-        imagen: "imgJuegosTransformarAPNG/AnimalCrossing.NH_Nintendo.png",
+        imagen: "imgJuegos/AnimalCrossing.NH_Nintendo.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -565,7 +565,7 @@ const articulos = [
     {
         id_articulo: "0042",
         nombre: "Resident Evil 4 Remake",
-        imagen: "imgJuegosTransformarAPNG/ResidentEvil4Remake_PS5.jpg",
+        imagen: "imgJuegos/ResidentEvil4Remake_PS5.png",
         precio: 49.90,
         categoria: {
             id_categoria: "juegos",
@@ -593,7 +593,7 @@ const articulos = [
     {
         id_articulo: "0044",
         nombre: "Gang Beasts",
-        imagen: "imgJuegosTransformarAPNG/GangBeasts_Nintendo.jpg",
+        imagen: "imgJuegos/GangBeasts_Nintendo.png",
         precio: 24.99,
         categoria: {
             id_categoria: "juegos",
@@ -621,7 +621,7 @@ const articulos = [
     {
         id_articulo: "0044",
         nombre: "It takes two",
-        imagen: "imgJuegosTransformarAPNG/ItTakesTwo_Nintendo.jpg",
+        imagen: "imgJuegos/ItTakesTwo_Nintendo.png",
         precio: 32.50,
         categoria: {
             id_categoria: "juegos",
@@ -635,7 +635,7 @@ const articulos = [
     {
         id_articulo: "0044",
         nombre: "Final Fantasy XVI",
-        imagen: "imgJuegosTransformarAPNG/FFVXI_PS5.png",
+        imagen: "imgJuegos/FFXVI_PS5.png",
         precio: 69.99,
         categoria: {
             id_categoria: "juegos",
