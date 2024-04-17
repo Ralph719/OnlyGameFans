@@ -62,6 +62,10 @@ aside h1 {
     padding-top: 2rem;
 }
 
+.img-logo {
+    width: 24rem;
+}
+
 .menu {
     display: flex;
     flex-direction: column;
@@ -307,6 +311,9 @@ main {
 
 .carritoComprado {
     color: var(--clr-almostBlack);
+    font-family: cairo;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .disabled {

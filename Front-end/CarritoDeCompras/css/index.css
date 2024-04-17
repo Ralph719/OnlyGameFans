@@ -5,7 +5,8 @@
 }
 
 :root {
-    --clr-green: rgb(27, 30, 77);
+   /* --clr-green: rgb(27, 30, 77); /* COLOR ORIGINAL */
+    --clr-green: rgb(21, 18, 44);
     --clr-sky-blue: rgb(156, 182, 255);
     --clr-yellow: rgb(206, 188, 32);
     --clr-gray: rgb(255, 255, 255);
@@ -24,6 +25,10 @@ a {
     display: grid;
     grid-template-columns: 1fr 4fr;
     background-color: var(--clr-green);
+     /*linear-gradient(217deg, rgb(138, 16, 12), rgb(233, 126, 126) 70%),
+    linear-gradient(127deg, rgb(236, 240, 0), rgb(90, 0, 0) 70%),
+    linear-gradient(336deg, rgb(138, 12, 111), rgb(233, 126, 126) 70%);*/
+    
     min-height: 100%;
     min-width: 100%;
 }
@@ -50,6 +55,10 @@ aside h1 {
     font-family: cairo;
     font-weight: 300;
     font-size: 3.5rem;
+}
+
+.img-logo {
+    width: 24rem;
 }
 
 .container-user-space {
@@ -107,6 +116,7 @@ aside h1 {
     font-size: 1.3rem;
     text-align: center;
     padding-top: 2rem;
+    font-family: mulish;
 }
 
 .menu {

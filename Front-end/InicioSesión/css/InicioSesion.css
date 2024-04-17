@@ -817,6 +817,10 @@ input[type="text"]:focus, input[type="password"]:focus {
 	display: grid;
 }
 
+.contenedor-botones a {
+    text-decoration: none;
+}
+
 /* BOTÓN DE ENVÍO */
 .boton {
 	display: block;
