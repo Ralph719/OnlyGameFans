@@ -25,3 +25,6 @@ He solucionado el problema que había de los decimales de los precios de los art
 
 Niky: 12/04/2024
 He creado el apartado de cuenta y añadido más consolas y videojuegos.
+
+Adrian: 17/04/2024
+He actualizado la base de datos añadiendo una columna a la tabla articulo, ademas he subido también las consultas de la actividad
