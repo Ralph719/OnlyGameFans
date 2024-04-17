@@ -29,22 +29,24 @@ Create table `articulo`(
 	id_articulo int (10),
     nombre varchar (50) not null,
     precio double (6, 2) not null,
+    cantidad int(4) not null,
     disponibilidad boolean not null,
     primary key (id_articulo),
-    check (precio > 0)
+    check (precio > 0),
+    check (cantidad >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 Insert into articulo values
-	(1, 'Bioshock Infinite', 25.99, true),
-    (2, 'Persona 5', 39.99, false),
-    (3, 'Ps4 Pro', 299.99, true),
-    (4, 'The Witcher 3', 9.99, true),
-    (5, 'Elden Ring', 59.99, true),
-    (6, 'Ps5', 399.99, true),
-    (7, 'Steam Deck', 349.99, true),
-    (8, 'Xbox X', 329.99, true),
-    (9, 'Nintendo Switch Oled', 399.99, true),
-    (10, 'The Elder Scrolls V: Skyrim', 15.99, true);
+	(1, 'Bioshock Infinite', 25.99, 33, true),
+    (2, 'Persona 5', 39.99, 0, false),
+    (3, 'Ps4 Pro', 299.99, 25, true),
+    (4, 'The Witcher 3', 9.99, 9, true),
+    (5, 'Elden Ring', 59.99, 19, true),
+    (6, 'Ps5', 399.99, 200, true),
+    (7, 'Steam Deck', 349.99,150 , true),
+    (8, 'Xbox X', 329.99, 100, true),
+    (9, 'Nintendo Switch Oled', 399.99, 1500, true),
+    (10, 'The Elder Scrolls V: Skyrim', 15.99, 68, true);
 
 
 Drop table if exists carrito_de_compras;
@@ -98,9 +100,9 @@ Create table `pedido`(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 Insert into pedido values 
-	(1, 299.99, 'Paseo Independencia 8', '2024-04-22', 1, 1),
-    (2, 159.97, 'Avenida Madrid 125', '2024-02-12', 2, 1),
-    (3, 39.99, 'Avenida Madrid 125', '2024-07-05', 2, 4),
+	(1, 299.99, 'Paseo Independencia 8', '2024-04-15', 1, 1),
+    (2, 159.97, 'Avenida Madrid 125', '2024-04-10', 2, 1),
+    (3, 39.99, 'Avenida Madrid 125', '2024-04-25', 2, 4),
     (4, 15.98, 'Paseo Independencia 8', '2024-07-30', 1, 4),
     (5, 9.99, 'Calle Domingo Ram 17', '2024-05-28', 5, 2);
 
