@@ -28,3 +28,6 @@ He creado el apartado de cuenta y añadido más consolas y videojuegos.
 
 Adrian: 17/04/2024
 He actualizado la base de datos añadiendo una columna a la tabla articulo, ademas he subido también las consultas de la actividad
+
+Ralph: 18/04/2024
+He terminado con la creación inicial de la aplicación web en NetBeans y logrado la conexión con la base de datos para el registro de un nuevo usuario, esto incluye la encriptación de su contraseña para luego ser almacenado de forma segura, y el inicio de sesión. Esto también implicó que realizara algunos cambios estructurales en el front-end, y en la base de datos al modificar los atributos para el usuario.
