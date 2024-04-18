@@ -1,32 +1,33 @@
  -- Creación de la base de datos
-Drop database if exists `tienda_juegos`;
-Create database `tienda_juegos` CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+Drop database if exists `tienda_videojuegos`;
+Create database `tienda_videojuegos` CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-Use tienda_juegos;
+Use tienda_videojuegos;
 
  -- Se empieza a crear las tablas, antes de crear cada una de ellas se eliminará si ya existe
 Drop table if exists usuario;
 Create table `usuario` (
-	id_usuario int,
-    nombre varchar (15) not null,
-    apellidos varchar (20),
+	id_usuario int auto_increment,
+    nombre_completo varchar (40) not null,
+    usuario varchar (20),
     edad tinyint (3) default 18,
     direccion varchar(25) not null,
     email varchar (30) not null unique,
+    contraseña varchar (64) not null,
     primary key (id_usuario)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-Insert into usuario values
-	(1, 'Pedro', 'Milian', 25, 'Paseo Independencia 8', 'pedrop@gmail.com'),
-    (2, 'Sara', 'Sanchez', 18, 'Avenida Madrid 125', 'saras@gmail.com'),
-    (3, 'Alex', 'García', 21, 'Calle Delicas 25', 'alexa@gmail.com'),
-    (4, 'Juan', 'Blesa', 35, 'Conde Aranda 2', 'juanj@gmail.com'),
-    (5, 'Cristina', 'Pérez', 22, 'Calle Domingo Ram 17', 'cristinac@gmail.com');
+Insert into usuario (nombre_completo, usuario, edad, direccion, email, contraseña) values
+	('Pedro Milian', 'pedroM25', 25, 'Paseo Independencia 8', 'pedrop@gmail.com', 'ee5cd7d5d96c8874117891b2c92a036f96918e66c102bc698ae77542c186f981'),
+    ('Sara Sanchez', 'saraS18', 18, 'Avenida Madrid 125', 'saras@gmail.com', '3a6d64c24cf80b69ccda37650406467e8266667b50cfd0b984beb3651b129ed7'),
+    ('Alex García', 'alexG21', 21, 'Calle Delicas 25', 'alexa@gmail.com', '4135aa9dc1b842a653dea846903ddb95bfb8c5a10c504a7fa16e10bc31d1fdf0'),
+    ('Juan Blesa', 'juanB35', 35, 'Conde Aranda 2', 'juanj@gmail.com', 'ed08c290d7e22f7bb324b15cbadce35b0b348564fd2d5f95752388d86d71bcca'),
+    ('Cristina Pérez', 'cristinaP22', 22, 'Calle Domingo Ram 17', 'cristinac@gmail.com', '15acfdc75fdb88851487238cd8442c5ecc8e0c31868ce9f52a4e2361ba899f2f');
 
 
 Drop table if exists articulo;
 Create table `articulo`(
-	id_articulo int (10),
+	id_articulo int (10) auto_increment,
     nombre varchar (50) not null,
     precio double (6, 2) not null,
     cantidad int(4) not null,
@@ -36,22 +37,22 @@ Create table `articulo`(
     check (cantidad >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-Insert into articulo values
-	(1, 'Bioshock Infinite', 25.99, 33, true),
-    (2, 'Persona 5', 39.99, 0, false),
-    (3, 'Ps4 Pro', 299.99, 25, true),
-    (4, 'The Witcher 3', 9.99, 9, true),
-    (5, 'Elden Ring', 59.99, 19, true),
-    (6, 'Ps5', 399.99, 200, true),
-    (7, 'Steam Deck', 349.99,150 , true),
-    (8, 'Xbox X', 329.99, 100, true),
-    (9, 'Nintendo Switch Oled', 399.99, 1500, true),
-    (10, 'The Elder Scrolls V: Skyrim', 15.99, 68, true);
+Insert into articulo (nombre, precio, cantidad, disponibilidad) values
+	('Bioshock Infinite', 25.99, 33, true),
+    ('Persona 5', 39.99, 0, false),
+    ('Ps4 Pro', 299.99, 25, true),
+    ('The Witcher 3', 9.99, 9, true),
+    ('Elden Ring', 59.99, 19, true),
+    ('Ps5', 399.99, 200, true),
+    ('Steam Deck', 349.99,150 , true),
+    ('Xbox X', 329.99, 100, true),
+    ('Nintendo Switch Oled', 399.99, 1500, true),
+    ('The Elder Scrolls V: Skyrim', 15.99, 68, true);
 
 
 Drop table if exists carrito_de_compras;
 Create table `carrito_de_compras`(
-	codigo_carrito int (10),
+	codigo_carrito int (10) auto_increment,
     estado varchar (15),
     id_articulo int (10),
     id_usuario int (10),
@@ -60,12 +61,12 @@ Create table `carrito_de_compras`(
     Foreign key (id_usuario) references usuario (id_usuario)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-Insert into carrito_de_compras values
-	(1, 'Vacío', 3, 1),
-    (2, 'Vacío', 2, 2),
-    (3, 'Comprado', 4, 1),
-    (4, 'En espera', 2, 3),
-    (5, 'En espera', 2, 5);
+Insert into carrito_de_compras (estado, id_articulo, id_usuario) values
+	('Vacío', 3, 1),
+    ('Vacío', 2, 2),
+    ('Comprado', 4, 1),
+    ('En espera', 2, 3),
+    ('En espera', 2, 5);
 
 
 Drop table if exists contiene;
@@ -87,7 +88,7 @@ Insert into contiene values
 
 Drop table if exists pedido;
 Create table `pedido`(
-	id_pedido int (10),
+	id_pedido int (10) auto_increment,
     pago_total double (7, 2) not null,
     direccion varchar (30) not null,
     fecha_compra date,
@@ -99,12 +100,12 @@ Create table `pedido`(
     check (pago_total > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-Insert into pedido values 
-	(1, 299.99, 'Paseo Independencia 8', '2024-04-15', 1, 1),
-    (2, 159.97, 'Avenida Madrid 125', '2024-04-10', 2, 1),
-    (3, 39.99, 'Avenida Madrid 125', '2024-04-25', 2, 4),
-    (4, 15.98, 'Paseo Independencia 8', '2024-07-30', 1, 4),
-    (5, 9.99, 'Calle Domingo Ram 17', '2024-05-28', 5, 2);
+Insert into pedido (pago_total, direccion, fecha_compra, id_usuario, codigo_carrito) values 
+	(299.99, 'Paseo Independencia 8', '2024-04-15', 1, 1),
+    (159.97, 'Avenida Madrid 125', '2024-04-10', 2, 1),
+    (39.99, 'Avenida Madrid 125', '2024-04-25', 2, 4),
+    (15.98, 'Paseo Independencia 8', '2024-07-30', 1, 4),
+    (9.99, 'Calle Domingo Ram 17', '2024-05-28', 5, 2);
 
 
 Drop table if exists consola;
@@ -126,32 +127,32 @@ Insert into consola values
 
 Drop table if exists plataforma;
 Create table `plataforma`(
-	id_plataforma int (10),
+	id_plataforma int (10) auto_increment,
     nombre varchar (15) not null unique,
     Primary key (id_plataforma)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-Insert into plataforma values
-	(1, 'Ps4'),
-    (2, 'PC'),
-    (3, 'Switch'),
-    (4, 'Ps5'),
-    (5, 'Xbox X');
+Insert into plataforma (nombre) values
+	('Ps4'),
+    ('PC'),
+    ('Switch'),
+    ('Ps5'),
+    ('Xbox X');
 
 
 Drop table if exists genero;
 Create table `genero`(
-	id_genero int (10),
+	id_genero int (10) auto_increment,
     nombre varchar (40) not null unique,
     primary key (id_genero)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-Insert into genero values
-	(1, 'RPG'),
-    (2, 'Acción'),
-    (3, 'Estrategia'),
-    (4, 'Aventura'),
-    (5, 'Aventura gráfica');
+Insert into genero (nombre) values
+	('RPG'),
+    ('Acción'),
+    ('Estrategia'),
+    ('Aventura'),
+    ('Aventura gráfica');
 
 
 Drop table if exists juego;
@@ -191,7 +192,7 @@ Insert into pertenece values
     (5, 4);
 
  -- Se crean diferentes índices para realizar busquedas de manera más rápida y eficiente
-Create index usuario_index on usuario (direccion, nombre);
+Create index usuario_index on usuario (direccion, nombre_completo);
 Create index articulo_index on articulo (precio, disponibilidad);
 Create index pedido_index on pedido (pago_total, direccion);
 Create index genero_index on genero (nombre);
