@@ -31,3 +31,6 @@ He actualizado la base de datos añadiendo una columna a la tabla articulo, adem
 
 Ralph: 18/04/2024
 He terminado con la creación inicial de la aplicación web en NetBeans y logrado la conexión con la base de datos para el registro de un nuevo usuario, esto incluye la encriptación de su contraseña para luego ser almacenado de forma segura, y el inicio de sesión. Esto también implicó que realizara algunos cambios estructurales en el front-end, y en la base de datos al modificar los atributos para el usuario.
+
+Ralph: 20/04/2024
+He agregado verificaciones en el registro de cuenta para evitar datos repetidos en la base de datos en los campos de nombre de usuario y email, también verifica que las dos contraseñas ingresadas sean igualas, y que el usuario no deje ningún campo vacío. Recuerden que para poder probar la aplicación web en su ordenador deben modificar los datos de conexión a la base de datos, esto está en los métodos de la clase ControladorPersistencia.
