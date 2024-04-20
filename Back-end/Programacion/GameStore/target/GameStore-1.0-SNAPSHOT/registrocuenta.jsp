@@ -158,15 +158,22 @@
                         <div class="container-form-child" id="container-form-child-izquierda">
 
                             <div class="container-form-child-nephew">
-                                <h2 class="indx"><label>Nombre completo</label><br><input autofocus type="text" id="name" name="nombreCompleto"></h2>
+                                <h2 class="indx"><label>Nombre completo</label><br>
+                                <input autofocus type="text" id="name" name="nombreCompleto" 
+                                       value="<%= (request.getParameter("nombreCompleto") != null) ? request.getParameter("nombreCompleto") : "" %>"></h2>
                             </div>
     
                             <div class="container-form-child-nephew">
-                                <h2 class="indx"><label>Nombre de usuario</label><br><input autofocus type="text" id="username" name="username"></h2>
+                                <h2 class="indx"><label>Nombre de usuario</label><br>
+                                <input autofocus type="text" id="username" name="username" 
+                                       value="<%= (request.getParameter("username") != null) ? request.getParameter("username") : "" %>"></h2>
+                                <br><span id="advertenciaUsuario" class="advertencia" style="display: none;">El nombre de usuario ya existe</span>
                             </div>
         
                             <div class="container-form-child-nephew">
-                                <h2 class="indx"><label>Edad</label><br><input autofocus type="text" id="age" name="edad"></h2>
+                                <h2 class="indx"><label>Dirección</label><br>
+                                <input autofocus type="text" id="address" name="direccion" 
+                                       value="<%= (request.getParameter("direccion") != null) ? request.getParameter("direccion") : "" %>"></h2>
                             </div>
     
                         </div>
@@ -174,15 +181,23 @@
                         <div class="container-form-child" id="container-form-child-derecha">
         
                             <div class="container-form-child-nephew">
-                                <h2 class="indx"><label>Dirección</label><br><input autofocus type="text" id="address" name="direccion"></h2>
+                                <h2 class="indx"><label>Correo electrónico</label><br>
+                                <input autofocus type="text" id="email" name="email" 
+                                       value="<%= (request.getParameter("email") != null) ? request.getParameter("email") : "" %>"></h2>
+                                <br><span id="advertenciaEmail" class="advertencia" style="display: none;">El correo electrónico ya está registrado</span>
                             </div>
         
                             <div class="container-form-child-nephew">
-                                <h2 class="indx"><label>Correo electrónico</label><br><input autofocus type="text" id="email" name="email"></h2>
+                                <h2 class="indx"><label>Contraseña</label><br>
+                                <input type="password" id="password" name="password" 
+                                       value="<%= (request.getParameter("password") != null) ? request.getParameter("password") : "" %>"></h2>
                             </div>
                             
                             <div class="container-form-child-nephew">
-                                <h2 class="indx"><label>Contraseña</label><br><input type="password" id="password" name="password"></h2>
+                                <h2 class="indx"><label>Confirmar contraseña</label><br>
+                                <input autofocus type="password" id="password2" name="password2" 
+                                       value="<%= (request.getParameter("password2") != null) ? request.getParameter("password2") : "" %>"></h2>
+                                <br><span id="advertenciaPassword" class="advertencia" style="display: none;">Las contraseñas no coinciden</span>
                                 <!--<span class="showpwd">
                                     <input type="checkbox" onclick="mostrarContraseña()">
                                     <label for="contraseñaVisible">Mostrar contraseña</label>
@@ -192,6 +207,8 @@
     
                         </div>
                     </div>
+                    
+                    <span id="advertencia" class="advertencia" style="display: none;">Alguno de los campos está vacío. Debe rellenar todos.</span>
 
                     <button type="submit" class="boton-seis" id="boton">
                         <span>Crear cuenta</span>
@@ -201,21 +218,65 @@
                     </button>
                 </form>
                 
+                
+                
             </div>
 
         </div>
         
-        <script src="js/RegistroCuenta.js"></script>
-
+        <%
+            Boolean campoVacio = (Boolean) request.getAttribute("campoVacio");
+            // Verificar si algún campo está vacío
+            if (campoVacio != null && campoVacio) {
+        %>
+        <script>
+            // Mostrar el mensaje de advertencia
+            document.getElementById("advertencia").style.display = "inline";
+        </script>
+        <%
+            }
+        %>
+        
+        <%
+            Boolean usernameRepetido = (Boolean) request.getAttribute("usernameRepetido");
+            // Verificar si algún campo está vacío
+            if (usernameRepetido != null && usernameRepetido) {
+        %>
+        <script>
+            // Mostrar el mensaje de advertencia
+            document.getElementById("advertenciaUsuario").style.display = "inline";
+        </script>
+        <%
+            }
+        %>
+        
+        <%
+            Boolean emailRepetido = (Boolean) request.getAttribute("emailRepetido");
+            // Verificar si algún campo está vacío
+            if (emailRepetido != null && emailRepetido) {
+        %>
+        <script>
+            // Mostrar el mensaje de advertencia
+            document.getElementById("advertenciaEmail").style.display = "inline";
+        </script>
+        <%
+            }
+        %>
+        
+        <%
+            Boolean passwordNotEquals = (Boolean) request.getAttribute("passwordNotEquals");
+            // Verificar si algún campo está vacío
+            if (passwordNotEquals != null && passwordNotEquals) {
+        %>
+        <script>
+            // Mostrar el mensaje de advertencia
+            document.getElementById("advertenciaPassword").style.display = "inline";
+        </script>
+        <%
+            }
+        %>
     </body>
     <footer>
-        <!-- FUNCIÓN DE ADMINISTRADOR -->
-        <div class="verUsuarios">
-            <h1>Ver lista de usuarios</h1>
-            <form action="SvRegistrarUsuario" method="GET">
-                <button type="submit">Mostrar Usuarios</button>
-            </form>
-        </div>
 
         <!-- TODO -->
 

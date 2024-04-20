@@ -23,6 +23,24 @@ public class Controlador {
         return false;
     }
     
+    public boolean verificarUsuario(String username) throws ClassNotFoundException {
+        try {
+            return controlPersistencia.verificarUsuario(username);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error: " + e);
+        }
+        return false;
+    }
+    
+    public boolean verificarEmail(String email) throws ClassNotFoundException {
+        try {
+            return controlPersistencia.verificarEmail(email);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error: " + e);
+        }
+        return false;
+    }
+    
     /*public List<Usuario> traerUsuarios() {
         return controlPersistencia.traerUsuarios();
     }*/

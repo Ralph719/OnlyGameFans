@@ -22,7 +22,6 @@ public class ControladorPersistencia {
         // Obtenemos los datos del usuario
         String nombreCompleto = usuario.getNombre();
         String username = usuario.getUsername();
-        String edad = String.valueOf(usuario.getEdad());
         String direccion = usuario.getDireccion();
         String email = usuario.getEmail();
         String password = usuario.getPassword();
@@ -30,9 +29,9 @@ public class ControladorPersistencia {
         int fila = -1;
         
         // Operación
-        String insercion = "INSERT INTO Usuario (nombre_completo, usuario, edad, direccion, email, contraseña) "
-                            + "VALUES ('" + nombreCompleto + "', '" + username + "', " 
-                            + edad + ", '" + direccion + "', '" + email + "', '" + password + "')";
+        String insercion = "INSERT INTO Usuario (nombre_completo, usuario, direccion, email, contraseña) "
+                            + "VALUES ('" + nombreCompleto + "', '" + username + "', '" 
+                            + direccion + "', '" + email + "', '" + password + "')";
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -48,17 +47,7 @@ public class ControladorPersistencia {
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Error: " + e.getMessage());
         } finally {
-            // Cerrar recursos
-            try {
-                if (stmt != null) {
-                    stmt.close();
-                }
-                if (conexion != null) {
-                    conexion.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println("Error al cerrar recursos: " + ex.getMessage());
-            }
+            cerrarRecursos();
         }
     }
     
@@ -96,8 +85,77 @@ public class ControladorPersistencia {
             
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Error: " + e);
+        } finally {
+            cerrarRecursos();
         }
         
         return false;
+    }
+    
+    public boolean verificarUsuario(String username) throws ClassNotFoundException {
+        int fila = -1;
+        
+        String consulta = "SELECT usuario FROM Usuario";
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            conexion = DriverManager.getConnection(url, user, psw);
+            stmt = conexion.createStatement();
+
+            ResultSet rs = stmt.executeQuery(consulta);
+            while (rs.next()) {
+                if(rs.getString("usuario").equals(username)) {
+                    System.out.println("El nombre de usuario ya existe.");
+                    return true;
+                }
+            }
+            
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("Error: " + e);
+        } finally {
+            cerrarRecursos();
+        }
+        return false;
+    }
+    
+    public boolean verificarEmail(String email) throws ClassNotFoundException {
+        int fila = -1;
+        
+        String consulta = "SELECT email FROM Usuario";
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            conexion = DriverManager.getConnection(url, user, psw);
+            stmt = conexion.createStatement();
+
+            ResultSet rs = stmt.executeQuery(consulta);
+            while (rs.next()) {
+                if(rs.getString("email").equals(email)) {
+                    System.out.println("El correo electrónico ya está registrado.");
+                    return true;
+                }
+            }
+            
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("Error: " + e);
+        } finally {
+            cerrarRecursos();
+        }
+        return false;
+    }
+    
+    private void cerrarRecursos() {
+        try {
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (conexion != null) {
+                conexion.close();
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error al cerrar recursos: " + ex.getMessage());
+        }
     }
 }

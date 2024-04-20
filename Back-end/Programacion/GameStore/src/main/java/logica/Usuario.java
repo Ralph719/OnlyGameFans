@@ -16,7 +16,6 @@ public class Usuario implements Serializable {
     @Basic
     private String nombreCompleto;
     private String username;
-    private int edad;
     private String direccion;
     private String email;
     private String password;
@@ -25,12 +24,11 @@ public class Usuario implements Serializable {
     }
 
     // CONSTRUCTOR
-    public Usuario(int idUsuario, String Nombre, String Username, int Edad, 
+    public Usuario(int idUsuario, String Nombre, String Username, 
                     String Direccion, String Email, String Password) {
         this.idUsuario = idUsuario;
         this.nombreCompleto = Nombre;
         this.username = Username;
-        this.edad = Edad;
         this.direccion = Direccion;
         this.email = Email;
         this.password = Password;
@@ -47,10 +45,6 @@ public class Usuario implements Serializable {
 
     public void setUsername(String Username) {
         this.username = Username;
-    }
-
-    public void setEdad(int Edad) {
-        this.edad = Edad;
     }
 
     public void setDireccion(String Direccion) {
@@ -76,10 +70,6 @@ public class Usuario implements Serializable {
 
     public String getUsername() {
         return username;
-    }
-
-    public int getEdad() {
-        return edad;
     }
 
     public String getDireccion() {

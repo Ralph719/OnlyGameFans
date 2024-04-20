@@ -9,20 +9,20 @@ Drop table if exists usuario;
 Create table `usuario` (
 	id_usuario int auto_increment,
     nombre_completo varchar (40) not null,
-    usuario varchar (20),
-    edad tinyint (3) default 18,
+    usuario varchar (20) not null unique,
     direccion varchar(25) not null,
     email varchar (30) not null unique,
     contraseña varchar (64) not null,
     primary key (id_usuario)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-Insert into usuario (nombre_completo, usuario, edad, direccion, email, contraseña) values
-	('Pedro Milian', 'pedroM25', 25, 'Paseo Independencia 8', 'pedrop@gmail.com', 'ee5cd7d5d96c8874117891b2c92a036f96918e66c102bc698ae77542c186f981'),
-    ('Sara Sanchez', 'saraS18', 18, 'Avenida Madrid 125', 'saras@gmail.com', '3a6d64c24cf80b69ccda37650406467e8266667b50cfd0b984beb3651b129ed7'),
-    ('Alex García', 'alexG21', 21, 'Calle Delicas 25', 'alexa@gmail.com', '4135aa9dc1b842a653dea846903ddb95bfb8c5a10c504a7fa16e10bc31d1fdf0'),
-    ('Juan Blesa', 'juanB35', 35, 'Conde Aranda 2', 'juanj@gmail.com', 'ed08c290d7e22f7bb324b15cbadce35b0b348564fd2d5f95752388d86d71bcca'),
-    ('Cristina Pérez', 'cristinaP22', 22, 'Calle Domingo Ram 17', 'cristinac@gmail.com', '15acfdc75fdb88851487238cd8442c5ecc8e0c31868ce9f52a4e2361ba899f2f');
+
+Insert into usuario (nombre_completo, usuario, direccion, email, contraseña) values
+	('Pedro Milian', 'pedroM25', 'Paseo Independencia 8', 'pedrop@gmail.com', 'ee5cd7d5d96c8874117891b2c92a036f96918e66c102bc698ae77542c186f981'),
+    ('Sara Sanchez', 'saraS18', 'Avenida Madrid 125', 'saras@gmail.com', '3a6d64c24cf80b69ccda37650406467e8266667b50cfd0b984beb3651b129ed7'),
+    ('Alex García', 'alexG21', 'Calle Delicas 25', 'alexa@gmail.com', '4135aa9dc1b842a653dea846903ddb95bfb8c5a10c504a7fa16e10bc31d1fdf0'),
+    ('Juan Blesa', 'juanB35', 'Conde Aranda 2', 'juanj@gmail.com', 'ed08c290d7e22f7bb324b15cbadce35b0b348564fd2d5f95752388d86d71bcca'),
+    ('Cristina Pérez', 'cristinaP22', 'Calle Domingo Ram 17', 'cristinac@gmail.com', '15acfdc75fdb88851487238cd8442c5ecc8e0c31868ce9f52a4e2361ba899f2f');
 
 
 Drop table if exists articulo;

@@ -818,6 +818,15 @@ input[type="text"]:focus, input[type="password"]:focus {
     font-weight: 400;
 }
 
+.advertencia {
+    position: relative;
+    margin-top: 20px;
+    color: red;
+    font-size: 18px;
+}
+.disabled {
+    display: none;
+}
 
 /* BOTÓN DE ENVÍO */
 .boton-seis {

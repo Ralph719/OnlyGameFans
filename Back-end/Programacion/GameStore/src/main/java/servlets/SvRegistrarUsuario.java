@@ -1,20 +1,13 @@
 package servlets;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
 import logica.Usuario;
-import java.util.List;
-import java.util.ArrayList;
 import logica.Controlador;
 import persistencia.Encriptador;
 /*import javax.servlet.ServletException;
@@ -30,7 +23,8 @@ import javax.servlet.http.HttpServletResponse;*/
 @WebServlet(name = "SvRegistrarUsuario", urlPatterns = {"/SvRegistrarUsuario"})
 public class SvRegistrarUsuario extends HttpServlet {
     Controlador controlador = new Controlador();
-
+    Encriptador encriptar = new Encriptador();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
@@ -39,67 +33,86 @@ public class SvRegistrarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userEmail = request.getParameter("userEmail");
-        String password = request.getParameter("password");
+        String userEmail = request.getParameter("userEmail").trim();
+        String password = request.getParameter("password").trim();
         
         Usuario usuario = new Usuario();
         
-        if(userEmail.contains("@")) {
-            usuario.setEmail(userEmail);
-        } else {
-            usuario.setUsername(userEmail);
-        }
+        usuario.setUsername(userEmail);
         
-        Encriptador encriptar = new Encriptador();
         String hashedPassword = encriptar.hashPassword(password);
         usuario.setPassword(hashedPassword);
         
         try {
             if(controlador.buscarUsuario(usuario)) {
                 System.out.println("Inicio de sesión exitoso.");
+                response.sendRedirect("../../../Front-end/CarritoDeCompras/index.html");
             }
         } catch (ClassNotFoundException e) {
             System.out.println("Error: " + e);
         }
-        
-        /*List<Usuario> listaUsuarios = new ArrayList<>();
-        listaUsuarios = controlador.traerUsuarios();
-        
-        HttpSession miSesion = request.getSession();
-        miSesion.setAttribute("listaUsuarios", listaUsuarios);
-        
-        response.sendRedirect("mostrarUsuarios.jsp");*/
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String nombreCompleto = request.getParameter("nombreCompleto");
-        String username = request.getParameter("username");
-        int edad = Integer.parseInt(request.getParameter("edad"));
-        String direccion = request.getParameter("direccion");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        
-        Usuario usuario = new Usuario();
-        usuario.setNombre(nombreCompleto);
-        usuario.setUsername(username);
-        usuario.setEdad(edad);
-        usuario.setDireccion(direccion);
-        usuario.setEmail(email);
-        
-        Encriptador encriptar = new Encriptador();
-        String hashedPassword = encriptar.hashPassword(password);
-        usuario.setPassword(hashedPassword);
-        
-        try {
-            controlador.crearUsuario(usuario);
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error: " + e);
+        String nombreCompleto = request.getParameter("nombreCompleto").trim();
+        String username = request.getParameter("username").trim();
+        String direccion = request.getParameter("direccion").trim();
+        String email = request.getParameter("email").trim();
+        String password = request.getParameter("password").trim();
+        String password2 = request.getParameter("password2").trim();
+
+        boolean campoVacio = nombreCompleto.isEmpty() || username.isEmpty() || direccion.isEmpty()
+                || email.isEmpty() || password.isEmpty() || password2.isEmpty();
+
+        boolean passwordNotEquals = !password.equals(password2);
+
+        boolean usernameRepetido = false;
+        boolean emailRepetido = false;
+
+        if (!campoVacio && !passwordNotEquals) {
+            try {
+                if (controlador.verificarUsuario(username)) {
+                    usernameRepetido = true;
+                }
+                
+                // Esto funciona al revés ------------------------------------------------
+
+                if (controlador.verificarEmail(email)) {
+                    emailRepetido = true;
+                }
+
+                if (!usernameRepetido && !emailRepetido) {
+                    Usuario usuario = new Usuario();
+                    usuario.setNombre(nombreCompleto);
+                    usuario.setUsername(username);
+                    usuario.setDireccion(direccion);
+                    usuario.setEmail(email);
+
+                    String hashedPassword = encriptar.hashPassword(password);
+                    usuario.setPassword(hashedPassword);
+
+                    controlador.crearUsuario(usuario);
+                    response.sendRedirect("inicioSesion.jsp");
+
+                    return; // Salir del método después de la redirección
+                }
+            } catch (ClassNotFoundException e) {
+                System.out.println("Error: " + e);
+            }
         }
-        
-        response.sendRedirect("inicioSesion.jsp");
+
+        // Configurar atributos y reenviar al JSP
+        request.setAttribute("campoVacio", campoVacio);
+        request.setAttribute("passwordNotEquals", passwordNotEquals);
+        request.setAttribute("usernameRepetido", usernameRepetido);
+        request.setAttribute("emailRepetido", emailRepetido);
+        request.setAttribute("params", request.getParameterMap());
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("registrocuenta.jsp");
+        dispatcher.forward(request, response);
     }
 
     @Override
