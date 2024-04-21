@@ -35,23 +35,44 @@ public class SvRegistrarUsuario extends HttpServlet {
             throws ServletException, IOException {
         String userEmail = request.getParameter("userEmail").trim();
         String password = request.getParameter("password").trim();
-        
-        Usuario usuario = new Usuario();
-        
-        usuario.setUsername(userEmail);
-        
+
         String hashedPassword = encriptar.hashPassword(password);
-        usuario.setPassword(hashedPassword);
-        
-        try {
-            if(controlador.buscarUsuario(usuario)) {
-                System.out.println("Inicio de sesión exitoso.");
-                response.sendRedirect("../../../Front-end/CarritoDeCompras/index.html");
+
+        boolean campoVacio = userEmail.isEmpty() || password.isEmpty();
+
+        boolean userEmailNotExist = false;
+        boolean passwordWrong = false;
+
+        if (!campoVacio) {
+            try {
+                if (!controlador.verificarUsuario(userEmail) && !controlador.verificarEmail(userEmail)) {
+                    userEmailNotExist = true;
+                } else {
+                    if (!controlador.verificarPassword(userEmail, hashedPassword)) {
+                        passwordWrong = true;
+                    }
+                }
+
+                if (!userEmailNotExist && !passwordWrong) {
+                    // Credenciales correctas, redirigir al usuario a la página principal
+                    response.sendRedirect("CarritoDeCompras/index.html");
+                    return;
+                }
+            } catch (ClassNotFoundException e) {
+                System.out.println("Error: " + e);
             }
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error: " + e);
         }
+
+        // Configurar atributos y reenviar al JSP
+        request.setAttribute("campoVacio", campoVacio);
+        request.setAttribute("userEmailNotExist", userEmailNotExist);
+        request.setAttribute("passwordWrong", passwordWrong);
+        request.setAttribute("params", request.getParameterMap());
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("inicioSesion.jsp");
+        dispatcher.forward(request, response);
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -77,8 +98,6 @@ public class SvRegistrarUsuario extends HttpServlet {
                 if (controlador.verificarUsuario(username)) {
                     usernameRepetido = true;
                 }
-                
-                // Esto funciona al revés ------------------------------------------------
 
                 if (controlador.verificarEmail(email)) {
                     emailRepetido = true;
@@ -104,7 +123,7 @@ public class SvRegistrarUsuario extends HttpServlet {
             }
         }
 
-        // Configurar atributos y reenviar al JSP
+        // Configurar atributos y reenviar al registro
         request.setAttribute("campoVacio", campoVacio);
         request.setAttribute("passwordNotEquals", passwordNotEquals);
         request.setAttribute("usernameRepetido", usernameRepetido);

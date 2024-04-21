@@ -116,7 +116,7 @@ public class ControladorPersistencia {
         } finally {
             cerrarRecursos();
         }
-        return false;
+        return false; // Devuelve false si no encuentra otro nombre de usuario igual
     }
     
     public boolean verificarEmail(String email) throws ClassNotFoundException {
@@ -138,6 +138,33 @@ public class ControladorPersistencia {
                 }
             }
             
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("Error: " + e);
+        } finally {
+            cerrarRecursos();
+        }
+        return false;
+    }
+    
+    public boolean verificarPassword(String userEmail, String password) throws ClassNotFoundException {
+        int fila = -1;
+        
+        String consulta = "SELECT contraseña FROM Usuario " 
+                        + "WHERE usuario = '" + userEmail + "' OR email = '" + userEmail + "'";
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            
+            conexion = DriverManager.getConnection(url, user, psw);
+            stmt = conexion.createStatement();
+            
+            ResultSet rs = stmt.executeQuery(consulta);
+            while (rs.next()) {
+                if(rs.getString("contraseña").equals(password)) {
+                    System.out.println("Contraseña correcta. Acceso concedido.");
+                    return true;
+                }
+            }
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Error: " + e);
         } finally {

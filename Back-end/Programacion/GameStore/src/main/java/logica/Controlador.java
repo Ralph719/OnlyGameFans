@@ -41,6 +41,15 @@ public class Controlador {
         return false;
     }
     
+    public boolean verificarPassword(String userEmail, String password) throws ClassNotFoundException {
+        try {
+            return controlPersistencia.verificarPassword(userEmail, password);
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error: " + e);
+        }
+        return false;
+    }
+    
     /*public List<Usuario> traerUsuarios() {
         return controlPersistencia.traerUsuarios();
     }*/

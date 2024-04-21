@@ -8,8 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/InicioSesion.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/InicioSesion1.css">
         <title>Inicia sesión | OnlyGameFans.com</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="../Logos/LogoPaginaWeb.png">
+        <link rel="shortcut icon" href="Logos/LogoPaginaWeb.png">
     </head>
     <body>
         <div class="container">
@@ -156,29 +156,38 @@
                 <form class="container-labels" action="SvRegistrarUsuario" method="GET">
 
                     <div class="container-form-child">
-                        <h2 class="indx"><label>Usuario/Email</label><br><input autofocus type="text" id="user" name="userEmail"></h2>
+                        <h2 class="indx"><label>Usuario/Email</label><br>
+                        <input autofocus type="text" id="userEmail" name="userEmail" 
+                               value="<%= (request.getParameter("userEmail") != null) ? request.getParameter("userEmail") : "" %>"></h2>
+                        <br><span id="advertenciaUserEmail" class="advertencia" style="display: none;">Nombre de usuario o email no registrado</span>
                     </div>
     
                     <div class="container-form-child">
-                        <h2 class="indx"><label>Contraseña</label><br><input type="password" id="pwd" name="password"></h2>
+                        <h2 class="indx"><label>Contraseña</label><br><input type="password" id="password" name="password"></h2>
+                        <br><span id="advertenciaPassword" class="advertencia" style="display: none;">Contraseña incorrecta</span>
                             <!--<span class="showpwd">
                                 <input type="checkbox" onclick="mostrarContraseña()">
                                 <label for="contraseñaVisible">Mostrar contraseña</label>
                             </span>-->
                             <!-- AÑADIR ICONO/CHECKBOX PARA VER CONTRASEÑA -->
                     </div>
+                    
+                    <span id="advertencia" class="advertencia" style="display: none;">Alguno de los campos está vacío. Debe rellenar todos.</span>
     
                     <!-- EL BOTÓN DE INICIO SESIÓN DEBE REDIRIGIRTE A LA PÁGINA PRINCIPAL CUANDO HAYAS INGRESADO TUS DATOS -->
                     <!-- SI NO, DEBE PERMANECER EN LA PÁGINA DE INICIO SESIÓN -->
                     <div class="contenedor-botones">
-                        <a href="../CarritoDeCompras/index.html">
-                            <button class="boton seis" onclick="iniciarSesion()">
-                                <span>Iniciar sesión</span>
-                                <svg>
-                                    <rect x="0" y="0" fill="none"></rect>
-                                </svg>
-                            </button>
-                        </a>
+                        <div class="botones">
+                            <a href="../CarritoDeCompras/index.html">
+                                <button class="boton seis" onclick="iniciarSesion()">
+                                    <span>Iniciar sesión</span>
+                                    <svg>
+                                        <rect x="0" y="0" fill="none"></rect>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                        <img src="imgs/fallout-okay.png" alt="fallout-okay">
                     </div>
 
                 </form>
@@ -190,8 +199,38 @@
             </span>
         </div>
         
-        <script src="js/InicioSesion.js"></script>
-
+        <%
+            Boolean campoVacio = (Boolean) request.getAttribute("campoVacio");
+            if (campoVacio != null && campoVacio) {
+        %>
+        <script>
+            document.getElementById("advertencia").style.display = "inline";
+        </script>
+        <%
+            }
+        %>
+        
+        <%
+            Boolean userEmailNotExist = (Boolean) request.getAttribute("userEmailNotExist");
+            if (userEmailNotExist != null && userEmailNotExist) {
+        %>
+        <script>
+            document.getElementById("advertenciaUserEmail").style.display = "inline";
+        </script>
+        <%
+            }
+        %>
+        
+        <%
+            Boolean passwordWrong = (Boolean) request.getAttribute("passwordWrong");
+            if (passwordWrong != null && passwordWrong) {
+        %>
+        <script>
+            document.getElementById("advertenciaPassword").style.display = "inline";
+        </script>
+        <%
+            }
+        %>
     </body>
     <footer>
 

@@ -1,11 +1,11 @@
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\persistencia\ControladorPersistencia.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\logica\Usuario.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\persistencia\exceptions\IllegalOrphanException.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\persistencia\exceptions\PreexistingEntityException.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\com\mycompany\gamestore\resources\JakartaEE10Resource.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\persistencia\UsuarioJpaController.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\logica\Controlador.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\servlets\SvRegistrarUsuario.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\persistencia\Encriptador.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\persistencia\exceptions\NonexistentEntityException.java
-C:\Users\steph\OneDrive\Desktop\ProyectoFinal\Back-end\Programacion\GameStore\src\main\java\com\mycompany\gamestore\JakartaRestConfiguration.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\persistencia\Encriptador.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\com\mycompany\gamestore\resources\JakartaEE10Resource.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\logica\Controlador.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\persistencia\UsuarioJpaController.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\com\mycompany\gamestore\JakartaRestConfiguration.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\logica\Usuario.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\persistencia\exceptions\NonexistentEntityException.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\servlets\SvRegistrarUsuario.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\persistencia\ControladorPersistencia.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\persistencia\exceptions\IllegalOrphanException.java
+C:\Users\steph\OneDrive\Desktop\NetBeans Projects\Principal\GameStore\src\main\java\persistencia\exceptions\PreexistingEntityException.java

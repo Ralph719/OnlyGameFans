@@ -149,42 +149,46 @@
                 <form class="container-labels" action="SvRegistrarUsuario" method="GET">
 
                     <div class="container-form-child">
-                        <h2 class="indx"><label>Usuario/Email</label><br><input autofocus type="text" id="user" name="userEmail"></h2>
+                        <h2 class="indx"><label>Usuario/Email</label><br>
+                        <input autofocus type="text" id="userEmail" name="userEmail"></h2>
+                        <br><span id="advertenciaUserEmail" class="advertencia disabled">Nombre de usuario o email no registrado</span>
                     </div>
     
                     <div class="container-form-child">
-                        <h2 class="indx"><label>Contraseña</label><br><input type="password" id="pwd" name="password"></h2>
+                        <h2 class="indx"><label>Contraseña</label><br><input type="password" id="password" name="password"></h2>
+                        <br><span id="advertenciaPassword" class="advertencia disabled">Contraseña incorrecta</span>
                             <!--<span class="showpwd">
                                 <input type="checkbox" onclick="mostrarContraseña()">
                                 <label for="contraseñaVisible">Mostrar contraseña</label>
                             </span>-->
                             <!-- AÑADIR ICONO/CHECKBOX PARA VER CONTRASEÑA -->
                     </div>
+                    
+                    <span id="advertencia" class="advertencia" style="display: none;">Alguno de los campos está vacío. Debe rellenar todos.</span>
     
                     <!-- EL BOTÓN DE INICIO SESIÓN DEBE REDIRIGIRTE A LA PÁGINA PRINCIPAL CUANDO HAYAS INGRESADO TUS DATOS -->
                     <!-- SI NO, DEBE PERMANECER EN LA PÁGINA DE INICIO SESIÓN -->
                     <div class="contenedor-botones">
-                        <a href="../CarritoDeCompras/index.html">
-                            <button class="boton seis" onclick="iniciarSesion()">
-                                <span>Iniciar sesión</span>
-                                <svg>
-                                    <rect x="0" y="0" fill="none"></rect>
-                                </svg>
-                            </button>
-                        </a>
+                        <div class="botones">
+                            <a href="../CarritoDeCompras/index.html">
+                                <button class="boton seis" onclick="iniciarSesion()">
+                                    <span>Iniciar sesión</span>
+                                    <svg>
+                                        <rect x="0" y="0" fill="none"></rect>
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                        <img src="imgs/fallout-okay.png" alt="fallout-okay">
                     </div>
 
                 </form>
-                
             </div>
 
             <span class="link-box">
-                <a href="registrocuenta.jsp"><p>Registrate aquí si no tienes una cuenta</p></a> <!-- EL LINK REDIRIGIRÁ A UNA PÁGINA EXTERNA CON UNA ESTRUCTURA SIMILAR PERO PARA REGISTRARSE --> 
+                <a href="registrocuenta.html"><p>Registrate aquí si no tienes una cuenta</p></a> 
             </span>
         </div>
-        
-        <script src="js/InicioSesion.js"></script>
-
     </body>
     <footer>
 

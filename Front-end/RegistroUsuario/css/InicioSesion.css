@@ -683,17 +683,13 @@ body {
 .container-form {
     position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    border-radius: 2%;
-    height: 30rem;
+    justify-content: center;
+    border-radius: 1rem;
+    height: fit-content;
+    padding: 30px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.644);
-    background-image: url(../imgs/fallout-okay.webp);
-    background-position-y: 187.5px;
-    background-position-x: 276px;
-    background-blend-mode: screen;
 }
 
 .formularios {
@@ -729,7 +725,7 @@ input[type="text"] {
     padding: 5px;
     width: 20rem;
     height: 3rem;
-    margin: 1rem 2rem 1.5rem 2rem;
+    margin: 1rem 2rem 0rem 2rem;
     font-size: 20px;
     font-family: cairo;
     text-align:center; 
@@ -748,7 +744,7 @@ input[type="password"] {
     padding: 5px;
     width: 20rem;
     height: 3rem;
-    margin: 1rem 2rem 1.5rem 2rem;
+    margin: 1rem 2rem 0rem 2rem;
     font-size: 20px;
     font-family: cairo;
     text-align:center; 
@@ -805,13 +801,33 @@ input[type="text"]:focus, input[type="password"]:focus {
     font-weight: 400;
 }
 
+.advertencia {
+    position: relative;
+    margin: 1rem 0rem 0.5rem 0rem;
+    color: red;
+    font-size: 18px;
+}
+.disabled {
+    display: none;
+}
+
 .contenedor-botones {
-	width: 50%;
-	display: grid;
+	width: 100%;
+	display: flex;
+    flex-direction: row;
+    justify-content: right;
 }
 
 .contenedor-botones a {
     text-decoration: none;
+}
+
+.contenedor-botones img {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    margin-top: 1rem;
+    margin-left: 12%;
 }
 
 /* BOTÓN DE ENVÍO */
@@ -820,7 +836,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 	display: block;
 	align-items: center;
 	justify-content: center;
-	width: 100%;
+	width: 15rem;
 	height: 80px;
 	background: #141414;
 	color: #fff;
