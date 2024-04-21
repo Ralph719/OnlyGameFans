@@ -14,10 +14,17 @@
 
     <body> 
         <div class="container">
+
             <div class="container-envio">
-                <span class="titulo">Envío de tu pedido</span>
+
+                <span class="titulo">Envío de tu pedido
+                </span>
+                <img src="imgs/map_icon.png" class="map_icon">
+
                 <div class="container-form">
+
                     <div class="container-form-child">
+
                         <form>
                             <div class="container-form-nephew">
                                 <label class="indx">Dirección</label>
@@ -31,12 +38,12 @@
 
                             <div class="container-form-nephew">
                                 <label class="indx">País</label>
-                                <input type="text" id="contry" name="país">
+                                <input type="text" id="country" name="país">
                             </div>
 
                             <div class="container-form-nephew">
                                 <label class="indx">Provincia</label>
-                                <input type="text" id="address" name="direccion">
+                                <input type="text" id="province" name="direccion">
                             </div>
 
                             <div class="container-form-nephew">
@@ -48,14 +55,31 @@
                                 <label class="indx">Teléfono</label>
                                 <input type="text" id="phone" name="telefono">
                             </div>
-                            
                         </form>
+
                     </div>
+
                 </div>
+
+                <div class="contenedor">
+                    <button class="boton cinco">
+                        <div class="icono">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                            </svg>
+                        </div>
+                        <span>Proceder con el pago</span>
+                    </button>
+                </div>
+
             </div>
+
         </div>
+
         <script src="js/envio.js"></script>
     </body>
+
     <footer>
+
     </footer>
 </html>
