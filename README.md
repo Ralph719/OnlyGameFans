@@ -20,7 +20,7 @@ He terminado de agregar las funcionalidades con JavaScript al carrito, además h
 Niky: 08/04/2024
 He rediseñado la página cambiando los colores, el tipo de letra, parte de la estructura y comenzado con el trabajo para hacerlo responsive. 
 
-Niky : 10/04/2024
+Niky: 10/04/2024
 He solucionado el problema que había de los decimales de los precios de los artículos, desarrollado más la página web de registro de cuenta y cambiado el título de las páginas web a uno más elaborado.
 
 Niky: 12/04/2024
@@ -34,3 +34,9 @@ He terminado con la creación inicial de la aplicación web en NetBeans y lograd
 
 Ralph: 20/04/2024
 He agregado verificaciones en el registro de cuenta para evitar datos repetidos en la base de datos en los campos de nombre de usuario y email, también verifica que las dos contraseñas ingresadas sean igualas, y que el usuario no deje ningún campo vacío. Recuerden que para poder probar la aplicación web en su ordenador deben modificar los datos de conexión a la base de datos, esto está en los métodos de la clase ControladorPersistencia.
+
+Ralph: 21/04/2024
+Por último agregué también las verificaciones correspondientes para el inicio de sesión.
+
+Ralph: 22/04/2024
+He agregrado un buscador a la página principal para poder filtrar a través de los diferentes artículos.
