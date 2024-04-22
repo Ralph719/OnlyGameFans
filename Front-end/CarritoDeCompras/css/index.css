@@ -76,7 +76,7 @@ aside h1 {
     justify-content: center;
     align-items: center;
     position: relative;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .user-space a {
@@ -98,24 +98,24 @@ aside h1 {
 .user-space p {
     text-align: center;
     font-family: cairo;
-    font-weight: 200;
+    font-weight: 300;
     text-decoration: none;
-    padding: 7px;
+    padding: 0px;
     color: rgb(255, 255, 255);
     font-size: 20px;
     transition: .15s ease-out;
 }
 
 .user-space p:hover {
-    color: rgb(226, 217, 217);
-    filter: opacity(.8);
+    font-weight: 600;
+    filter: brightness(2);
 }
 
 .logo {
     font-weight: 400;
     font-size: 1.3rem;
     text-align: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
     font-family: mulish;
 }
 
@@ -132,7 +132,7 @@ aside h1 {
     border: 0;
     color: whitesmoke;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 16px;
     gap: 1rem;
     padding: 0.9rem;
     width: 100%;
@@ -197,29 +197,99 @@ main {
     margin: 1rem;
     margin-left: 0;
     border-radius: .8rem;
-    padding: 2rem 1rem 2rem 4rem;
+    padding: 2rem 1rem 2rem 2rem;
+}
+
+.titulo {
+    width: 93%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 2rem 2rem 3rem;
 }
 
 .tituloPrincipal {
     color: var(--clr-green);
-    margin-bottom: 2rem;
     text-transform: uppercase;
     font-family: cairo;
     letter-spacing: 1.3px;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
+    width: fit-content;
+}
+
+.containerBuscador {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    width: 30%;
+}
+
+.botonBuscador {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+    color: var(--clr-red);
+    padding-left: 1.5rem;
+    font-size: 1.26rem;
+
+    cursor: pointer;
+}
+
+.bi-search {
+    color: var(--clr-green);
+    position: absolute;
+    transform: scale(1.4);
+
+    transition: all 0.2s ease-in-out;
+}
+
+.bi-search:hover {
+    transform: scale(1.6);
+}
+
+.buscador {
+    position: relative;
+    width: 16rem;
+    height: 2.5rem;
+    font-size: 19px;
+}
+
+input[type="text"] {
+    padding-left: 1rem;
+    transition: .2s ease-out;
+    border-radius: 6.8px;
+    border-bottom: .8px solid rgb(31, 82, 112);
+    border-right: .8px solid rgb(49, 99, 146);
+    border-top: .8px solid rgb(64, 117, 167);
+    border-left: .8px solid rgb(102, 146, 187);
+}
+
+input[type="text"]:focus {
+    outline: 2px solid var(--clr-sky-blue);
+    border: none;
+    width: 28rem;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.filtro {
+    display: none;
+}
+
+.enabled {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .containerProductos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
-}
-
-.producto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 /* IMÁGEN DEL PRODUCTO */
@@ -310,5 +380,15 @@ main {
     .botonCategoria.active {
         width: 112%;
         font-size: 15px;
+    }
+}
+
+@media (max-width: 1920px) {
+    main {
+        margin-left: 0;
+    }
+
+    .botonCategoria.active {
+        font-size: 18px;
     }
 }

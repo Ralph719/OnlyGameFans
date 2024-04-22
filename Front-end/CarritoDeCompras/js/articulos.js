@@ -202,7 +202,7 @@ const articulos = [
         id_articulo: "0016",
         nombre: "Gran Turismo 7",
         imagen: "imgJuegos/GranTurismo7_PS5.png",
-        precio: 58.90,
+        precio: 58.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Polyphony Digital",
@@ -258,7 +258,7 @@ const articulos = [
         id_articulo: "0020",
         nombre: "Unravel Two",
         imagen: "imgJuegos/UnravelTwo_Nintendo.png",
-        precio: 39.90,
+        precio: 39.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Coldwood Interactive",
@@ -272,7 +272,7 @@ const articulos = [
         id_articulo: "0021",
         nombre: "Mario Kart Deluxe 8",
         imagen: "imgJuegos/MarioKartDeluxe8_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Nintendo",
@@ -286,7 +286,7 @@ const articulos = [
         id_articulo: "0022",
         nombre: "The Crew Motorfest",
         imagen: "imgJuegos/TheCrewMotorfest_PS5.png",
-        precio: 35.90,
+        precio: 35.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Ubisoft Ivory Tower",
@@ -300,7 +300,7 @@ const articulos = [
         id_articulo: "0023",
         nombre: "Cyberpunk",
         imagen: "imgJuegos/Cyberpunk_PS5.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "CD Projekt",
@@ -314,7 +314,7 @@ const articulos = [
         id_articulo: "0024",
         nombre: "Pokemon Purpura",
         imagen: "imgJuegos/PokemonPurpura_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Game Freak",
@@ -328,7 +328,7 @@ const articulos = [
         id_articulo: "0025",
         nombre: "Pokemon Escarlata",
         imagen: "imgJuegos/PokemonEscarlata_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Game Freak",
@@ -341,8 +341,8 @@ const articulos = [
     {
         id_articulo: "0026",
         nombre: "Far Cry 6",
-        imagen: "imgJuegos/",
-        precio: 49.90,
+        imagen: "imgJuegos/farCry6PS5.png",
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Ubisoft",
@@ -356,7 +356,7 @@ const articulos = [
         id_articulo: "0027",
         nombre: "Super Mario 3D Worlds + Bowser's Fury",
         imagen: "imgJuegos/Mario3DWorldsBF_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Nintendo",
@@ -368,13 +368,13 @@ const articulos = [
 
     {
         id_articulo: "0028",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        nombre: "Borderlands 3",
+        imagen: "imgJuegos/borderlands3PS4.png",
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
+            desarrollador: "Gearbox Software",
+            genero: "Shooter",
             plataforma: "PlayStation 4"
         },
         disponibilidad: true,
@@ -384,7 +384,7 @@ const articulos = [
         id_articulo: "0029",
         nombre: "The Leyend of Zelda : Tears of the Kingdom",
         imagen: "imgJuegos/LeyendOfZeldaTOTK_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Nintendo",
@@ -398,7 +398,7 @@ const articulos = [
         id_articulo: "0030",
         nombre: "Super Mario Odyssey ",
         imagen: "imgJuegos/SuperMarioOdyssey_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Nintendo",
@@ -412,7 +412,7 @@ const articulos = [
         id_articulo: "0031",
         nombre: "Mario Strikers Battle League Football",
         imagen: "imgJuegos/MarioStrikersBattleLeagueFootball_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Next Level Games",
@@ -424,28 +424,28 @@ const articulos = [
 
     {
         id_articulo: "0032",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        nombre: "Wonderlands Next Level Edition",
+        imagen: "imgJuegos/wonderlandsPS5.png",
+        precio: 69.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4"
+            desarrollador: "Gearbox Software",
+            genero: "Shooter",
+            plataforma: "PlayStation 5"
         },
         disponibilidad: true,
     },
 
     {
         id_articulo: "0033",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        nombre: "New Tales From The Borderland",
+        imagen: "imgJuegos/newTalesPS5.png",
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4"
+            desarrollador: "Gearbox Software",
+            genero: "Aventura",
+            plataforma: "PlayStation 5"
         },
         disponibilidad: true,
     },
@@ -468,7 +468,7 @@ const articulos = [
         id_articulo: "0035",
         nombre: "Cuphead",
         imagen: "imgJuegos/Cuphead_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Studio MDHR",
@@ -482,7 +482,7 @@ const articulos = [
         id_articulo: "0036",
         nombre: "POR DEFINIR - PS4/PS5",
         imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Polyphony Digital",
@@ -496,7 +496,7 @@ const articulos = [
         id_articulo: "0037",
         nombre: "Kirby y la tierra olvidada",
         imagen: "imgJuegos/KirbyTO_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "HAL Laboratory",
@@ -510,7 +510,7 @@ const articulos = [
         id_articulo: "0038",
         nombre: "Hogwarts Lecacy",
         imagen: "imgJuegos/HogwartsLegacy_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Avalanche Software",
@@ -524,7 +524,7 @@ const articulos = [
         id_articulo: "0039",
         nombre: "Animal Crossing : New Horizons",
         imagen: "imgJuegos/AnimalCrossing.NH_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Nintendo",
@@ -538,7 +538,7 @@ const articulos = [
         id_articulo: "0040",
         nombre: "POR DEFINIR - PS4",
         imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Polyphony Digital",
@@ -552,7 +552,7 @@ const articulos = [
         id_articulo: "0041",
         nombre: "POR DEFINIR - PS4",
         imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Polyphony Digital",
@@ -566,7 +566,7 @@ const articulos = [
         id_articulo: "0042",
         nombre: "Resident Evil 4 Remake",
         imagen: "imgJuegos/ResidentEvil4Remake_PS5.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Capcom",
@@ -580,7 +580,7 @@ const articulos = [
         id_articulo: "0043",
         nombre: "POR DEFINIR - PS4/PS5",
         imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Polyphony Digital",
@@ -605,10 +605,10 @@ const articulos = [
     },
 
     {
-        id_articulo: "0044",
+        id_articulo: "0045",
         nombre: "POR DEFINIR - PS4/PS5",
         imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Polyphony Digital",
@@ -619,10 +619,10 @@ const articulos = [
     },
 
     {
-        id_articulo: "0044",
+        id_articulo: "0046",
         nombre: "It takes two",
         imagen: "imgJuegos/ItTakesTwo_Nintendo.png",
-        precio: 32.50,
+        precio: 32.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Hazelight Studios",
@@ -633,7 +633,7 @@ const articulos = [
     },
 
     {
-        id_articulo: "0044",
+        id_articulo: "0047",
         nombre: "Final Fantasy XVI",
         imagen: "imgJuegos/FFXVI_PS5.png",
         precio: 69.99,
@@ -645,8 +645,6 @@ const articulos = [
         },
         disponibilidad: true,
     },
-
-
 
 
     // CONSOLAS
@@ -741,9 +739,6 @@ const articulos = [
         disponibilidad: true,
     },
 
-    
-
-
 ]
 
 
@@ -764,7 +759,7 @@ function cargarArticulos(articulosElegidos) {
     articulosElegidos.forEach(articulo => {
 
         const div = document.createElement("div");
-        div.classList.add("producto");
+        div.classList.add("producto", "enabled");
         div.innerHTML = `
             <img src="${articulo.imagen}" alt="${articulo.nombre}">
             <div class="detalles">
