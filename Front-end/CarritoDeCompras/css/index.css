@@ -259,7 +259,7 @@ main {
 
 input[type="text"] {
     padding-left: 1rem;
-    transition: .2s ease-out;
+    transition: all .2s ease-out;
     border-radius: 6.8px;
     border-bottom: .8px solid rgb(31, 82, 112);
     border-right: .8px solid rgb(49, 99, 146);
@@ -272,7 +272,6 @@ input[type="text"]:focus {
     border: none;
     width: 28rem;
     color: rgb(0, 0, 0);
-    font-weight: 500;
 }
 
 .filtro {

@@ -7,6 +7,92 @@
 body {
 	background: #181818;
 	font-family: 'Lato', sans-serif;
+    z-index: 5000;
+}
+
+.eligeOpcion {
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+	backdrop-filter: brightness(.6) ;
+	/*backdrop-filter: contrast(.2);*/
+}
+
+.eligeOpcion .contenido{
+    background: #fff;
+    border-radius: .3rem;
+    box-shadow: 0 1px 10px rgba(33, 41, 52, .75);
+    box-sizing:content-box;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 600px;
+    min-width: 320px !important;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.3rem;
+}
+.inputs {
+    display: flex;
+    position: relative;
+	font-size: 1.4rem;
+	padding: .5rem;
+}
+
+.input {
+	width: 1.3rem;
+	margin-right: .5rem;
+}
+
+.inputs p {
+	width: 10rem;
+}
+
+
+label h1 {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem;
+    position: relative;
+    width: fit-content;
+	margin-bottom: 1rem;
+}
+
+label {
+	width: 100%;
+	height: fit-content;
+	text-align: center;
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.content-buttons {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.content-buttons a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem;
+    background-color: #0080DE;
+    color: #FFF;
+    text-transform: uppercase;
+	border-radius: .3rem;
+	transition: .1s ease-in;
+}
+
+.content-buttons a:hover {
+    background-color: #006AB8;
 }
 
 .contenedor {
@@ -60,7 +146,6 @@ body {
 	object-fit: cover;
 	max-width: 80px;
     filter: drop-shadow(1px 1px 1px rgb(0, 0, 0));
-    
 }
 
 .delantera .chip {
@@ -152,7 +237,6 @@ body {
 
 
 .formulario-tarjeta label {
-	display: block;
 	color: #7d8994;
 	margin-bottom: 5px;
 	font-size: 16px;
@@ -219,7 +303,7 @@ body {
 }
 
 .formulario-tarjeta .grupo-select:hover i {
-	color: #d60bff;
+	color: #5c5c5c;
 }
 
 .formulario-tarjeta .btn-enviar {
@@ -233,5 +317,5 @@ body {
 }
 
 .formulario-tarjeta .btn-enviar:hover {
-	background: #18b14b;
+	background: #158d3d;
 }

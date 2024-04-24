@@ -1,3 +1,43 @@
+let close_button = document.getElementById('close-button');
+close_button.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('choosePayment').style.display = "none";
+});
+
+
+// OBTENER INFORMACIÓN DE LOS INPUTS
+const visaInput = document.getElementById('visa');
+const mastercardInput = document.getElementById('mastercard');
+
+// Función para cambiar la imagen de la tarjeta según la opción seleccionada
+function actualizarImagenTarjeta(opcionSeleccionada) {
+    const logoVisa = document.getElementById('imgVisa');
+    const logoMastercard = document.getElementById('imgMastercard');
+
+    if (opcionSeleccionada === 'visa') {
+        logoVisa.style.display = "inline";
+        logoMastercard.style.display = "none";
+    } else if (opcionSeleccionada === 'mastercard') {
+        logoVisa.style.display = "none";
+        logoMastercard.style.display = "inline";
+    }
+}
+
+// Event listener para el input de radio Visa
+visaInput.addEventListener('change', () => {
+    if (visaInput.checked) {
+        actualizarImagenTarjeta('visa');
+    }
+});
+
+// Event listener para el input de radio Mastercard
+mastercardInput.addEventListener('change', () => {
+    if (mastercardInput.checked) {
+        actualizarImagenTarjeta('mastercard');
+    }
+});
+
+
 const tarjeta = document.querySelector('#tarjeta'),
 	  formulario = document.querySelector('#formulario-tarjeta'),
 	  numeroTarjeta = document.querySelector('#tarjeta .numero'),

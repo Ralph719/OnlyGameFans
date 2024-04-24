@@ -33,7 +33,7 @@ body::after {
 .container-envio {
     margin-top: 4.375rem;
     padding: 2rem;
-    width: 65rem;
+    width: 50rem;
     height: fit-content;
     align-items: center;
     max-width: 80%;
@@ -68,6 +68,7 @@ body::after {
     background-color: rgba(216, 216, 216, 0.74);
     padding: .8rem;
     border-radius: .9rem;
+    margin-bottom: 2rem;
 }
 
 .container-form-child form{
@@ -84,13 +85,6 @@ body::after {
     background-color: rgb(237, 240, 241);
     color: rgb(15, 15, 15);
     border-radius: .3rem;
-}
-
-.indx::after {
-    content: ":";
-    text-decoration: none; 
-    display: inline-block;
-    margin-left: 5px; 
 }
 
 .container-form-nephew {
@@ -121,11 +115,11 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
-    outline: .3px solid rgb(46, 46, 247);
+    outline: .3px solid rgba(62, 62, 63, 0.651);
 }
 
 input[type="text"]:hover {
-    filter: drop-shadow(0px 0px 4px rgb(48, 48, 206));
+    filter: drop-shadow(0px 0px 4px rgb(126, 126, 129));
 }
 
 .boton.cinco span {
@@ -165,7 +159,6 @@ input[type="text"]:hover {
 
 .contenedor {
 	width: 1200px;
-    padding: 2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -205,8 +198,28 @@ input[type="text"]:hover {
 	transition: .3s ease all;
 }
 
+.advertencia {
+    position: relative;
+    margin: 1rem 0rem 0.5rem 0rem;
+    color: red;
+    font-size: 18px;
+}
+.disabled {
+    display: none;
+}
+
 footer {
     margin-top: 70px;
     background-color: rgb(23, 29, 29);
     height: 14rem;
+}
+
+@media (max-width: 768px) {
+    .boton.cinco{
+        width: 30%;
+    }
+
+    .boton.cinco span {
+        left: 18%;
+    }
 }
