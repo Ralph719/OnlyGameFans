@@ -36,7 +36,7 @@ body {
 .cuadrados {
     position: absolute;
     display: block;
-    border: 5px solid rgba(128, 0, 128, 0.9);
+    border: 5px solid rgba(39, 38, 39, 0.9);
     width: 30px;
     height: 30px;
     list-style: none;
@@ -128,7 +128,7 @@ body {
     width: 30px;
     height: 30px;
     list-style: none;
-    border: 5px solid red;
+    border: 5px solid rgb(58, 56, 56);
     border-radius: 50%;
     top: -75px;
 
@@ -216,7 +216,7 @@ body {
     list-style: none;
     width: 40px;
     height: 4px;
-    background-color: rgb(0, 0, 172);
+    background-color: rgb(77, 77, 82);
     top: -80px;
 
     animation: animacionFiguras 10s linear infinite;
@@ -229,7 +229,7 @@ body {
     height: 4px;
     top: 0;
     left: 50%;
-    background-color: rgb(0, 0, 172);
+    background-color: rgb(83, 83, 92);
     transform: translateX(-50%) rotate(90deg);
 }
 
@@ -409,7 +409,7 @@ body {
 .recta {
     position: absolute;
     fill: none;
-    stroke: rgba(0, 157, 0, 0.9);
+    stroke: rgba(119, 121, 119, 0.9);
     stroke-width: 6px;
     transform-origin: 120px 50px;
 
@@ -517,7 +517,7 @@ body {
     width: 300px;
     height: 100px;
     background-color: none;
-    border-top: 4px solid rgb(206, 188, 32);
+    border-top: 4px solid rgb(253, 194, 0);
     border-radius: 25%;
     filter: drop-shadow(0px -2px 5px rgb(206, 188, 32));
 }
@@ -797,7 +797,7 @@ input[type="text"]:focus, input[type="password"]:focus {
     text-align: center;
     display: inline-block;
     font-size: 23px;
-    color: rgb(228, 200, 46);
+    color: rgb(253, 194, 0);
     font-weight: 400;
 }
 
@@ -891,7 +891,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 
 .boton.seis:hover rect {
 	stroke-dashoffset: 0;
-    stroke: gold;
+    stroke: rgb(253, 194, 0);
 }
 
 /* CAJA DONDE SE ENCUENTRA EL LINK */
@@ -918,7 +918,7 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 .link-box a:hover {
-    color: rgb(14, 14, 218);
+    color: rgb(35, 35, 199);
     text-decoration: underline;
 }
 
@@ -968,19 +968,153 @@ input[type="text"]:focus, input[type="password"]:focus {
     */
 }
 
-/*@media (max-width: 1002px){
-    .container-form {
-        background-position-x: 150px;
-    }
-    footer {
-        
-    }
-
-}*/
-
-
 footer {
-    margin-top: 70px;
-    background-color: rgb(0, 42, 53);
-    height: 14rem;
+    margin-top: 48px;
+    background-color: rgb(23, 29, 29);
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer ol {
+    list-style: none;
+}
+
+footer ol li a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: cairo;
+    font-size: .9rem;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.container-footer h1 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    font-family: cairo;
+    color: rgb(199, 197, 197);
+}
+
+
+.container-footer ol {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-footer ol li {
+    padding: 1rem;
+}
+
+.container-footer ol li a {
+    transition: .09s ease-in;
+}
+
+.container-footer ol li a:hover {
+    color: rgb(253, 194, 0);
+}
+
+/* CONTENEDOR PARA LAS REDES SOCIALES */
+.container-rrss {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: center;
+}
+
+.rrss {
+    position: relative;
+    display: flex;
+    padding: .5rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.rrss a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: cairo;
+}
+
+.rrss a {
+    transition: .2s ease-in;
+}
+
+.rrss img {
+    width: 3.5rem;
+}
+
+.rrss a:hover {
+    color: rgb(253, 194, 0);
+}
+
+/* CONTENEDOR PARA FACEBOOK */
+.facebook {
+    transition: .1s ease-in;
+    padding: 2rem;
+}
+
+.facebook p {
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+}
+
+/* IMÁGEN FACEBOOK */
+.fb {
+    transition: all .2s ease-in;
+}
+
+.fb:hover {
+    filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
+}
+
+/* CONTENEDOR PARA INSTAGRAM */
+.instagram {
+    margin-right: 2rem;
+    margin-left: 2rem;
+    padding: 2rem;
+}
+
+.instagram p {
+    filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+}
+
+/* IMÁGEN INSTAGRAM */
+.ig {
+    transition: all .2s ease-in;
+}
+
+.ig:hover {
+    filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
+}
+
+/* CONTENEDOR PARA X O TWITTER COMO LO QUIERAS LLAMAR */
+.x {
+    transition: .1s ease-in;
+    padding: 2rem;
+}
+
+.x p {
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+}
+
+/* IMÁGEN X O TWITTER COMO LO QUIERAS LLAMAR */
+.x-twitter {
+    transition: all .2s ease-in;
+}
+
+.x-twitter:hover {
+    filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
 }

@@ -825,24 +825,47 @@ if (articulosEnCarritoLS) {
 }
 console.log(articulosEnCarrito);
 
-function agregarAlCarrito(e) {
+// CREAMOS LA VENTANA EMERGENTE Y EL BOTÓN DE CERRAR
+var modal = document.getElementById("modal");
+var span = document.getElementsByClassName("close")[0];
 
+// ABRIR LA VENTANA EMERGENTE CUANDO SE HACE CLICK EN EL BOTÓN
+function mostrarModal() {
+  modal.style.display = "block";
+}
+
+// CERRAR LA VENTANA EMERGENTE CUANDO SE HACE CLICK EN LA X
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// CERRAR LA VENTANA EMERGENTE CUANDO SE HACE CLICK FUERA DE LA VENTANA EMERGENTE
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function agregarAlCarrito(e) {
     const idBoton = e.currentTarget.id;
     const articuloAgregado = articulos.find(articulo => articulo.id_articulo === idBoton);
     
-    // VERIFICAMOS SI EL ARTÍCULO SELECCIONADO YA HA SIDO AGREGADO AL CARRITO ANTES
+    // Verificar si el artículo seleccionado ya ha sido agregado al carrito antes
     if(articulosEnCarrito.some(articulo => articulo.id_articulo === idBoton)) {
         const index = articulosEnCarrito.findIndex(articulo => articulo.id_articulo === idBoton);
         articulosEnCarrito[index].cantidad++;
     } else {
-    // AGREGAMOS EL NUEVO ARTÍCULO AL CARRITO
+        // Agregar el nuevo artículo al carrito
         articuloAgregado.cantidad = 1;
         articulosEnCarrito.push(articuloAgregado);
     }
     actualizarCantidadCarrito();
 
-    // GUARDAMOS LOS ARTÍCULOS AGREGADOS AL CARRITO EN EL ALMACENAMIENTO LOCAL DEL NAVEGADOR
+    // Guardar los artículos agregados al carrito en el almacenamiento local del navegador
     localStorage.setItem("articulos-en-carrito", JSON.stringify(articulosEnCarrito));
+    
+    // Mostrar la ventana emergente
+    mostrarModal();
 }
 
 function actualizarCantidadCarrito() {
