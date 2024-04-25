@@ -23,7 +23,7 @@ const articulos = [
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Housemarque",
-            genero: "Suspenso",
+            genero: "Terror",
             plataforma: "PlayStation 5",
         },
         disponibilidad: true,
@@ -47,7 +47,7 @@ const articulos = [
         id_articulo: "0004",
         nombre: "Assassin's Creed Valhalla",
         imagen: "imgJuegos/acValhalla_PS5.png",
-        precio: 59.99,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Ubisoft",
@@ -92,7 +92,7 @@ const articulos = [
         precio: 39.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Nintendo",
+            desarrollador: "Team 17",
             genero: "Cocina",
             plataforma: "Nintendo Switch",
         },
@@ -110,7 +110,7 @@ const articulos = [
             genero: "Rol",
             plataforma: "PlayStation 5",
         },
-        disponibilidad: true,
+        disponibilidad: false,
     },
 
     {
@@ -170,6 +170,20 @@ const articulos = [
     },
 
     {
+        id_articulo: "0013",
+        nombre: "It Takes Two",
+        imagen: "imgJuegos/ItTakesTwo_Nintendo.png",
+        precio: 29.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Hazelight Studios",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
         id_articulo: "0014",
         nombre: "Final Fantasy XV",
         imagen: "imgJuegos/ffXV_PS4.png",
@@ -190,7 +204,7 @@ const articulos = [
         precio: 44.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Milestone S.r.l",
+            desarrollador: "Milestone",
             genero: "Carreras",
             plataforma: "PlayStation 5"
         },
@@ -202,7 +216,7 @@ const articulos = [
         id_articulo: "0016",
         nombre: "Gran Turismo 7",
         imagen: "imgJuegos/GranTurismo7_PS5.png",
-        precio: 58.99,
+        precio: 54.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Polyphony Digital",
@@ -228,7 +242,7 @@ const articulos = [
 
     {
         id_articulo: "0018",
-        nombre: "Rise of the Ronin",
+        nombre: "Rise Of The Ronin",
         imagen: "imgJuegos/RiseRonin_PS5.png",
         precio: 59.99,
         categoria: {
@@ -298,13 +312,13 @@ const articulos = [
 
     {
         id_articulo: "0023",
-        nombre: "Cyberpunk",
+        nombre: "Cyberpunk 2077",
         imagen: "imgJuegos/Cyberpunk_PS5.png",
         precio: 49.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "CD Projekt",
-            genero: "Accion",
+            desarrollador: "CD Projekt Red",
+            genero: "Disparos",
             plataforma: "PlayStation 5"
         },
         disponibilidad: true,
@@ -374,7 +388,7 @@ const articulos = [
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Gearbox Software",
-            genero: "Shooter",
+            genero: "Disparos",
             plataforma: "PlayStation 4"
         },
         disponibilidad: true,
@@ -382,7 +396,7 @@ const articulos = [
 
     {
         id_articulo: "0029",
-        nombre: "The Leyend of Zelda : Tears of the Kingdom",
+        nombre: "The Leyend Of Zelda: Tears Of The Kingdom",
         imagen: "imgJuegos/LeyendOfZeldaTOTK_Nintendo.png",
         precio: 49.99,
         categoria: {
@@ -396,7 +410,7 @@ const articulos = [
 
     {
         id_articulo: "0030",
-        nombre: "Super Mario Odyssey ",
+        nombre: "Super Mario Odyssey",
         imagen: "imgJuegos/SuperMarioOdyssey_Nintendo.png",
         precio: 49.99,
         categoria: {
@@ -430,7 +444,7 @@ const articulos = [
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Gearbox Software",
-            genero: "Shooter",
+            genero: "Disparos",
             plataforma: "PlayStation 5"
         },
         disponibilidad: true,
@@ -440,7 +454,7 @@ const articulos = [
         id_articulo: "0033",
         nombre: "New Tales From The Borderland",
         imagen: "imgJuegos/newTalesPS5.png",
-        precio: 49.99,
+        precio: 39.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Gearbox Software",
@@ -452,9 +466,9 @@ const articulos = [
 
     {
         id_articulo: "0034",
-        nombre: "God of War Ragnarok",
+        nombre: "God of War: Ragnarok",
         imagen: "imgJuegos/GOWRagnarok_PS5.jpg",
-        precio: 69.99,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "SIE",
@@ -468,7 +482,7 @@ const articulos = [
         id_articulo: "0035",
         nombre: "Cuphead",
         imagen: "imgJuegos/Cuphead_Nintendo.png",
-        precio: 49.99,
+        precio: 39.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Studio MDHR",
@@ -480,21 +494,21 @@ const articulos = [
 
     {
         id_articulo: "0036",
-        nombre: "POR DEFINIR - PS4/PS5",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.99,
+        nombre: "Final Fantasy XVI",
+        imagen: "imgJuegos/FFXVI_PS5.png",
+        precio: 69.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4/5"
+            desarrollador: "Square Enix",
+            genero: "RPG",
+            plataforma: "PlayStation 5"
         },
         disponibilidad: true,
     },
 
     {
         id_articulo: "0037",
-        nombre: "Kirby y la tierra olvidada",
+        nombre: "Kirby Y La Tierra Olvidada",
         imagen: "imgJuegos/KirbyTO_Nintendo.png",
         precio: 49.99,
         categoria: {
@@ -508,90 +522,6 @@ const articulos = [
 
     {
         id_articulo: "0038",
-        nombre: "Hogwarts Lecacy",
-        imagen: "imgJuegos/HogwartsLegacy_Nintendo.png",
-        precio: 49.99,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Avalanche Software",
-            genero: "Aventuras",
-            plataforma: "Nintendo"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0039",
-        nombre: "Animal Crossing : New Horizons",
-        imagen: "imgJuegos/AnimalCrossing.NH_Nintendo.png",
-        precio: 49.99,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Nintendo",
-            genero: "Aventuras",
-            plataforma: "Nintendo"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0040",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.99,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0041",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.99,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0042",
-        nombre: "Resident Evil 4 Remake",
-        imagen: "imgJuegos/ResidentEvil4Remake_PS5.png",
-        precio: 49.99,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Capcom",
-            genero: "Terror",
-            plataforma: "PlayStation 5"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0043",
-        nombre: "POR DEFINIR - PS4/PS5",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.99,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4/5"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0044",
         nombre: "Gang Beasts",
         imagen: "imgJuegos/GangBeasts_Nintendo.png",
         precio: 24.99,
@@ -605,27 +535,13 @@ const articulos = [
     },
 
     {
-        id_articulo: "0045",
-        nombre: "POR DEFINIR - PS4/PS5",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
+        id_articulo: "0039",
+        nombre: "Animal Crossing: New Horizons",
+        imagen: "imgJuegos/AnimalCrossing.NH_Nintendo.png",
         precio: 49.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4/5"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0046",
-        nombre: "It takes two",
-        imagen: "imgJuegos/ItTakesTwo_Nintendo.png",
-        precio: 32.99,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Hazelight Studios",
+            desarrollador: "Nintendo",
             genero: "Aventuras",
             plataforma: "Nintendo"
         },
@@ -633,14 +549,14 @@ const articulos = [
     },
 
     {
-        id_articulo: "0047",
-        nombre: "Final Fantasy XVI",
-        imagen: "imgJuegos/FFXVI_PS5.png",
-        precio: 69.99,
+        id_articulo: "0040",
+        nombre: "Resident Evil 4 Remake",
+        imagen: "imgJuegos/ResidentEvil4Remake_PS5.png",
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Square Enix",
-            genero: "RPG",
+            desarrollador: "Capcom",
+            genero: "Terror",
             plataforma: "PlayStation 5"
         },
         disponibilidad: true,
@@ -678,7 +594,7 @@ const articulos = [
         id_articulo: "00300",
         nombre: "Xbox Series X",
         imagen: "imgConsolas/Xbox-Series-X.png",
-        precio: 499.99,
+        precio: 459.99,
         categoria: {
             id_categoria: "consolas",
             fabricante: "Microsoft",
@@ -733,7 +649,7 @@ const articulos = [
         precio: 519.99,
         categoria: {
             id_categoria: "consolas",
-            fabricante: "ValveCorporation",
+            fabricante: "Valve Corporation",
             plataforma: "Portatil",
         },
         disponibilidad: true,
