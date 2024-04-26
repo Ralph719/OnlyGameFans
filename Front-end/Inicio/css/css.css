@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.first {
+    position: sticky;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    row-gap: .3rem;
+    height: 8.9rem;
+    align-items: center;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/* ESPACIO ONLYGAMEFANS */
+.logo {
+    width: fit-content;
+    height: fit-content;
+}
+
+.logo img {
+    padding: 2rem;
+    width: 30rem;
+    background-color: rgb(36, 34, 34);
+}
+
+.acciones {
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ESPACIO BUSCADOR */
+.containerBuscador {
+    justify-content: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: 2rem;
+}
+
+.botonBuscador {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 0;
+    background-color: transparent;
+    padding-left: 2.5rem;
+    font-size: 1.7rem;
+
+    cursor: pointer;
+}
+
+.bi-search {
+    position: absolute;
+    transform: scale(1.4);
+
+    transition: all 0.2s ease-in-out;
+}
+
+.bi-search:hover {
+    transform: scale(1.6);
+}
+
+.buscador {
+    display: flex;
+    position: relative;
+    width: 16rem;
+    height: 2.5rem;
+    font-size: 19px;
+}
+
+input[type="text"] {
+    font-size: 1.2rem;
+    padding: 2rem;
+    width: 45rem;
+    padding-left: 1rem;
+    transition: all .2s ease-out;
+    border-radius: .3rem;
+    border-bottom: .8px solid rgb(31, 82, 112);
+    border-right: .8px solid rgb(49, 99, 146);
+    border-top: .8px solid rgb(64, 117, 167);
+    border-left: .8px solid rgb(102, 146, 187);
+}
+
+input[type="text"]:hover {
+    filter: drop-shadow(0px 1px 9px rgba(113, 180, 219, 0.473));
+}
+
+input[type="text"]:focus {
+    outline: 2px solid rgb(114, 177, 230);
+    border: none;
+    width: 50rem;
+    color: rgb(0, 0, 0);
+}
+
+input[type="text"]::selection {
+    color: rgb(126, 174, 236);
+    background-color: rgb(49, 81, 185);
+}
+
+.filtro {
+    display: none;
+}
+
+.acciones-usuario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22rem;
+    font-size: 4.5rem;
+    height: 8.9rem;
+}
+
+.acciones-usuario a {
+    transition: .1s ease-out;
+}
+
+.acciones-usuario a:hover {
+    color: rgb(241, 150, 13);
+}
+
+/* ESPACIO USUARIO */
+.user-space {
+    display: flex;
+    height: 8.9rem;
+    padding: 3rem;
+    align-items: center;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.user-space a {
+    color: black;
+}
+
+/* ESPACIO CARRITO */
+.botonCategoria {
+    display: flex;
+    color: rgb(0, 0, 0);
+    height: 8.9rem;
+    align-items: center;
+    padding: 3rem;
+
+    cursor: pointer;
+}
+
+
+.botonCategoria i {
+    transform: scale(1.5);
+}
