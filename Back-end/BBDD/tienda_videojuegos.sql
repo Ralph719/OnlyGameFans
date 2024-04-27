@@ -18,11 +18,11 @@ Create table `usuario` (
 
 
 Insert into usuario (nombre_completo, usuario, direccion, email, contraseña) values
-	('Pedro Milian', 'pedroM25', 'Paseo Independencia 8', 'pedrop@gmail.com', 'ee5cd7d5d96c8874117891b2c92a036f96918e66c102bc698ae77542c186f981'),
+	('Pedro Milian', 'pedroM25', 'Paseo Independencia 8', 'pedrom@gmail.com', 'ee5cd7d5d96c8874117891b2c92a036f96918e66c102bc698ae77542c186f981'),
     ('Sara Sanchez', 'saraS18', 'Avenida Madrid 125', 'saras@gmail.com', '3a6d64c24cf80b69ccda37650406467e8266667b50cfd0b984beb3651b129ed7'),
-    ('Alex García', 'alexG21', 'Calle Delicas 25', 'alexa@gmail.com', '4135aa9dc1b842a653dea846903ddb95bfb8c5a10c504a7fa16e10bc31d1fdf0'),
-    ('Juan Blesa', 'juanB35', 'Conde Aranda 2', 'juanj@gmail.com', 'ed08c290d7e22f7bb324b15cbadce35b0b348564fd2d5f95752388d86d71bcca'),
-    ('Cristina Pérez', 'cristinaP22', 'Calle Domingo Ram 17', 'cristinac@gmail.com', '15acfdc75fdb88851487238cd8442c5ecc8e0c31868ce9f52a4e2361ba899f2f');
+    ('Alex García', 'alexG21', 'Calle Delicas 25', 'alexg@gmail.com', '4135aa9dc1b842a653dea846903ddb95bfb8c5a10c504a7fa16e10bc31d1fdf0'),
+    ('Juan Blesa', 'juanB35', 'Conde Aranda 2', 'juanb@gmail.com', 'ed08c290d7e22f7bb324b15cbadce35b0b348564fd2d5f95752388d86d71bcca'),
+    ('Cristina Pérez', 'cristinaP22', 'Calle Domingo Ram 17', 'cristinap@gmail.com', '15acfdc75fdb88851487238cd8442c5ecc8e0c31868ce9f52a4e2361ba899f2f');
 
 
 Drop table if exists articulo;
@@ -276,3 +276,37 @@ Create index usuario_index on usuario (direccion, nombre_completo);
 Create index articulo_index on articulo (precio, disponibilidad);
 Create index pedido_index on pedido (pago_total, direccion);
 Create index genero_index on genero (nombre);
+
+
+-- PROCEDIMIENTO: Agregar un nuevo juego
+DROP PROCEDURE IF EXISTS agregar_nuevo_juego;
+
+DELIMITER $$
+CREATE PROCEDURE agregar_nuevo_juego(IN nombre varchar (50),IN precio double (6, 2), 
+									   IN cantidad int(4), IN desarrollador varchar (25), 
+                                       IN id_genero int (10), IN id_plataforma int (10))
+BEGIN
+	DECLARE ultimo_id INT;
+    DECLARE genero_count INT;
+    DECLARE plataforma_count INT;
+
+	-- Inserción del nuevo artículo
+	INSERT INTO articulo (nombre, precio, cantidad, disponibilidad) VALUES 
+		(nombre, precio, cantidad, true);
+	
+    -- Obtenemos el ID del último artículo insertado
+    SELECT LAST_INSERT_ID() INTO ultimo_id;
+    
+    -- Verificación de que el 'id_genero' e 'id_plataforma' existan
+    SELECT COUNT(*) INTO genero_count FROM genero WHERE id_genero = id_genero;
+    SELECT COUNT(*) INTO plataforma_count FROM plataforma WHERE id_plataforma = id_plataforma;
+    
+    IF genero_count = 0 OR plataforma_count = 0 THEN
+		ROLLBACK;
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Los IDs de género o plataforma proporcionados no existen';
+	ELSE
+        -- Inserción del nuevo juego
+        INSERT INTO juego (id_articulo, desarrollador, id_genero, id_plataforma) VALUES 
+			(ultimo_id, desarrollador, id_genero, id_plataforma);
+	END IF;
+END;

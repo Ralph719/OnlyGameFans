@@ -1,50 +1,62 @@
 package persistencia;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import logica.Usuario;
 
 public class ControladorPersistencia {
-    Connection conexion = null;
-    Statement stmt = null;
-
-    // Datos para la conexión a la BBDD
-    String url = "jdbc:mysql://localhost/tienda_videojuegos";
-    String user = "root";
-    String psw = "terry719";
+    private DataSource dataSource;
+    private Connection connection;
+    private PreparedStatement ps;
+    private ResultSet rs;
+    
+    public ControladorPersistencia() {
+        try {
+            Context initContext = new InitialContext();
+            Context envContext = (Context) initContext.lookup("java:/comp/env");
+            dataSource = (DataSource) envContext.lookup("jdbc/GameStoreDB");
+        } catch (NamingException e) {
+            System.out.println("Error al conectar con la BBDD: " + e);
+        }
+    }
     
     // Operación INSERT USER
-    public void crearUsuario(Usuario usuario) throws ClassNotFoundException {
+    public void crearUsuario(Usuario usuario) {
         // Obtenemos los datos del usuario
         String nombreCompleto = usuario.getNombre();
         String username = usuario.getUsername();
         String direccion = usuario.getDireccion();
         String email = usuario.getEmail();
         String password = usuario.getPassword();
-        
+
         int fila = -1;
-        
+
         // Operación
         String insercion = "INSERT INTO Usuario (nombre_completo, usuario, direccion, email, contraseña) "
-                            + "VALUES ('" + nombreCompleto + "', '" + username + "', '" 
-                            + direccion + "', '" + email + "', '" + password + "')";
-        
+                + "VALUES (?, ?, ?, ?, ?)";
+
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            
-            conexion = DriverManager.getConnection(url, user, psw);
-            stmt = conexion.createStatement();
-            
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(insercion);
+
+            // Establecemos los parámetros
+            ps.setString(1, nombreCompleto);
+            ps.setString(2, username);
+            ps.setString(3, direccion);
+            ps.setString(4, email);
+            ps.setString(5, password);
+
             // Inserción de los datos
-            fila = stmt.executeUpdate(insercion);
+            fila = ps.executeUpdate();
             System.out.println("Usuario registrado con éxito.");
-            
-            
-        } catch (SQLException | ClassNotFoundException e) {
+
+        } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         } finally {
             cerrarRecursos();
@@ -52,23 +64,24 @@ public class ControladorPersistencia {
     }
     
     // Operación SELECT
-    public boolean buscarUsuario(Usuario usuario) throws ClassNotFoundException {
+    public boolean buscarUsuario(Usuario usuario) {
         String userEmail = usuario.getUsername();
         String password = usuario.getPassword();
         
         int fila = -1;
         
         String consulta = "SELECT usuario, email, contraseña FROM Usuario " 
-                        + "WHERE ('" + userEmail + "' = usuario OR '" 
-                        + userEmail + "' = email) AND contraseña = '" + password + "'";
+                        + "WHERE (usuario = ? OR email = ?) AND contraseña = ?";
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(consulta);
             
-            conexion = DriverManager.getConnection(url, user, psw);
-            stmt = conexion.createStatement();
+            ps.setString(1, userEmail);
+            ps.setString(2, userEmail);
+            ps.setString(3, password);
             
-            ResultSet rs = stmt.executeQuery(consulta);
+            rs = ps.executeQuery();
             while (rs.next()) {
                 if(rs.getString("email") == null && rs.getString("usuario") == null) {
                     System.out.println("Nombre de usuario o email incorrecto.");
@@ -83,7 +96,7 @@ public class ControladorPersistencia {
                 }
             }
             
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             System.out.println("Error: " + e);
         } finally {
             cerrarRecursos();
@@ -92,18 +105,16 @@ public class ControladorPersistencia {
         return false;
     }
     
-    public boolean verificarUsuario(String username) throws ClassNotFoundException {
+    public boolean verificarUsuario(String username) {
         int fila = -1;
         
         String consulta = "SELECT usuario FROM Usuario";
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(consulta);
 
-            conexion = DriverManager.getConnection(url, user, psw);
-            stmt = conexion.createStatement();
-
-            ResultSet rs = stmt.executeQuery(consulta);
+            rs = ps.executeQuery();
             while (rs.next()) {
                 if(rs.getString("usuario").equals(username)) {
                     System.out.println("El nombre de usuario ya existe.");
@@ -111,7 +122,7 @@ public class ControladorPersistencia {
                 }
             }
             
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             System.out.println("Error: " + e);
         } finally {
             cerrarRecursos();
@@ -119,18 +130,16 @@ public class ControladorPersistencia {
         return false; // Devuelve false si no encuentra otro nombre de usuario igual
     }
     
-    public boolean verificarEmail(String email) throws ClassNotFoundException {
+    public boolean verificarEmail(String email) {
         int fila = -1;
         
         String consulta = "SELECT email FROM Usuario";
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(consulta);
 
-            conexion = DriverManager.getConnection(url, user, psw);
-            stmt = conexion.createStatement();
-
-            ResultSet rs = stmt.executeQuery(consulta);
+            rs = ps.executeQuery();
             while (rs.next()) {
                 if(rs.getString("email").equals(email)) {
                     System.out.println("El correo electrónico ya está registrado.");
@@ -138,7 +147,7 @@ public class ControladorPersistencia {
                 }
             }
             
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             System.out.println("Error: " + e);
         } finally {
             cerrarRecursos();
@@ -146,26 +155,27 @@ public class ControladorPersistencia {
         return false;
     }
     
-    public boolean verificarPassword(String userEmail, String password) throws ClassNotFoundException {
+    public boolean verificarPassword(String userEmail, String password) {
         int fila = -1;
         
         String consulta = "SELECT contraseña FROM Usuario " 
-                        + "WHERE usuario = '" + userEmail + "' OR email = '" + userEmail + "'";
+                        + "WHERE usuario = ? OR email = ?";
         
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(consulta);
             
-            conexion = DriverManager.getConnection(url, user, psw);
-            stmt = conexion.createStatement();
+            ps.setString(1, userEmail);
+            ps.setString(2, userEmail);
             
-            ResultSet rs = stmt.executeQuery(consulta);
+            rs = ps.executeQuery();
             while (rs.next()) {
                 if(rs.getString("contraseña").equals(password)) {
                     System.out.println("Contraseña correcta. Acceso concedido.");
                     return true;
                 }
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             System.out.println("Error: " + e);
         } finally {
             cerrarRecursos();
@@ -175,14 +185,17 @@ public class ControladorPersistencia {
     
     private void cerrarRecursos() {
         try {
-            if (stmt != null) {
-                stmt.close();
+            if (rs != null) {
+                rs.close();
             }
-            if (conexion != null) {
-                conexion.close();
+            if (ps != null) {
+                ps.close();
+            }
+            if (connection != null) {
+                connection.close();
             }
         } catch (SQLException ex) {
-            System.out.println("Error al cerrar recursos: " + ex.getMessage());
+            System.out.println("Error al cerrar los recursos: " + ex.getMessage());
         }
     }
 }

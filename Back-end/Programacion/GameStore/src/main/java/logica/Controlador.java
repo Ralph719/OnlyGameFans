@@ -6,51 +6,23 @@ import persistencia.ControladorPersistencia;
 public class Controlador {
     ControladorPersistencia controlPersistencia = new ControladorPersistencia();
     
-    public void crearUsuario(Usuario usuario) throws ClassNotFoundException {
-        try {
-            controlPersistencia.crearUsuario(usuario);
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error: " + e);
-        }
+    public void crearUsuario(Usuario usuario) {
+        controlPersistencia.crearUsuario(usuario);
     }
     
-    public boolean buscarUsuario(Usuario usuario) throws ClassNotFoundException {
-        try {
-            return controlPersistencia.buscarUsuario(usuario);
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error: " + e);
-        }
-        return false;
+    public boolean buscarUsuario(Usuario usuario) {
+        return controlPersistencia.buscarUsuario(usuario);
     }
     
-    public boolean verificarUsuario(String username) throws ClassNotFoundException {
-        try {
-            return controlPersistencia.verificarUsuario(username);
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error: " + e);
-        }
-        return false;
+    public boolean verificarUsuario(String username) {
+        return controlPersistencia.verificarUsuario(username);
     }
     
     public boolean verificarEmail(String email) throws ClassNotFoundException {
-        try {
-            return controlPersistencia.verificarEmail(email);
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error: " + e);
-        }
-        return false;
+        return controlPersistencia.verificarEmail(email);
     }
     
-    public boolean verificarPassword(String userEmail, String password) throws ClassNotFoundException {
-        try {
-            return controlPersistencia.verificarPassword(userEmail, password);
-        } catch (ClassNotFoundException e) {
-            System.out.println("Error: " + e);
-        }
-        return false;
+    public boolean verificarPassword(String userEmail, String password) {
+        return controlPersistencia.verificarPassword(userEmail, password);
     }
-    
-    /*public List<Usuario> traerUsuarios() {
-        return controlPersistencia.traerUsuarios();
-    }*/
 }

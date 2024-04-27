@@ -7,6 +7,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import logica.Usuario;
 import logica.Controlador;
 import persistencia.Encriptador;
@@ -52,14 +55,13 @@ public class SvRegistrarUsuario extends HttpServlet {
                         passwordWrong = true;
                     }
                 }
-
-                if (!userEmailNotExist && !passwordWrong) {
-                    // Credenciales correctas, redirigir al usuario a la página principal
-                    response.sendRedirect("CarritoDeCompras/index.html");
-                    return;
-                }
             } catch (ClassNotFoundException e) {
-                System.out.println("Error: " + e);
+                System.out.println("Error al cargar alguna clase: " +e);
+            }
+            if (!userEmailNotExist && !passwordWrong) {
+                // Credenciales correctas, redirigir al usuario a la página principal
+                response.sendRedirect("CarritoDeCompras/index.html");
+                return;
             }
         }
 
@@ -94,32 +96,32 @@ public class SvRegistrarUsuario extends HttpServlet {
         boolean emailRepetido = false;
 
         if (!campoVacio && !passwordNotEquals) {
-            try {
-                if (controlador.verificarUsuario(username)) {
-                    usernameRepetido = true;
-                }
+            if (controlador.verificarUsuario(username)) {
+                usernameRepetido = true;
+            }
 
+            try {
                 if (controlador.verificarEmail(email)) {
                     emailRepetido = true;
                 }
-
-                if (!usernameRepetido && !emailRepetido) {
-                    Usuario usuario = new Usuario();
-                    usuario.setNombre(nombreCompleto);
-                    usuario.setUsername(username);
-                    usuario.setDireccion(direccion);
-                    usuario.setEmail(email);
-
-                    String hashedPassword = encriptar.hashPassword(password);
-                    usuario.setPassword(hashedPassword);
-
-                    controlador.crearUsuario(usuario);
-                    response.sendRedirect("inicioSesion.jsp");
-
-                    return; // Salir del método después de la redirección
-                }
             } catch (ClassNotFoundException e) {
-                System.out.println("Error: " + e);
+                System.out.println("Error al cargar alguna clase: " + e);
+            }
+
+            if (!usernameRepetido && !emailRepetido) {
+                Usuario usuario = new Usuario();
+                usuario.setNombre(nombreCompleto);
+                usuario.setUsername(username);
+                usuario.setDireccion(direccion);
+                usuario.setEmail(email);
+
+                String hashedPassword = encriptar.hashPassword(password);
+                usuario.setPassword(hashedPassword);
+
+                controlador.crearUsuario(usuario);
+                response.sendRedirect("inicioSesion.jsp");
+
+                return; // Salir del método después de la redirección
             }
         }
 
