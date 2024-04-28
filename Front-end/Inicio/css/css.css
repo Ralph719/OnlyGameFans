@@ -115,8 +115,8 @@ input[type="text"]::selection {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 22rem;
-    font-size: 4.5rem;
+    width: fit-content;
+    font-size: 3.5rem;
     height: 8.9rem;
 }
 
@@ -134,7 +134,7 @@ input[type="text"]::selection {
     height: 8.9rem;
     padding: 3rem;
     align-items: center;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid black;
 }
 
 .user-space a {
@@ -155,4 +155,20 @@ input[type="text"]::selection {
 
 .botonCategoria i {
     transform: scale(1.5);
+}
+
+.second {
+    width: 100%;
+    background-color: black;
+    height: 4.5rem;
+}
+
+.slider {
+    border: 2px solid black;
+    position: relative;
+    display: flex;
+    height: 25rem;
+    width: 80%;
+    top: 5rem;
+    left: 10%;
 }
