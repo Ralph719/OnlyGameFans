@@ -23,21 +23,11 @@ group by consola.fabricante;
 Select*
 From usuario right join pedido on usuario.id_usuario=pedido.id_usuario;
 
- -- Sentencias las cuales nos diran los pedidos realizados durante esta semana, los realizados la semana pasada y la semana que viene
+ -- Sentencia la cual nos dará los pedidos realizados durante esta semana, los realizados la semana pasada y la semana que viene
  
 Select*
 From pedido
-where pedido.fecha_compra >= date_sub(curdate(), interval weekday(curdate())day)
-And pedido.fecha_compra < date_add(curdate(), interval 7 - weekday(curdate()) day);
-
-Select*
-From pedido
 where pedido.fecha_compra >= date_sub(curdate(), interval weekday(curdate()) + 7 day)
-And pedido.fecha_compra < date_sub(curdate(), interval weekday(curdate()) day);
-
-Select*
-From pedido
-where pedido.fecha_compra >= date_add(curdate(), interval 7 - weekday(curdate()) day)
 And pedido.fecha_compra < date_add(curdate(), interval 14 - weekday(curdate()) day);
 
 

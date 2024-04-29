@@ -267,7 +267,7 @@ Create table `pertenece` (
 Insert into pertenece values
 	(1, 10),
     (2, 2),
-    (3, 1),
+    (3, 1),4
     (4, 5),
     (5, 4);
 
@@ -279,10 +279,10 @@ Create index genero_index on genero (nombre);
 
 
 -- PROCEDIMIENTO: Agregar un nuevo juego
-DROP PROCEDURE IF EXISTS agregar_nuevo_juego;
+DROP PROCEDURE IF EXISTS agregar_juego;
 
 DELIMITER $$
-CREATE PROCEDURE agregar_nuevo_juego(IN nombre varchar (50),IN precio double (6, 2), 
+CREATE PROCEDURE agregar_juego(IN nombre varchar (50),IN precio double (6, 2), 
 									   IN cantidad int(4), IN desarrollador varchar (25), 
                                        IN id_genero int (10), IN id_plataforma int (10))
 BEGIN
@@ -309,4 +309,27 @@ BEGIN
         INSERT INTO juego (id_articulo, desarrollador, id_genero, id_plataforma) VALUES 
 			(ultimo_id, desarrollador, id_genero, id_plataforma);
 	END IF;
+END$$
+DELIMITER;
+
+
+-- PROCEDIMIENTO: Agregar una nueva consola
+DROP PROCEDURE IF EXISTS agregar_consola;
+
+DELIMITER $$
+CREATE PROCEDURE agregar_consola(IN nombre varchar (50),IN precio double (6, 2), 
+									   IN cantidad int(4), IN fabricante varchar (20),
+                                       IN tipo varchar(10))
+BEGIN
+	DECLARE ultimo_id INT;
+    
+    -- Inserción del nuevo artículo
+	INSERT INTO articulo (nombre, precio, cantidad, disponibilidad) VALUES 
+		(nombre, precio, cantidad, true);
+        
+	SELECT LAST_INSERT_ID() INTO ultimo_id;
+    
+    -- Inserción de la nueva consola
+    INSERT INTO consola VALUES
+		(ultimo_id, fabricante, tipo);
 END;
