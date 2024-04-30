@@ -91,33 +91,34 @@ Drop table if exists carrito_de_compras;
 Create table `carrito_de_compras`(
 	codigo_carrito int (10) auto_increment,
     estado varchar (15),
-    id_articulo int (10),
     id_usuario int (10),
     Primary key (codigo_carrito),
-    Foreign key (id_articulo) references articulo (id_articulo),
-    Foreign key (id_usuario) references usuario (id_usuario)
+    Foreign key (id_usuario) references usuario (id_usuario) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-Insert into carrito_de_compras (estado, id_articulo, id_usuario) values
-	('Vacío', 3, 1),
-    ('Vacío', 2, 2),
-    ('Comprado', 4, 1),
-    ('En espera', 2, 3),
-    ('En espera', 2, 5);
+Insert into carrito_de_compras (estado, id_usuario) values
+	('Comprado', 1),
+    ('Vacío', 2),
+    ('Comprado', 3),
+    ('Comprado', 4),
+    ('En espera', 5),
+    ('Comprado', 1);
 
 
 Drop table if exists contiene;
 Create table `contiene`(
-	id_articulo int (10),
     codigo_carrito int (10),
+	id_articulo int (10),
     Primary key(id_articulo, codigo_carrito),
     Foreign key (id_articulo) references articulo (id_articulo),
-    Foreign key (codigo_carrito) references carrito_de_compras (codigo_carrito)
+    Foreign key (codigo_carrito) references carrito_de_compras (codigo_carrito) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 Insert into contiene values
 	(1, 2),
-    (2, 3),
+    (1, 3),
+    (1, 30),
+    (1, 24),
     (3, 4),
     (4, 5),
     (5, 1);
@@ -132,17 +133,16 @@ Create table `pedido`(
     id_usuario int (10),
     codigo_carrito int (10),
     Primary key (id_pedido),
-    Foreign key (id_usuario) references usuario(id_usuario),
-    Foreign key (codigo_carrito) references carrito_de_compras(codigo_carrito),
+    Foreign key (id_usuario) references usuario(id_usuario) ON DELETE CASCADE,
+    Foreign key (codigo_carrito) references carrito_de_compras(codigo_carrito) ON DELETE CASCADE,
     check (pago_total > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 Insert into pedido (pago_total, direccion, fecha_compra, id_usuario, codigo_carrito) values 
 	(299.99, 'Paseo Independencia 8', '2024-04-15', 1, 1),
-    (159.97, 'Avenida Madrid 125', '2024-04-10', 2, 1),
-    (39.99, 'Avenida Madrid 125', '2024-04-25', 2, 4),
-    (15.98, 'Paseo Independencia 8', '2024-07-30', 1, 4),
-    (9.99, 'Calle Domingo Ram 17', '2024-05-28', 5, 2);
+    (39.99, 'Avenida Madrid 125', '2024-04-25', 3, 3),
+    (69.98, 'Paseo Independencia 8', '2024-07-30', 4, 4),
+    (250.00, 'Paseo Independencia 8', '2024-04-30', 1, 6);
 
 
 Drop table if exists consola;
@@ -267,7 +267,7 @@ Create table `pertenece` (
 Insert into pertenece values
 	(1, 10),
     (2, 2),
-    (3, 1),4
+    (3, 1),
     (4, 5),
     (5, 4);
 
@@ -333,3 +333,14 @@ BEGIN
     INSERT INTO consola VALUES
 		(ultimo_id, fabricante, tipo);
 END;
+
+
+-- VISTA: Ver artículos de un carrito que pertenece a un usuario
+DROP VIEW IF EXISTS articulos_en_carrito;
+
+CREATE VIEW articulos_en_carrito AS
+SELECT u.nombre_completo, c.codigo_carrito, c.id_articulo, a.nombre 
+FROM contiene c 
+INNER JOIN articulo a ON c.id_articulo = a.id_articulo
+INNER JOIN carrito_de_compras cc ON cc.codigo_carrito = c.codigo_carrito
+INNER JOIN usuario u ON u.id_usuario = cc.id_usuario;
