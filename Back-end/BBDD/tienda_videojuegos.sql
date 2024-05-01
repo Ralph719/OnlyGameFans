@@ -344,3 +344,18 @@ FROM contiene c
 INNER JOIN articulo a ON c.id_articulo = a.id_articulo
 INNER JOIN carrito_de_compras cc ON cc.codigo_carrito = c.codigo_carrito
 INNER JOIN usuario u ON u.id_usuario = cc.id_usuario;
+
+
+-- TRIGGER: Cambia el estado de un carrito a 'Comprado' cuando se registra un nuevo pedido con el mismo 'codigo_carrito'
+DROP TRIGGER IF EXISTS cambiar_estado_carrito
+
+DELIMITER $$
+CREATE TRIGGER cambiar_estado_carrito AFTER INSERT ON pedido
+FOR EACH ROW
+BEGIN
+	UPDATE carrito_de_compras
+    SET estado = 'Comprado'
+    WHERE carrito_de_compras.codigo_carrito = NEW.codigo_carrito
+    AND carrito_de_compras.estado = 'En espera'
+    AND carrito_de_compras.id_usuario = NEW.id_usuario;
+END;
