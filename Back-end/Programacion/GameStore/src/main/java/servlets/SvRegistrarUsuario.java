@@ -7,9 +7,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import logica.Usuario;
 import logica.Controlador;
 import persistencia.Encriptador;
@@ -59,7 +56,7 @@ public class SvRegistrarUsuario extends HttpServlet {
                 System.out.println("Error al cargar alguna clase: " +e);
             }
             if (!userEmailNotExist && !passwordWrong) {
-                // Credenciales correctas, redirigir al usuario a la página principal
+                // Si los datos ingresados son correctos, redirigir al usuario a la página principal
                 response.sendRedirect("CarritoDeCompras/index.html");
                 return;
             }

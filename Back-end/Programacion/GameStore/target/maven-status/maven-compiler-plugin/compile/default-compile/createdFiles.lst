@@ -4,9 +4,8 @@ servlets\SvRegistrarUsuario.class
 com\mycompany\gamestore\JakartaRestConfiguration.class
 persistencia\Encriptador.class
 com\mycompany\gamestore\resources\JakartaEE10Resource.class
-logica\Controlador.class
-logica\Usuario_.class
-persistencia\UsuarioJpaController.class
 persistencia\exceptions\NonexistentEntityException.class
 persistencia\exceptions\PreexistingEntityException.class
+logica\Controlador.class
 persistencia\exceptions\IllegalOrphanException.class
+logica\Usuario_.class

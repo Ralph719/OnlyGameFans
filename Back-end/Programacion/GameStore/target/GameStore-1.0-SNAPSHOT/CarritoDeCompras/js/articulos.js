@@ -23,7 +23,7 @@ const articulos = [
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Housemarque",
-            genero: "Suspenso",
+            genero: "Terror",
             plataforma: "PlayStation 5",
         },
         disponibilidad: true,
@@ -47,7 +47,7 @@ const articulos = [
         id_articulo: "0004",
         nombre: "Assassin's Creed Valhalla",
         imagen: "imgJuegos/acValhalla_PS5.png",
-        precio: 59.99,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Ubisoft",
@@ -92,7 +92,7 @@ const articulos = [
         precio: 39.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Nintendo",
+            desarrollador: "Team 17",
             genero: "Cocina",
             plataforma: "Nintendo Switch",
         },
@@ -110,7 +110,7 @@ const articulos = [
             genero: "Rol",
             plataforma: "PlayStation 5",
         },
-        disponibilidad: true,
+        disponibilidad: false,
     },
 
     {
@@ -170,6 +170,20 @@ const articulos = [
     },
 
     {
+        id_articulo: "0013",
+        nombre: "It Takes Two",
+        imagen: "imgJuegos/ItTakesTwo_Nintendo.png",
+        precio: 29.99,
+        categoria: {
+            id_categoria: "juegos",
+            desarrollador: "Hazelight Studios",
+            genero: "Aventuras",
+            plataforma: "Nintendo"
+        },
+        disponibilidad: true,
+    },
+
+    {
         id_articulo: "0014",
         nombre: "Final Fantasy XV",
         imagen: "imgJuegos/ffXV_PS4.png",
@@ -190,7 +204,7 @@ const articulos = [
         precio: 44.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Milestone S.r.l",
+            desarrollador: "Milestone",
             genero: "Carreras",
             plataforma: "PlayStation 5"
         },
@@ -202,7 +216,7 @@ const articulos = [
         id_articulo: "0016",
         nombre: "Gran Turismo 7",
         imagen: "imgJuegos/GranTurismo7_PS5.png",
-        precio: 58.90,
+        precio: 54.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Polyphony Digital",
@@ -228,7 +242,7 @@ const articulos = [
 
     {
         id_articulo: "0018",
-        nombre: "Rise of the Ronin",
+        nombre: "Rise Of The Ronin",
         imagen: "imgJuegos/RiseRonin_PS5.png",
         precio: 59.99,
         categoria: {
@@ -258,7 +272,7 @@ const articulos = [
         id_articulo: "0020",
         nombre: "Unravel Two",
         imagen: "imgJuegos/UnravelTwo_Nintendo.png",
-        precio: 39.90,
+        precio: 39.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Coldwood Interactive",
@@ -272,7 +286,7 @@ const articulos = [
         id_articulo: "0021",
         nombre: "Mario Kart Deluxe 8",
         imagen: "imgJuegos/MarioKartDeluxe8_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Nintendo",
@@ -286,7 +300,7 @@ const articulos = [
         id_articulo: "0022",
         nombre: "The Crew Motorfest",
         imagen: "imgJuegos/TheCrewMotorfest_PS5.png",
-        precio: 35.90,
+        precio: 35.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Ubisoft Ivory Tower",
@@ -298,13 +312,13 @@ const articulos = [
 
     {
         id_articulo: "0023",
-        nombre: "Cyberpunk",
+        nombre: "Cyberpunk 2077",
         imagen: "imgJuegos/Cyberpunk_PS5.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "CD Projekt",
-            genero: "Accion",
+            desarrollador: "CD Projekt Red",
+            genero: "Disparos",
             plataforma: "PlayStation 5"
         },
         disponibilidad: true,
@@ -314,7 +328,7 @@ const articulos = [
         id_articulo: "0024",
         nombre: "Pokemon Purpura",
         imagen: "imgJuegos/PokemonPurpura_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Game Freak",
@@ -328,7 +342,7 @@ const articulos = [
         id_articulo: "0025",
         nombre: "Pokemon Escarlata",
         imagen: "imgJuegos/PokemonEscarlata_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Game Freak",
@@ -341,8 +355,8 @@ const articulos = [
     {
         id_articulo: "0026",
         nombre: "Far Cry 6",
-        imagen: "imgJuegos/",
-        precio: 49.90,
+        imagen: "imgJuegos/farCry6PS5.png",
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Ubisoft",
@@ -356,7 +370,7 @@ const articulos = [
         id_articulo: "0027",
         nombre: "Super Mario 3D Worlds + Bowser's Fury",
         imagen: "imgJuegos/Mario3DWorldsBF_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Nintendo",
@@ -368,13 +382,13 @@ const articulos = [
 
     {
         id_articulo: "0028",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        nombre: "Borderlands 3",
+        imagen: "imgJuegos/borderlands3PS4.png",
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
+            desarrollador: "Gearbox Software",
+            genero: "Disparos",
             plataforma: "PlayStation 4"
         },
         disponibilidad: true,
@@ -382,9 +396,9 @@ const articulos = [
 
     {
         id_articulo: "0029",
-        nombre: "The Leyend of Zelda : Tears of the Kingdom",
+        nombre: "The Leyend Of Zelda: Tears Of The Kingdom",
         imagen: "imgJuegos/LeyendOfZeldaTOTK_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Nintendo",
@@ -396,9 +410,9 @@ const articulos = [
 
     {
         id_articulo: "0030",
-        nombre: "Super Mario Odyssey ",
+        nombre: "Super Mario Odyssey",
         imagen: "imgJuegos/SuperMarioOdyssey_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Nintendo",
@@ -412,7 +426,7 @@ const articulos = [
         id_articulo: "0031",
         nombre: "Mario Strikers Battle League Football",
         imagen: "imgJuegos/MarioStrikersBattleLeagueFootball_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Next Level Games",
@@ -424,37 +438,37 @@ const articulos = [
 
     {
         id_articulo: "0032",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        nombre: "Wonderlands Next Level Edition",
+        imagen: "imgJuegos/wonderlandsPS5.png",
+        precio: 69.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4"
+            desarrollador: "Gearbox Software",
+            genero: "Disparos",
+            plataforma: "PlayStation 5"
         },
         disponibilidad: true,
     },
 
     {
         id_articulo: "0033",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        nombre: "New Tales From The Borderland",
+        imagen: "imgJuegos/newTalesPS5.png",
+        precio: 39.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4"
+            desarrollador: "Gearbox Software",
+            genero: "Aventura",
+            plataforma: "PlayStation 5"
         },
         disponibilidad: true,
     },
 
     {
         id_articulo: "0034",
-        nombre: "God of War Ragnarok",
+        nombre: "God of War: Ragnarok",
         imagen: "imgJuegos/GOWRagnarok_PS5.jpg",
-        precio: 69.99,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "SIE",
@@ -468,7 +482,7 @@ const articulos = [
         id_articulo: "0035",
         nombre: "Cuphead",
         imagen: "imgJuegos/Cuphead_Nintendo.png",
-        precio: 49.90,
+        precio: 39.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "Studio MDHR",
@@ -480,23 +494,23 @@ const articulos = [
 
     {
         id_articulo: "0036",
-        nombre: "POR DEFINIR - PS4/PS5",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        nombre: "Final Fantasy XVI",
+        imagen: "imgJuegos/FFXVI_PS5.png",
+        precio: 69.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4/5"
+            desarrollador: "Square Enix",
+            genero: "RPG",
+            plataforma: "PlayStation 5"
         },
         disponibilidad: true,
     },
 
     {
         id_articulo: "0037",
-        nombre: "Kirby y la tierra olvidada",
+        nombre: "Kirby Y La Tierra Olvidada",
         imagen: "imgJuegos/KirbyTO_Nintendo.png",
-        precio: 49.90,
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
             desarrollador: "HAL Laboratory",
@@ -508,90 +522,6 @@ const articulos = [
 
     {
         id_articulo: "0038",
-        nombre: "Hogwarts Lecacy",
-        imagen: "imgJuegos/HogwartsLegacy_Nintendo.png",
-        precio: 49.90,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Avalanche Software",
-            genero: "Aventuras",
-            plataforma: "Nintendo"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0039",
-        nombre: "Animal Crossing : New Horizons",
-        imagen: "imgJuegos/AnimalCrossing.NH_Nintendo.png",
-        precio: 49.90,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Nintendo",
-            genero: "Aventuras",
-            plataforma: "Nintendo"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0040",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0041",
-        nombre: "POR DEFINIR - PS4",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0042",
-        nombre: "Resident Evil 4 Remake",
-        imagen: "imgJuegos/ResidentEvil4Remake_PS5.png",
-        precio: 49.90,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Capcom",
-            genero: "Terror",
-            plataforma: "PlayStation 5"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0043",
-        nombre: "POR DEFINIR - PS4/PS5",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4/5"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0044",
         nombre: "Gang Beasts",
         imagen: "imgJuegos/GangBeasts_Nintendo.png",
         precio: 24.99,
@@ -605,27 +535,13 @@ const articulos = [
     },
 
     {
-        id_articulo: "0044",
-        nombre: "POR DEFINIR - PS4/PS5",
-        imagen: "imgJuegos/GranTurismo7_PS4.png",
-        precio: 49.90,
+        id_articulo: "0039",
+        nombre: "Animal Crossing: New Horizons",
+        imagen: "imgJuegos/AnimalCrossing.NH_Nintendo.png",
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Polyphony Digital",
-            genero: "Aventuras",
-            plataforma: "PlayStation 4/5"
-        },
-        disponibilidad: true,
-    },
-
-    {
-        id_articulo: "0044",
-        nombre: "It takes two",
-        imagen: "imgJuegos/ItTakesTwo_Nintendo.png",
-        precio: 32.50,
-        categoria: {
-            id_categoria: "juegos",
-            desarrollador: "Hazelight Studios",
+            desarrollador: "Nintendo",
             genero: "Aventuras",
             plataforma: "Nintendo"
         },
@@ -633,20 +549,18 @@ const articulos = [
     },
 
     {
-        id_articulo: "0044",
-        nombre: "Final Fantasy XVI",
-        imagen: "imgJuegos/FFXVI_PS5.png",
-        precio: 69.99,
+        id_articulo: "0040",
+        nombre: "Resident Evil 4 Remake",
+        imagen: "imgJuegos/ResidentEvil4Remake_PS5.png",
+        precio: 49.99,
         categoria: {
             id_categoria: "juegos",
-            desarrollador: "Square Enix",
-            genero: "RPG",
+            desarrollador: "Capcom",
+            genero: "Terror",
             plataforma: "PlayStation 5"
         },
         disponibilidad: true,
     },
-
-
 
 
     // CONSOLAS
@@ -680,7 +594,7 @@ const articulos = [
         id_articulo: "00300",
         nombre: "Xbox Series X",
         imagen: "imgConsolas/Xbox-Series-X.png",
-        precio: 499.99,
+        precio: 459.99,
         categoria: {
             id_categoria: "consolas",
             fabricante: "Microsoft",
@@ -735,14 +649,11 @@ const articulos = [
         precio: 519.99,
         categoria: {
             id_categoria: "consolas",
-            fabricante: "ValveCorporation",
+            fabricante: "Valve Corporation",
             plataforma: "Portatil",
         },
         disponibilidad: true,
     },
-
-    
-
 
 ]
 
@@ -764,7 +675,7 @@ function cargarArticulos(articulosElegidos) {
     articulosElegidos.forEach(articulo => {
 
         const div = document.createElement("div");
-        div.classList.add("producto");
+        div.classList.add("producto", "enabled");
         div.innerHTML = `
             <img src="${articulo.imagen}" alt="${articulo.nombre}">
             <div class="detalles">
@@ -830,24 +741,47 @@ if (articulosEnCarritoLS) {
 }
 console.log(articulosEnCarrito);
 
-function agregarAlCarrito(e) {
+// CREAMOS LA VENTANA EMERGENTE Y EL BOTÓN DE CERRAR
+var modal = document.getElementById("modal");
+var span = document.getElementsByClassName("close")[0];
 
+// ABRIR LA VENTANA EMERGENTE CUANDO SE HACE CLICK EN EL BOTÓN
+function mostrarModal() {
+  modal.style.display = "block";
+}
+
+// CERRAR LA VENTANA EMERGENTE CUANDO SE HACE CLICK EN LA X
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// CERRAR LA VENTANA EMERGENTE CUANDO SE HACE CLICK FUERA DE LA VENTANA EMERGENTE
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+function agregarAlCarrito(e) {
     const idBoton = e.currentTarget.id;
     const articuloAgregado = articulos.find(articulo => articulo.id_articulo === idBoton);
     
-    // VERIFICAMOS SI EL ARTÍCULO SELECCIONADO YA HA SIDO AGREGADO AL CARRITO ANTES
+    // Verificar si el artículo seleccionado ya ha sido agregado al carrito antes
     if(articulosEnCarrito.some(articulo => articulo.id_articulo === idBoton)) {
         const index = articulosEnCarrito.findIndex(articulo => articulo.id_articulo === idBoton);
         articulosEnCarrito[index].cantidad++;
     } else {
-    // AGREGAMOS EL NUEVO ARTÍCULO AL CARRITO
+        // Agregar el nuevo artículo al carrito
         articuloAgregado.cantidad = 1;
         articulosEnCarrito.push(articuloAgregado);
     }
     actualizarCantidadCarrito();
 
-    // GUARDAMOS LOS ARTÍCULOS AGREGADOS AL CARRITO EN EL ALMACENAMIENTO LOCAL DEL NAVEGADOR
+    // Guardar los artículos agregados al carrito en el almacenamiento local del navegador
     localStorage.setItem("articulos-en-carrito", JSON.stringify(articulosEnCarrito));
+    
+    // Mostrar la ventana emergente
+    mostrarModal();
 }
 
 function actualizarCantidadCarrito() {

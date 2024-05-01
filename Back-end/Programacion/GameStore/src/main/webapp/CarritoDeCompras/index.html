@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="../Logos/LogoPaginaWeb.png">
+        <link rel="shortcut icon" href="../Logos/LogoFinal.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,10 +27,10 @@
 
                 <div class="container-user-space">
                     <div class="user-space">
-                        <a href="../InicioSesión/InicioSesion.html">
+                        <a href="../inicioSesion.jsp">
                             <img src="../Logos/icono_usuario.png" id="icono-usuario">
                         </a>
-                        <a href="../InicioSesión/InicioSesion.html">
+                        <a href="../inicioSesion.jsp">
                             <span>
                                 <p>Tu cuenta</p>
                             </span>
@@ -59,21 +59,43 @@
                         </li>
                     </ul>
                 </nav>
+
                 <footer>
-                    <p class="textoFooter">© 2024 Gamestore Shop</p>
+                    <p class="textoFooter">© 2024 OnlyGameFans</p>
                 </footer>
+
             </aside>
 
             <!--DE ESTE LADO SE MOSTRARÁN LOS PRODUCTOS-->
             <main>
-                <h2 class="tituloPrincipal" id="tituloPrincipal">Todos los productos</h2>
+                <div class="titulo">
+                    <h2 class="tituloPrincipal" id="tituloPrincipal">Todos los productos</h2>
+
+                    <div class="containerBuscador">
+                        <input type="text" name="buscador" class="buscador" id="buscador" placeholder="Buscar...">
+                        <button class="botonBuscador"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
 
                 <div class="containerProductos" id="containerProductos">
                     <!--LOS PRODUCTOS SERÁN CARGADOS CON JAVASCRIPT-->
                 </div>
+
+                <!-- VENTANA EMERGENTE -->
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <p>Artículo agregado al carrito correctamente.</p>
+                    </div>
+                  </div>
+                  
             </main>
+
         </div>
 
+        <script src="js/buscador.js"></script>
         <script src="js/articulos.js"></script>
+
     </body>
+
 </html>

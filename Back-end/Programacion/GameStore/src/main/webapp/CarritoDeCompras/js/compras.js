@@ -108,6 +108,7 @@ function actualizarTotal() {
 
 botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito() {
+
     articulosEnCarrito.length = 0;
     localStorage.setItem("articulos-en-carrito", JSON.stringify(articulosEnCarrito));
 

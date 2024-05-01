@@ -1,6 +1,5 @@
 package logica;
 
-import java.util.List;
 import persistencia.ControladorPersistencia;
 
 public class Controlador {

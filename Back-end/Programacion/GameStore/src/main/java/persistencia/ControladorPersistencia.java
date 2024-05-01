@@ -26,6 +26,10 @@ public class ControladorPersistencia {
         }
     }
     
+    public ControladorPersistencia(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
+    
     // Operación INSERT USER
     public void crearUsuario(Usuario usuario) {
         // Obtenemos los datos del usuario
@@ -171,7 +175,7 @@ public class ControladorPersistencia {
             rs = ps.executeQuery();
             while (rs.next()) {
                 if(rs.getString("contraseña").equals(password)) {
-                    System.out.println("Contraseña correcta. Acceso concedido.");
+                    System.out.println("Inicio de sesión exitoso.");
                     return true;
                 }
             }
@@ -198,4 +202,5 @@ public class ControladorPersistencia {
             System.out.println("Error al cerrar los recursos: " + ex.getMessage());
         }
     }
+
 }
