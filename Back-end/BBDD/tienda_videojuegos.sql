@@ -278,6 +278,22 @@ Create index pedido_index on pedido (pago_total, direccion);
 Create index genero_index on genero (nombre);
 
 
+-- TRIGGER: Cambia el estado de un carrito a 'Comprado' cuando se registra un nuevo pedido con el mismo 'codigo_carrito'
+DROP TRIGGER IF EXISTS cambiar_estado_carrito;
+
+DELIMITER $$
+CREATE TRIGGER cambiar_estado_carrito AFTER INSERT ON pedido
+FOR EACH ROW
+BEGIN
+	UPDATE carrito_de_compras
+    SET estado = 'Comprado'
+    WHERE carrito_de_compras.codigo_carrito = NEW.codigo_carrito
+    AND carrito_de_compras.estado = 'En espera'
+    AND carrito_de_compras.id_usuario = NEW.id_usuario;
+END$$
+DELIMITER ;
+
+
 -- PROCEDIMIENTO: Agregar un nuevo juego
 DROP PROCEDURE IF EXISTS agregar_juego;
 
@@ -310,7 +326,7 @@ BEGIN
 			(ultimo_id, desarrollador, id_genero, id_plataforma);
 	END IF;
 END$$
-DELIMITER;
+DELIMITER ;
 
 
 -- PROCEDIMIENTO: Agregar una nueva consola
@@ -332,7 +348,8 @@ BEGIN
     -- Inserción de la nueva consola
     INSERT INTO consola VALUES
 		(ultimo_id, fabricante, tipo);
-END;
+END$$
+DELIMITER ;
 
 
 -- VISTA: Ver artículos de un carrito que pertenece a un usuario
@@ -346,16 +363,30 @@ INNER JOIN carrito_de_compras cc ON cc.codigo_carrito = c.codigo_carrito
 INNER JOIN usuario u ON u.id_usuario = cc.id_usuario;
 
 
--- TRIGGER: Cambia el estado de un carrito a 'Comprado' cuando se registra un nuevo pedido con el mismo 'codigo_carrito'
-DROP TRIGGER IF EXISTS cambiar_estado_carrito
+-- VISTA: Muestra los detalles completos de los videojuegos
+CREATE VIEW detalles_juego AS
+SELECT a.id_articulo, a.nombre, a.precio, g.nombre AS 'genero', j.desarrollador, p.nombre AS 'plataforma',
+	CASE
+		WHEN a.disponibilidad = 1 THEN 'Sí'
+		WHEN a.disponibilidad = 0 THEN 'No'
+		ELSE 'NA'
+	END AS disponibilidad
+FROM articulo a
+INNER JOIN juego j ON j.id_articulo = a.id_articulo
+INNER JOIN genero g ON g.id_genero = j.id_genero
+INNER JOIN plataforma p ON p.id_plataforma = j.id_plataforma;
+
+
+-- VISTA: Muestra los detalles completos de las consolas
+DROP VIEW IF EXISTS detalles_consola;
 
 DELIMITER $$
-CREATE TRIGGER cambiar_estado_carrito AFTER INSERT ON pedido
-FOR EACH ROW
-BEGIN
-	UPDATE carrito_de_compras
-    SET estado = 'Comprado'
-    WHERE carrito_de_compras.codigo_carrito = NEW.codigo_carrito
-    AND carrito_de_compras.estado = 'En espera'
-    AND carrito_de_compras.id_usuario = NEW.id_usuario;
-END;
+CREATE VIEW detalles_consola AS
+SELECT a.id_articulo, a.nombre, a.precio, c.fabricante, c.tipo,
+	CASE
+		WHEN a.disponibilidad = 1 THEN 'Sí'
+		WHEN a.disponibilidad = 0 THEN 'No'
+		ELSE 'NA'
+	END AS disponibilidad
+FROM articulo a
+INNER JOIN consola c ON c.id_articulo = a.id_articulo;
