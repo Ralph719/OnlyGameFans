@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+*::selection {
+    color: rgb(109, 139, 219);
+    background-color: gainsboro;
+}
 
 :root {
    /* --clr-green: rgb(27, 30, 77); /* COLOR ORIGINAL */
@@ -196,7 +200,7 @@ main {
     background-color: whitesmoke;
     margin: 1rem;
     margin-left: 0;
-    border-radius: .8rem;
+    border-radius: .3rem;
     padding: 2rem 1rem 2rem 2rem;
 }
 
@@ -288,13 +292,29 @@ input[type="text"]:focus {
 .containerProductos {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 1.3rem;
+}
+
+.producto {
+    padding: 1.3rem 0 1.3rem 0;
+    background-color: rgba(214, 208, 208, 0.432);
+    border-radius: .8rem;
+    transition: .1s;
+}
+
+.producto:hover {
+    filter: drop-shadow(1px 1px 10px  rgba(153, 150, 150, 0.603));
+    transform: translate(.3%, -1%);
+    outline: 1px solid rgb(77, 77, 80);
+    outline-offset: .3rem;
+    outline-style:groove;
 }
 
 /* IMÁGEN DEL PRODUCTO */
 .producto img {
     max-width: 70%;
     border-radius: 0rem;
+    transition: .1s;
 }
 
 /* ESPECIFICACIONES DEL PRODUCTO */
@@ -306,7 +326,7 @@ input[type="text"]:focus {
     color: whitesmoke;
     margin: 0.3rem 0;
     padding: 0.5rem 0.7rem;
-    border-radius: .67rem;
+    border-radius: .36rem;
     width: 70%;
     font-family: cairo;
 }
@@ -334,7 +354,7 @@ input[type="text"]:focus {
     color: var(--clr-green);
     padding: 0.25rem;
     text-transform: uppercase;
-    border-radius: .3rem;
+    border-radius: .16rem;
     /*border: 2px solid whitesmoke;*/
     font-weight: 700;
     letter-spacing: .5px;
@@ -375,11 +395,11 @@ input[type="text"]:focus {
     background-color: #fefefe;
     margin: 20% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 8px solid rgba(214, 208, 208, 0.432);
     width: 23%;
     font-family: cairo;
-    border-radius: .3rem;
-    filter: drop-shadow(4px 5px 1px black);
+    border-radius: .2rem;
+    filter: drop-shadow(1px 1px 5px rgba(233, 227, 227, 0.637));
 }
   
 /* BOTÓN PARA CERRAR LA VENTANA EMERGENTE */

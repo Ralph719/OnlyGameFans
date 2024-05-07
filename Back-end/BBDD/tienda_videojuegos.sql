@@ -30,7 +30,7 @@ Create table `articulo`(
 	id_articulo int (10) auto_increment,
     nombre varchar (50) not null,
     precio double (6, 2) not null,
-    cantidad int(4) not null,
+    cantidad int(3) not null,
     disponibilidad boolean not null,
     primary key (id_articulo),
     check (precio > 0),
@@ -299,7 +299,7 @@ DROP PROCEDURE IF EXISTS agregar_juego;
 
 DELIMITER $$
 CREATE PROCEDURE agregar_juego(IN nombre varchar (50),IN precio double (6, 2), 
-									   IN cantidad int(4), IN desarrollador varchar (25), 
+									   IN cantidad int(3), IN desarrollador varchar (25), 
                                        IN id_genero int (10), IN id_plataforma int (10))
 BEGIN
 	DECLARE ultimo_id INT;
@@ -334,7 +334,7 @@ DROP PROCEDURE IF EXISTS agregar_consola;
 
 DELIMITER $$
 CREATE PROCEDURE agregar_consola(IN nombre varchar (50),IN precio double (6, 2), 
-									   IN cantidad int(4), IN fabricante varchar (20),
+									   IN cantidad int(3), IN fabricante varchar (20),
                                        IN tipo varchar(10))
 BEGIN
 	DECLARE ultimo_id INT;

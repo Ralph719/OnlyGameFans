@@ -1,3 +1,4 @@
+// PARA VENTANA EMERGENTE 
 let close_button = document.getElementById('close-button');
 close_button.addEventListener('click', function(e) {
     e.preventDefault();
@@ -9,7 +10,7 @@ close_button.addEventListener('click', function(e) {
 const visaInput = document.getElementById('visa');
 const mastercardInput = document.getElementById('mastercard');
 
-// Función para cambiar la imagen de la tarjeta según la opción seleccionada
+// CAMBIAR LA IMÁGEN DE LA TARJETA SEGÚN LA ELECCIÓN
 function actualizarImagenTarjeta(opcionSeleccionada) {
     const logoVisa = document.getElementById('imgVisa');
     const logoMastercard = document.getElementById('imgMastercard');
@@ -23,20 +24,21 @@ function actualizarImagenTarjeta(opcionSeleccionada) {
     }
 }
 
-// Event listener para el input de radio Visa
+// REGISTRAMOS LA OPCIÓN QUE ELIJAMOS PARA EJECUTAR EL MÉTODO DESPUÉS
+
 visaInput.addEventListener('change', () => {
     if (visaInput.checked) {
         actualizarImagenTarjeta('visa');
     }
 });
 
-// Event listener para el input de radio Mastercard
 mastercardInput.addEventListener('change', () => {
     if (mastercardInput.checked) {
         actualizarImagenTarjeta('mastercard');
     }
 });
 
+// ATRIBUTOS DE LA TARJETA-FORMULARIO
 
 const tarjeta = document.querySelector('#tarjeta'),
 	  formulario = document.querySelector('#formulario-tarjeta'),
@@ -49,15 +51,15 @@ const tarjeta = document.querySelector('#tarjeta'),
 	  ccv = document.querySelector('#tarjeta .ccv');
 
 
-// * Select del mes generado dinamicamente.
+// PARA SELECCIONAR EL MES
 for(let i = 1; i <= 12; i++){
 	let opcion = document.createElement('option');
-	opcion.value = i;
-	opcion.innerText = i;
-	formulario.selectMes.appendChild(opcion);
+	opcion.value = i; // ESTABLECEMOS EL VALOR DE LA OPCIÓN COMO EL NÚMERO DEL MES
+	opcion.innerText = i; // ESTABLECEMOS EL TEXTO INTERNO DE LA OPCIÓN COMO EL NÚMERO DE MES
+	formulario.selectMes.appendChild(opcion); // AGREGAMOS LA OPCIÓN CREADA AL SELECTOR DE MES 
 }
 
-// * Select del año generado dinamicamente.
+// PARA SELECCIONAR EL AÑO
 const yearActual = new Date().getFullYear();
 for(let i = yearActual; i <= yearActual + 8; i++){
 	let opcion = document.createElement('option');
@@ -66,18 +68,18 @@ for(let i = yearActual; i <= yearActual + 8; i++){
 	formulario.selectYear.appendChild(opcion);
 }
 
-// * Input numero de tarjeta
+// PARA INTRODUCIR EL NÚMERO DE TARJETA
 formulario.inputNumero.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
 
 	formulario.inputNumero.value = valorInput
-	// Eliminamos espacios en blanco
+	// ELIMINAMOS ESPACIOS EN BLANCO
 	.replace(/\s/g, '')
-	// Eliminar las letras
+	// ELIMINAMOS LAS LETRAS
 	.replace(/\D/g, '')
-	// Ponemos espacio cada cuatro numeros
+	// PONEMOS ESPACIO CADA 4 NÚMEROS
 	.replace(/([0-9]{4})/g, '$1 ')
-	// Elimina el ultimo espaciado
+	// ELIMINA EL ÚLTIMO ESPACIADO
 	.trim();
 
 	numeroTarjeta.textContent = valorInput;
@@ -88,21 +90,9 @@ formulario.inputNumero.addEventListener('keyup', (e) => {
 		logoMarca.innerHTML = '';
 	}
 
-	if(valorInput[0] == 4){
-		logoMarca.innerHTML = '';
-		const imagen = document.createElement('img');
-		imagen.src = 'img/logos/visa.png';
-		logoMarca.appendChild(imagen);
-	} else if(valorInput[0] == 5){
-		logoMarca.innerHTML = '';
-		const imagen = document.createElement('img');
-		imagen.src = 'img/logos/mastercard.png';
-		logoMarca.appendChild(imagen);
-	}
-
 });
 
-// * Input nombre de tarjeta
+// PARA INTRODUCIR EL NOMBRE DE LA TARJETA
 formulario.inputNombre.addEventListener('keyup', (e) => {
 	let valorInput = e.target.value;
 
@@ -115,26 +105,26 @@ formulario.inputNombre.addEventListener('keyup', (e) => {
 
 });
 
-// * Select mes
+// PARA SELECCIONAR EL MES
 formulario.selectMes.addEventListener('change', (e) => {
 	mesExpiracion.textContent = e.target.value;
 });
 
-// * Select Año
+// PARA SELECCIONAR EL AÑO
 formulario.selectYear.addEventListener('change', (e) => {
 	yearExpiracion.textContent = e.target.value.slice(2);
 });
 
-// * CCV
+// CCV
 formulario.inputCCV.addEventListener('keyup', () => {
 	if(!tarjeta.classList.contains('active')){
 		tarjeta.classList.toggle('active');
 	}
 
 	formulario.inputCCV.value = formulario.inputCCV.value
-	// Eliminar los espacios
+	// ELIMINAMOS LOS ESPACIOS
 	.replace(/\s/g, '')
-	// Eliminar las letras
+	// ELIMINAMOS LAS LETRAS
 	.replace(/\D/g, '');
 
 	ccv.textContent = formulario.inputCCV.value;
