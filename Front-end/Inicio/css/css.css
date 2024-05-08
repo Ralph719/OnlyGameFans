@@ -12,7 +12,7 @@
     row-gap: .3rem;
     height: 6rem;
     align-items: center;
-    border: 1px solid rgb(25, 17, 58);
+    justify-content: center;
     z-index: 10000;
 }
 
@@ -23,16 +23,18 @@
 }
 
 .logo img {
-    padding: 2.2rem;
-    width: 30rem;
-    background-color: rgb(25, 17, 58);
+    height: 6.6rem;
+    width: 30.3rem;
+    background-color: rgba(37, 37, 37, 0.932);
+    border: .5px solid rgb(0, 0, 0);
 }
 
 .acciones {
-    border: 1px solid rgb(0, 0, 0);
+    border: .5px solid rgb(0, 0, 0);
+    border-left: none;
     display: flex;
     position: relative;
-    height: 100%;
+    height: 6rem;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -93,8 +95,8 @@ input[type="text"] {
 }
 
 input[type="text"]:hover {
-    filter: drop-shadow(0px 1px 9px rgba(41, 109, 148, 0.479));
-    outline: .2px solid rgba(169, 240, 230, 0.555);
+    filter: drop-shadow(0px 1px 9px rgba(65, 84, 196, 0.479));
+    outline: .2px solid rgba(88, 87, 87, 0.555);
 }
 
 input[type="text"]:focus {
@@ -127,17 +129,24 @@ input[type="text"]::selection {
 }
 
 .acciones-usuario a:hover {
-    /*color: rgb(241, 150, 13);*/
-    color: rgb(23, 81, 158);
+    color: rgb(37, 77, 165);
+}
+
+.acciones-usuario .user-space, .botonCategoria{
+    width: 8.9rem;
+    font-size: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* ESPACIO USUARIO */
 .user-space {
     display: flex;
-    height: 8.9rem;
-    padding: 3rem;
     align-items: center;
-    border: 1px solid black;
+    border: .5px solid rgb(0, 0, 0);
+    border-top: none;
+    border-bottom: none;
 }
 
 .user-space a {
@@ -148,10 +157,6 @@ input[type="text"]::selection {
 .botonCategoria {
     display: flex;
     color: rgb(0, 0, 0);
-    height: 8.9rem;
-    align-items: center;
-    padding: 3rem;
-    cursor: pointer;
 }
 
 .botonCategoria i {
@@ -161,37 +166,89 @@ input[type="text"]::selection {
 .second {
     position: relative;
     top: 0%;
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+    height: 4.5rem;
+    z-index: 0;
+}
+
+/* SLIDER INFINITO */
+.icono {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -100%;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+
+    z-index: 2;
+}
+
+/* FONDO LOGO ICONO */
+.rectangulo-icono {
+    position:relative;
     display: flex;
     justify-content: center;
-    width: 100%;
-    background-color: rgb(25, 17, 58);
-    height: 4.5rem;
-    z-index: 1;
+    align-items: center;
+    height: 100%;
+    width: 49%;
+    background: linear-gradient(to bottom, rgba(34, 33, 33, 0.452), rgba(255, 255, 255, 0.151));
+    filter: drop-shadow(0px 1px 15px rgb(255, 255, 255));
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+    filter: blur(1.5px);
+    transition: .2s ease-in-out;
 }
-/* SLIDER INFINITO */
+
+/* LOGO DE LA PÁGINA */
 .logo-icono {
-    position: absolute;
+    position: relative;
     display: flex;
-    top: -3%;
     width: 3.7rem;
     background-color: rgb(25, 17, 58);
-    z-index: 5000;
-    margin-left: 15lh;
-    z-index: 7;
+    z-index: 5;
+    border: .5px solid rgb(146, 146, 146);
+    border-radius: 5rem;
+    filter: drop-shadow(0px 1px 4px rgba(54, 54, 54, 0.959));
+    transition: .2s ease;
+    filter: blur(1.5px) grayscale(20%);
 }
+
+.logo-icono:hover {
+    transform: scale(1.2);
+    filter: blur(0px);
+    transform: rotateY(.5turn);
+}
+
+.rectangulo-icono, .logo-icono:hover {
+    filter: blur(0);
+}
+
+.rectangulo-icono:hover {
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    border-top-left-radius: 0rem; 
+    border-top-right-radius: 0rem; 
+}
+
+/* SLIDER DEBAJO DEL LOGO */
 .infinite-slider {
     position: relative;
-    z-index: -1;
+    z-index: 1;
     overflow: hidden;
-    width: 936px;
+    width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
 }
+
 .infinite-slider ul {
     display: inline-flex;
     animation: slide-infinito 10s linear infinite;
 }
+
 .infinite-slider ul li {
     list-style: none;
     
@@ -199,6 +256,7 @@ input[type="text"]::selection {
 .infinite-slider ul li img {
     max-width: 200px;
     height: 5rem;
+    /*margin-right: 2rem;*/
 }
 
 @keyframes slide-infinito {
@@ -283,6 +341,7 @@ button {
     cursor: pointer;
     opacity: 0;
 }
+
 button:hover {
     animation: boton 0.5s ease forwards;
 }
@@ -298,7 +357,7 @@ button:hover {
 
 .prev {
     left: 0;
-    background: linear-gradient(to right, rgb(255, 255, 255), transparent);
+    background: linear-gradient(to right, white, transparent);
 }
 .prev img {
     transform: rotateY(180deg);
@@ -306,7 +365,7 @@ button:hover {
 
 .next {
     right: 0;
-    background: linear-gradient(to left, white, transparent);
+    background: linear-gradient(to left, rgb(81, 65, 218), transparent);
 }
 
 @keyframes Entrada {
@@ -450,6 +509,8 @@ button:hover {
     column-count: 3;
     padding-left: 16.5%;
     padding-right: 15%;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
     margin-top: 8vh;
 }
 

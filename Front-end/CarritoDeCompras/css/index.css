@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 *::selection {
     color: rgb(109, 139, 219);
     background-color: gainsboro;
@@ -209,7 +210,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 1rem 2rem 2rem 3rem;
+    margin: 0rem 2rem 2rem 3rem;
 }
 
 .tituloPrincipal {
@@ -257,18 +258,20 @@ main {
 .buscador {
     position: relative;
     width: 16rem;
-    height: 2.5rem;
+    height: fit-content;
     font-size: 19px;
 }
 
 input[type="text"] {
-    padding-left: 1rem;
+    /*padding-left: 1rem;*/
+    padding: .3rem 0rem .14rem 1rem;
     transition: all .2s ease-out;
     border-radius: 6.8px;
     border-bottom: .8px solid rgb(31, 82, 112);
     border-right: .8px solid rgb(49, 99, 146);
     border-top: .8px solid rgb(64, 117, 167);
     border-left: .8px solid rgb(102, 146, 187);
+    font-family: bebas neue;
 }
 
 input[type="text"]:focus {
@@ -328,7 +331,7 @@ input[type="text"]:focus {
     padding: 0.5rem 0.7rem;
     border-radius: .36rem;
     width: 70%;
-    font-family: cairo;
+    font-family: Cairo;
 }
 
 .detalles small {
@@ -337,8 +340,10 @@ input[type="text"]:focus {
 }
 
 .nombreProducto {
-    font-size: 1rem;
-    font-weight: 600;
+    font-family: Bebas Neue;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    font-weight: 500;
     line-height: 20px;
 }
 
