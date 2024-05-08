@@ -17,9 +17,8 @@
     </head>
     <body>
         <header class="first">
-
             <div class="logo">
-                <img src="../Logos/OnlyGameFansTituloWeb.png">
+                <img src="Logos/OnlyGameFansTituloWeb.png">
             </div>
 
             <div class="acciones">
@@ -29,14 +28,12 @@
                     <button class="botonBuscador"><i class="bi bi-search"></i></button>
                 
                 </div>
-    
                 <div class="acciones-usuario">
                     <div class="user-space">
                         <a class="botonUsuario" href="../RegistroUsuario/InicioSesion.html">
                             <i class="bi bi-person-circle"></i>
                         </a>
                     </div>
-        
                     <div class="carrito">
                         <a class="botonCategoria botonCarrito active" href="../CarritoDeCompras/carrito.html">
                             <i class="bi bi-cart2"></i> <!--<span class="cantidad">0</span>-->
@@ -44,19 +41,277 @@
                     </div>
                 </div>
             </div>
-
         </header>
-
         <header class="second">
-            <!-- TODO SLIDER PEQUEÑO-->
-        </header>
+            <a href="../CarritoDeCompras/index.html">
+                <img src="Logos/LogoPaginaWeb.png" class="logo-icono">
+            </a>
+                <!-- SLIDER PEQUEÑO DEL HEADER -->
+                <div class="infinite-slider">
+                    <ul>
+                        <li>
+                            <img src="Logos/playLogo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/segaLogo.png">
+                        </li>
+                        <li>
+                            <img src="Logos/ubisoftLogo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/nintendoLogo.png">
+                        </li>
+                        <li>
+                            <img src="Logos/xboxLogo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/Valve-logo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/rockstarLogo.png">
+                        </li>
+                        <li>
+                            <img src="Logos/cdprojectLogo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/activisionLogo.jpg">
+                        </li>
+        <!-- Se repiten las imagenes para crear la animación infinita del slider -->
+                        <li>
+                            <img src="Logos/playLogo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/segaLogo.png">
+                        </li>
+                        <li>
+                            <img src="Logos/ubisoftLogo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/nintendoLogo.png">
+                        </li>
+                        <li>
+                            <img src="Logos/xboxLogo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/Valve-logo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/rockstarLogo.png">
+                        </li>
+                        <li>
+                            <img src="Logos/cdprojectLogo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/ubisoftLogo.jpg">
+                        </li>
+                        <li>
+                            <img src="Logos/activisionLogo.jpg">
+                        </li>
+                    </ul>
+                </div>
+            </header>
 
-        <div class="slider">
+            <!-- APARTADO PROMOCIONES (slider manual) -->
+            <p class="titulo">PROMOCIONES, DESCUENTOS Y MAS...</p>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="imgs/GameAwards.jpg" alt="Slide 8">
+                    </div>
+                    <div class="slide">
+                        <img src="imgs/Promocion1Nintendo.jpg" alt="Slide 2">
+                    </div>
+                    <div class="slide">
+                        <img src="imgs/Promocion1PS4.jpg" alt="Slide 3">
+                    </div>
+                    <div class="slide">
+                        <img src="imgs/Promocion1PS5.jpg" alt="Slide 4">
+                    </div>
+                    <div class="slide">
+                        <img src="imgs/Promocion1SteamDeck.jpg" alt="Slide 5">
+                    </div>
+                    <div class="slide">
+                        <img src="imgs/Promocion1XboxOne.jpg" alt="Slide 6">
+                    </div>
+                    <div class="slide">
+                        <img src="imgs/PromocionGamepass.jpg" alt="Slide 7">
+                    </div>
+                </div>
+                <button class="prev" onclick="moveSlide(-1)"><img src="imgs/flecha.png"></button>
+                <button class="next" onclick="moveSlide(1)"><img src="imgs/flecha.png"></button>
+            </div>
 
-            <!-- TODO SLIDER GRANDE PROMOCIONES -->
 
+            <!-- APARTADO TOP VENTAS -->
+        <p class="titulo" style="margin-top: 4%;">TOP VENTAS</p>
+        <div class="todo">
+            <div class="menos">
+                <li>
+                    <div class="contenedor">
+                        <div class="imagen_fondo" style="background-image: url(imgs/The\ witcher\ 3.webp);" data-color="color1">
+                        </div>
+                        <div class="subdiv">
+                            <div class="titulo_juego">
+                                <p>The Witcher 3: Wild Hunt</p>
+                            </div>
+                            <p>#1</p>
+                        </div>
+                    </div>    
+                </li>
+                <li>
+                    <div class="contenedor">
+                        <div class="imagen_fondo" style="background-image: url(imgs/Baldurs\ gate\ 3.webp);" data-color="color2">
+                        </div>
+                        <div class="subdiv">
+                            <div class="titulo_juego">
+                                <p>Baldur's Gate 3</p>
+                            </div>
+                            <p>#2</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="contenedor">
+                        <div class="imagen_fondo" style="background-image: url(imgs/Disco\ elysium.jpg);" data-color="color3">
+                        </div>
+                        <div class="subdiv">
+                            <div class="titulo_juego">
+                                <p>Disco Elysium</p>
+                            </div>
+                            <p>#3</p>
+                        </div>    
+                    </div>
+                </li>
+                <li>
+                    <div class="contenedor">
+                    <div class="imagen_fondo" style="background-image: url(imgs/Mass\ effect.png);" data-color="color4">
+                    </div>
+                        <div class="subdiv">
+                            <div class="titulo_juego">
+                                <p>Mass Effect: Legendary Edition</p>
+                            </div>
+                            <p>#4</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="contenedor">
+                        <div class="imagen_fondo" style="background-image: url(imgs/Persona\ 3\ reload.jpg);" data-color="color5">
+                        </div>
+                        <div class="subdiv">
+                            <div class="titulo_juego">
+                                <p>Persona 3: Reload</p>
+                            </div>
+                            <p>#5</p>
+                        </div>
+                    </div>
+                </li>
+            </div>
         </div>
 
+
+        <!-- APARTADO MEJORES OFERTAS -->
+        <p class="titulo">MEJORES OFERTAS</p>
+        <p class="semititulo">¡Clica y descubre nuestras mejores ofertas en videojuegos!</p>
+        <div class="margenes">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front" style="background-image: url('imgs/fondo1.jpg')">
+                        <p>
+                            35% 
+                        </p>
+                    </div>
+                    <div class="flip-box-back" style="background-image: url('imgs/cyberpunk.jpg');">
+                        <div class="textico">
+                            Cyberpunk 2077
+                            <hr>
+                            <del>59,99€</del> - <b>45,99€</></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front" style="background-image: url('imgs/fondo1.jpg')">
+                        <p>
+                            40%
+                        </p>
+                    </div>
+                    <div class="flip-box-back" style="background-image: url('imgs/bioshock_infitine.jpg');">
+                        <div class="textico">
+                            Bioshock Infinite
+                            <hr>
+                            <del>29.99€</del> - <b>17.99€</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front" style="background-image: url('imgs/fondo1.jpg')">
+                        <p>
+                            85%
+                        </p>
+                    </div>
+                    <div class="flip-box-back" style="background-image: url('imgs/Kingdom_come_deliverance.jpg');">
+                        <div class="textico">
+                            Kingdom come deliverance
+                            <hr>
+                            <del>29.99€</del> - <b>5.99€</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front" style="background-image: url('imgs/fondo1.jpg')">
+                        <p>
+                            75%
+                        </p>
+                    </div>
+                    <div class="flip-box-back" style="background-image: url('imgs/mafia.jpg');">
+                        <div class="textico">
+                            Mafia: Definitive Edition
+                            <hr>
+                            <del>39,99€</del> - <b>9.99€</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front" style="background-image: url('imgs/fondo1.jpg')">
+                        <p>
+                            15%
+                        </p>
+                    </div>
+                    <div class="flip-box-back" style="background-image: url('imgs/elden_ring.webp');">
+                        <div class="textico">
+                            Elden Ring
+                            <hr>
+                            <del>59.99€</del> - <b>41.99€</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front" style="background-image: url('imgs/fondo1.jpg')">
+                        <p>
+                            15%
+                        </p>
+                    </div>
+                    <div class="flip-box-back" style="background-image: url('imgs/MGS3.png');">
+                        <div class="textico">
+                            Metal Gear Solid 3: Snake Eater
+                            <hr>
+                            <del>59.99€</del> - <b>41.99€</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/js.js"></script>
     </body>
     <footer>
 
