@@ -7,14 +7,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import logica.Usuario;
 import logica.Controlador;
 import persistencia.Encriptador;
-/*import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;*/
+import persistencia.GeneradorToken;
 
 /**
  *
@@ -24,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;*/
 public class SvRegistrarUsuario extends HttpServlet {
     Controlador controlador = new Controlador();
     Encriptador encriptar = new Encriptador();
+    GeneradorToken generador = new GeneradorToken();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -53,11 +51,22 @@ public class SvRegistrarUsuario extends HttpServlet {
                     }
                 }
             } catch (ClassNotFoundException e) {
-                System.out.println("Error al cargar alguna clase: " +e);
+                System.out.println("Error al cargar alguna clase: " + e);
             }
             if (!userEmailNotExist && !passwordWrong) {
                 // Si los datos ingresados son correctos, redirigir al usuario a la página principal
-                response.sendRedirect("CarritoDeCompras/index.html");
+                response.sendRedirect("articulos.jsp");
+
+                // Generar el token JWT
+                String token = generador.generarToken(userEmail);
+
+                // Enviar el token JWT en el cuerpo de la respuesta
+                response.setContentType("application/json");
+                PrintWriter out = response.getWriter();
+                out.print("{\"token\":\"" + token + "\"}");
+                out.flush();
+                System.out.println("Se ha enviado el token: " + token);
+
                 return;
             }
         }

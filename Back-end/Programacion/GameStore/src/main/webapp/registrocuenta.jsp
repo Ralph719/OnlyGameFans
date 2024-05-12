@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/RegistroCuenta.css">
+        <link rel="stylesheet" type="text/css" href="css/registroCuenta.css">
         <title>Registra una cuenta | Gamestore.com</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -279,7 +279,87 @@
     </body>
     <footer>
 
-        <!-- TODO -->
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="../RegistroUsuario/registrocuenta.html">¡Crea una cuenta ahora!</a>
+                </li>
+                <li>
+                    <a href="../CarritoDeCompras/index.html">Ver videojuegos</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="../CarritoDeCompras/carrito.html">Revisa tu carrito</a>
+                </li>
+                <li>
+                    <a href="../CarritoDeCompras/index.html">Ver consolas</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="#">Política de cookie</a>
+                </li>
+                <li>
+                    <a href="#">Información sobre datos personales</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="#">Terminos de venta</a>
+                </li>
+                <li>
+                    <a href="#">Política de devoluciones</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="#">Política de la empresa</a>
+                </li>
+            </ol>
+        </div>
+
+        <!-- CONTENEDOR PARA LAS REDES SOCIALES -->
+        <div class="container-rrss">
+
+            <div class="rrss">
+
+                <span class="facebook">
+                    <a href="#">
+                        <img src="../RRSS/LogoFacebook.png" class="fb">
+                        <p>Facebook</p>
+                    </a>
+                </span>
+
+                <span class="instagram">
+                    <a href="#">
+                        <img src="..//RRSS/LogoInstagram.png" class="ig">
+                        <p>Instagram</p>
+                    </a>
+                </span>
+
+                <span class="x">
+                    <a href="#">
+                        <img src="..//RRSS/LogoX.png" class="x-twitter">
+                        <p>X</p>
+                    </a>
+                </span>
+
+            </div>
+
+        </div>
 
     </footer>
 </html>

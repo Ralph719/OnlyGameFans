@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="css/InicioSesion1.css">
+        <link rel="stylesheet" type="text/css" href="css/inicioSesion1.css">
         <title>Inicia sesión | OnlyGameFans.com</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,11 +165,6 @@
                     <div class="container-form-child">
                         <h2 class="indx"><label>Contraseña</label><br><input type="password" id="password" name="password"></h2>
                         <br><span id="advertenciaPassword" class="advertencia" style="display: none;">Contraseña incorrecta</span>
-                            <!--<span class="showpwd">
-                                <input type="checkbox" onclick="mostrarContraseña()">
-                                <label for="contraseñaVisible">Mostrar contraseña</label>
-                            </span>-->
-                            <!-- AÑADIR ICONO/CHECKBOX PARA VER CONTRASEÑA -->
                     </div>
                     
                     <span id="advertencia" class="advertencia" style="display: none;">Alguno de los campos está vacío. Debe rellenar todos.</span>
@@ -178,14 +173,12 @@
                     <!-- SI NO, DEBE PERMANECER EN LA PÁGINA DE INICIO SESIÓN -->
                     <div class="contenedor-botones">
                         <div class="botones">
-                            <a href="../CarritoDeCompras/index.html">
-                                <button class="boton seis" onclick="iniciarSesion()">
-                                    <span>Iniciar sesión</span>
-                                    <svg>
-                                        <rect x="0" y="0" fill="none"></rect>
-                                    </svg>
-                                </button>
-                            </a>
+                            <button class="boton seis" onclick="guardarUserEmail()">
+                                <span>Iniciar sesión</span>
+                                <svg>
+                                <rect x="0" y="0" fill="none"></rect>
+                                </svg>
+                            </button>
                         </div>
                         <img src="imgs/fallout-okay.png" alt="fallout-okay">
                     </div>
@@ -195,7 +188,7 @@
             </div>
 
             <span class="link-box">
-                <a href="registrocuenta.jsp"><p>Registrate aquí si no tienes una cuenta</p></a> <!-- EL LINK REDIRIGIRÁ A UNA PÁGINA EXTERNA CON UNA ESTRUCTURA SIMILAR PERO PARA REGISTRARSE --> 
+                <a href="registrocuenta.jsp"><p>Registrate aquí si no tienes una cuenta</p></a>
             </span>
         </div>
         
@@ -231,10 +224,122 @@
         <%
             }
         %>
+        <script>
+            fetch('http://localhost:8080/GameStore/SvRegistrarUsuario', {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Extraer el token de la respuesta
+                    return response.json();
+                } else {
+                    throw new Error('Error en la solicitud');
+                }
+            })
+            .then(data => {
+                // Almacenar el token en el almacenamiento local
+                localStorage.setItem('token', data.token);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        </script>
+        <script>
+            // Función para guardar el userEmail en el localStorage
+            function guardarUserEmail() {
+                var userEmailInput = document.getElementById("userEmail");
+                var userEmail = userEmailInput.value;
+                localStorage.setItem("userEmail", userEmail);
+                console.log(userEmail);
+            }
+        </script>
     </body>
     <footer>
 
-        <!-- TODO -->
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="../RegistroUsuario/registrocuenta.html">¡Crea una cuenta ahora!</a>
+                </li>
+                <li>
+                    <a href="../CarritoDeCompras/index.html">Ver videojuegos</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="../CarritoDeCompras/carrito.html">Revisa tu carrito</a>
+                </li>
+                <li>
+                    <a href="../CarritoDeCompras/index.html">Ver consolas</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="#">Política de cookie</a>
+                </li>
+                <li>
+                    <a href="#">Información sobre datos personales</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="#">Terminos de venta</a>
+                </li>
+                <li>
+                    <a href="#">Política de devoluciones</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="#">Política de la empresa</a>
+                </li>
+            </ol>
+        </div>
+
+        <!-- CONTENEDOR PARA LAS REDES SOCIALES -->
+        <div class="container-rrss">
+
+            <div class="rrss">
+
+                <span class="facebook">
+                    <a href="#">
+                        <img src="RRSS/LogoFacebook.png" class="fb">
+                        <p>Facebook</p>
+                    </a>
+                </span>
+
+                <span class="instagram">
+                    <a href="#">
+                        <img src="RRSS/LogoInstagram.png" class="ig">
+                        <p>Instagram</p>
+                    </a>
+                </span>
+
+                <span class="x">
+                    <a href="#">
+                        <img src="RRSS/LogoX.png" class="x-twitter">
+                        <p>X</p>
+                    </a>
+                </span>
+
+            </div>
+
+        </div>
 
     </footer>
 </html>
