@@ -40,3 +40,6 @@ Por último agregué también las verificaciones correspondientes para el inicio
 
 Ralph: 22/04/2024
 He agregrado un buscador a la página principal para poder filtrar a través de los diferentes artículos.
+
+Ralph: 12/05/2024
+He terminado con la creación del servlet para cargar los artículos en la página desde la base de datos, y para poder agregarlos al carrito. También he creado el servlet para obtener los artículos que se encuentran en el carrito y luego poder proceder con la compra. Además de algunas otras pequeñas modificaciones en la página y la base de datos.
