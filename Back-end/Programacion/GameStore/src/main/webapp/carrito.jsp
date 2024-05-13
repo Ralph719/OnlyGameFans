@@ -84,7 +84,22 @@
             </main>
         </div>
         
+        <script>
+            var userEmail = localStorage.getItem("userEmail");
+            
+            function enviarUserAlCarrito(button) {
+                if (userEmail) {
+                    var xhr = new XMLHttpRequest();
+
+                    // Abrir la solicitud GET
+                    xhr.open("POST", "SvCarrito?userEmail=" + encodeURIComponent(userEmail), true);
+
+                    // Enviar la solicitud GET
+                    xhr.send();
+                }
+            }
+        </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/carritoCompras.js"></script>
+        <script src="js/carritoCompras3.js"></script>
     </body>
 </html>

@@ -79,9 +79,12 @@ function cargarArticulosCarrito(articulosEnCarrito) {
                     <small>Subtotal</small>
                     <p>${(articulo.precio * articulo.cantidad).toFixed(2)} €</p>
                 </div>
-                <button class="eliminarProducto" id="${articulo.idArticulo}">
-                    <i class="bi bi-trash3-fill"></i>
-                </button>
+                <form action="SvCarrito" method="POST">
+                    <button class="eliminarProducto" id="${articulo.idArticulo}" onclick="enviarUserAlCarrito(this)">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
+                    <input type="hidden" id="idArticulo" name="idArticulo" value="${articulo.idArticulo}"></input>
+                </form>
             `;
             contenedorArticulos.append(div);
         });

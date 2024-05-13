@@ -71,10 +71,11 @@
                             <form action="SvCarrito" method="GET">
                                 <button type="submit" class="alCarrito" onclick="enviarUserAlCarrito(this)">
                                     <a class="botonCategoria carrito" href="carrito.jsp">
-                                        <i class="bi bi-cart2"></i>Carrito 
-                                        <span id="carritoCantidad" class="carritoCantidad">0</span>
+                                        <!-----------PROBLEMA AQUÍ!!!-------->
+                                        <i class="bi bi-cart2"></i>Carrito
                                     </a>
                                 </button>
+                                <span id="carritoCantidad" class="carritoCantidad">0</span>
                             </form>
                         </li>
                     </ul>
@@ -139,7 +140,7 @@
                     xhr.onreadystatechange = function() {
                         if (xhr.readyState == 4 && xhr.status == 200) {
                             console.log("Operación realizada con éxito.");
-                            window.location.href = "index.jsp";
+                            window.location.href = "articulos.jsp";
                         }
                     };
 

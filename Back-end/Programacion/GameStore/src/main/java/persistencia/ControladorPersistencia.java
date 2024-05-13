@@ -480,21 +480,47 @@ public class ControladorPersistencia {
     public void eliminarArticulo(int carrito, int articulo) {
         int fila = -1;
         
+        String consulta = "SELECT cantidad FROM contiene " 
+                        + "WHERE codigo_carrito = ? AND id_articulo = ?";
+        
         String eliminar = "DELETE FROM contiene WHERE codigo_carrito = ? AND id_articulo = ?";
+        
+        String actualizar = "UPDATE contiene SET cantidad = cantidad - 1 " 
+                          + "WHERE codigo_carrito = ? AND id_articulo = ?";
         
         try {
             connection = dataSource.getConnection();
-            ps = connection.prepareStatement(eliminar);
+            ps = connection.prepareStatement(consulta);
 
             ps.setInt(1, carrito);
             ps.setInt(2, articulo);
 
-            // Eliminación del artículo
-            fila = ps.executeUpdate();
-            System.out.println("Artículo eliminado del carrito con éxito.");
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                if(rs.getInt("cantidad") == 1) {
+                    ps = connection.prepareStatement(eliminar);
+                    ps.setInt(1, carrito);
+                    ps.setInt(2, articulo);
+                    
+                    ps.executeUpdate();
+                    
+                    System.out.println("Artículo Nº" + articulo 
+                                       + " eliminado del carrito Nº" + carrito);
+                } else if(rs.getInt("cantidad") > 1) {
+                    ps = connection.prepareStatement(actualizar);
+                    ps.setInt(1, carrito);
+                    ps.setInt(2, articulo);
+                    
+                    ps.executeUpdate();
+                    
+                    System.out.println("Se ha reducido la cantidad del artículo Nº" 
+                                       + articulo + " en el carrito Nº" + carrito);
+                }
+            }
 
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error al intentar eliminar el artículo Nº" 
+                               + articulo + ": " + e.getMessage());
         } finally {
             cerrarRecursos();
         }

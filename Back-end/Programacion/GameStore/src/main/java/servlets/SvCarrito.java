@@ -56,7 +56,26 @@ public class SvCarrito extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String userEmail = request.getParameter("userEmail");
+        
+        String articulo = request.getParameter("idArticulo");
+        int idArticulo = Integer.parseInt(articulo);
+
+        if (userEmail != null) {
+            System.out.println("Usuario obtenido: " + userEmail);
+        }
+        
+        System.out.println("Eliminando artículo Nº" + idArticulo);
+        
+        if (controlador.buscarUsuario(userEmail) && idArticulo != 0) {
+            int idUsuario = controlador.encontrarIdUsuario(userEmail);
+
+            int codigoCarrito = controlador.encontrarCarrito(idUsuario);
+
+            controlador.eliminarArticulo(codigoCarrito, idArticulo);
+        }
+        response.sendRedirect("carrito.jsp");
     }
 
     

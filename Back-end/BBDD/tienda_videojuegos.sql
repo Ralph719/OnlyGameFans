@@ -30,7 +30,7 @@ Create table `articulo`(
 	id_articulo int (10) auto_increment,
     nombre varchar (50) not null,
     precio double (6, 2) not null,
-    cantidad int(3) not null,
+    cantidad tinyint(3) not null,
     disponibilidad boolean not null,
     primary key (id_articulo),
     check (precio > 0),
@@ -109,19 +109,20 @@ Drop table if exists contiene;
 Create table `contiene`(
     codigo_carrito int (10),
 	id_articulo int (10),
+    cantidad tinyint (3),
     Primary key(id_articulo, codigo_carrito),
     Foreign key (id_articulo) references articulo (id_articulo),
     Foreign key (codigo_carrito) references carrito_de_compras (codigo_carrito) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 Insert into contiene values
-	(1, 2),
-    (1, 3),
-    (1, 30),
-    (1, 24),
-    (3, 4),
-    (4, 5),
-    (5, 1);
+	(1, 2, 1),
+    (1, 3, 1),
+    (1, 30, 1),
+    (1, 24, 1),
+    (3, 4, 1),
+    (4, 5, 1),
+    (5, 1, 1);
 
 
 Drop table if exists pedido;
@@ -279,10 +280,10 @@ Create index genero_index on genero (nombre);
 
 
 -- TRIGGER: Cambia el estado de un carrito a 'Comprado' cuando se registra un nuevo pedido con el mismo 'codigo_carrito'
-DROP TRIGGER IF EXISTS cambiar_estado_carrito;
+DROP TRIGGER IF EXISTS estado_carrito_comprado;
 
 DELIMITER $$
-CREATE TRIGGER cambiar_estado_carrito AFTER INSERT ON pedido
+CREATE TRIGGER estado_carrito_comprado AFTER INSERT ON pedido
 FOR EACH ROW
 BEGIN
 	UPDATE carrito_de_compras
@@ -294,12 +295,33 @@ END$$
 DELIMITER ;
 
 
+-- TRIGGER: Cambia el estado de un carrito de 'Vacío' a 'En espera' cuando se agrega un nuevo artículo a este
+DROP TRIGGER IF EXISTS estado_carrito_espera;
+
+DELIMITER $$
+CREATE TRIGGER estado_carrito_espera AFTER INSERT ON contiene
+FOR EACH ROW
+BEGIN
+	IF EXISTS (
+		SELECT 1
+		FROM carrito_de_compras
+		WHERE codigo_carrito = NEW.codigo_carrito
+	) THEN
+		UPDATE carrito_de_compras
+		SET estado = 'En espera'
+		WHERE codigo_carrito = NEW.codigo_carrito
+		AND estado = 'Vacío';
+	END IF;
+END$$
+DELIMITER ;
+
+
 -- PROCEDIMIENTO: Agregar un nuevo juego
 DROP PROCEDURE IF EXISTS agregar_juego;
 
 DELIMITER $$
 CREATE PROCEDURE agregar_juego(IN nombre varchar (50),IN precio double (6, 2), 
-									   IN cantidad int(3), IN desarrollador varchar (25), 
+									   IN cantidad tinyint(3), IN desarrollador varchar (25), 
                                        IN id_genero int (10), IN id_plataforma int (10))
 BEGIN
 	DECLARE ultimo_id INT;
@@ -334,7 +356,7 @@ DROP PROCEDURE IF EXISTS agregar_consola;
 
 DELIMITER $$
 CREATE PROCEDURE agregar_consola(IN nombre varchar (50),IN precio double (6, 2), 
-									   IN cantidad int(3), IN fabricante varchar (20),
+									   IN cantidad tinyint(3), IN fabricante varchar (20),
                                        IN tipo varchar(10))
 BEGIN
 	DECLARE ultimo_id INT;
