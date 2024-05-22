@@ -254,7 +254,7 @@ input[type="text"]::selection {
         transform: translateX(0);
     }
     100%{
-        transform: translateX(calc(-155.68px * 9));
+        transform: translateX(calc(-151.46px * 13));
     }
 }
 
