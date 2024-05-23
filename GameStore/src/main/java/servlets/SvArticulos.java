@@ -59,8 +59,12 @@ public class SvArticulos extends HttpServlet {
 
             int idArticulo = Integer.parseInt(idProducto);
             
-            if (userEmail != null) {
+            if(userEmail != null) {
                 System.out.println("Usuario obtenido: " + userEmail);
+            }
+            
+            if(idArticulo != 0) {
+                System.out.println("Artículo Nº" + idArticulo + " obtenido");
             }
 
             if (controlador.buscarUsuario(userEmail)) {
@@ -77,6 +81,8 @@ public class SvArticulos extends HttpServlet {
 
                 System.out.println("Operación realizada con éxito.");
             }
+            
+            response.sendRedirect("articulos.jsp");
             
         } catch(NumberFormatException e) {
             System.out.println("Valor no encontrado para el idArticulo: " + e.getMessage());

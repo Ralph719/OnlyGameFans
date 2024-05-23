@@ -57,25 +57,69 @@ public class SvCarrito extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String userEmail = request.getParameter("userEmail");
-        
-        String articulo = request.getParameter("idArticulo");
-        int idArticulo = Integer.parseInt(articulo);
-
-        if (userEmail != null) {
-            System.out.println("Usuario obtenido: " + userEmail);
+        String accion = request.getParameter("action");
+        if(accion == null) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Acción no encontrada.");
+            return;
         }
         
-        System.out.println("Eliminando artículo Nº" + idArticulo);
-        
-        if (controlador.buscarUsuario(userEmail) && idArticulo != 0) {
+        try {
+            switch (accion) {
+                case "eliminarArticulo":
+                    eliminarArticulo(request, response);
+                    break;
+                case "vaciarCarrito":
+                    vaciarCarrito(request, response);
+                    break;
+                default:
+                    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Acción desconocida.");
+                    break;
+            }
+        } catch (ServletException | IOException e) {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error del servidor: " + e.getMessage());
+        }
+    }
+    
+    
+    protected void eliminarArticulo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            String userEmail = request.getParameter("userEmail");
+            System.out.println("Usuario obtenido: " + userEmail);
+
+            String articulo = request.getParameter("idArticulo");
+            int idArticulo = Integer.parseInt(articulo);
+            System.out.println("Eliminando artículo Nº" + idArticulo);
+
             int idUsuario = controlador.encontrarIdUsuario(userEmail);
 
             int codigoCarrito = controlador.encontrarCarrito(idUsuario);
 
+            System.out.println("IdUsuario: " + idUsuario);
+            System.out.println("Carrito Nº" + codigoCarrito);
+
             controlador.eliminarArticulo(codigoCarrito, idArticulo);
+            controlador.cambiarEstadoCarrito(codigoCarrito);
+
+        } catch (NullPointerException e) {
+            System.out.println("Error: " + e.getMessage());
         }
-        response.sendRedirect("carrito.jsp");
+    }
+    
+    protected void vaciarCarrito(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+        try {
+            String userEmail = request.getParameter("userEmail");
+            int idUsuario = controlador.encontrarIdUsuario(userEmail);
+            int codigoCarrito = controlador.encontrarCarrito(idUsuario);
+
+            controlador.vaciarCarrito(codigoCarrito);
+            controlador.cambiarEstadoCarrito(codigoCarrito);
+            
+        } catch (NullPointerException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     

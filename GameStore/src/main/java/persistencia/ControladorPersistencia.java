@@ -1,9 +1,11 @@
 package persistencia;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.naming.Context;
@@ -228,8 +230,9 @@ public class ControladorPersistencia {
         List<Consola> listaConsolas = new ArrayList<>();
         Consola consola;
 
-        String consulta = "SELECT a.id_articulo, a.nombre, a.precio, c.fabricante, c.tipo, a.disponibilidad " 
-                        + "FROM articulo a INNER JOIN consola c ON c.id_articulo = a.id_articulo";
+        String consulta = "SELECT a.id_articulo, a.nombre, a.precio, " 
+                        + "c.fabricante, c.tipo, a.disponibilidad FROM articulo a " 
+                        + "INNER JOIN consola c ON c.id_articulo = a.id_articulo";
 
         try {
             connection = dataSource.getConnection();
@@ -477,13 +480,12 @@ public class ControladorPersistencia {
         }
     }
     
-    public void eliminarArticulo(int carrito, int articulo) {
-        int fila = -1;
-        
+    public void eliminarArticulo(int carrito, int articulo) {        
         String consulta = "SELECT cantidad FROM contiene " 
                         + "WHERE codigo_carrito = ? AND id_articulo = ?";
         
-        String eliminar = "DELETE FROM contiene WHERE codigo_carrito = ? AND id_articulo = ?";
+        String eliminar = "DELETE FROM contiene WHERE codigo_carrito = ? " 
+                        + "AND id_articulo = ?";
         
         String actualizar = "UPDATE contiene SET cantidad = cantidad - 1 " 
                           + "WHERE codigo_carrito = ? AND id_articulo = ?";
@@ -526,6 +528,41 @@ public class ControladorPersistencia {
         }
     }
     
+    public void cambiarEstadoCarrito(int carrito) {
+        String consulta = "SELECT COUNT(*) AS total_registros " 
+                        + "FROM contiene WHERE codigo_carrito = ?";
+        
+        String estadoVacio = "UPDATE carrito_de_compras SET estado = 'Vacío' " 
+                           + "WHERE codigo_carrito = ?";
+        
+        try {
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(consulta);
+            
+            ps.setInt(1, carrito);
+            
+            rs = ps.executeQuery();
+            
+            if(rs.next()) {
+                if (rs.getInt("total_registros") == 0) {
+                    ps = connection.prepareStatement(estadoVacio);
+                    ps.setInt(1, carrito);
+
+                    ps.executeUpdate();
+                    System.out.println("Ahora el carrito Nº" + carrito + " está vacío.");
+                } else {
+                    System.out.println("El carrito Nº" + carrito + " aún tiene artículos.");
+                }
+            }
+            
+        } catch(SQLException e) {
+            System.out.println("Error al consultar el estado del carrito Nº" 
+                               + carrito + ": " + e.getMessage());
+        } finally {
+            cerrarRecursos();
+        }
+    }
+    
     public void vaciarCarrito(int carrito) {
         int fila = -1;
         
@@ -539,15 +576,74 @@ public class ControladorPersistencia {
 
             // Eliminación del artículo
             fila = ps.executeUpdate();
-            System.out.println("Se han eliminado todos los artículos del carrito.");
+            System.out.println("Se han eliminado todos los artículos del " 
+                               + "carrito Nº" + carrito);
 
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error al vaciar el carrito Nº" + carrito 
+                               + ": " + e.getMessage());
         } finally {
             cerrarRecursos();
         }
     }
     
+    public double calcularTotal(int carrito) {
+        String consulta = "SELECT c.cantidad, a.precio FROM contiene c " 
+                        + "INNER JOIN articulo a ON a.id_articulo = c.id_articulo " 
+                        + "WHERE codigo_carrito = ?";
+        
+        double total = 0.0;
+        
+        try {
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(consulta);
+            ps.setInt(1, carrito);
+            
+            rs = ps.executeQuery();
+            
+            while(rs.next()) {
+                total += rs.getInt("cantidad") * rs.getDouble("precio");
+            }
+            
+        } catch(SQLException e) {
+            System.out.println("Error al calcular el total del carrito " 
+                                + "Nº" + carrito + e.getMessage());
+        } finally {
+            cerrarRecursos();
+        }
+        
+        return total;
+    }
+    
+    public void crearPedido(double pagoTotal, String direccion, 
+                            LocalDate fechaCompra, int usuario, int carrito) {
+        String insercion = "INSERT INTO Pedido (pago_total, direccion, " 
+                         + "fecha_compra, id_usuario, codigo_carrito) VALUES " 
+                         + "(?, ?, ?, ?, ?)";
+        int fila = -1;
+        
+        try {
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(insercion);
+            
+            Date fechaSQL = Date.valueOf(fechaCompra);
+            
+            ps.setDouble(1, pagoTotal);
+            ps.setString(2, direccion);
+            ps.setDate(3, fechaSQL);
+            ps.setInt(4, usuario);
+            ps.setInt(5, carrito);
+            
+            fila = ps.executeUpdate();
+            System.out.println("Pedido creado con éxito.");
+            
+        } catch(SQLException e) {
+            System.out.println("Error al crear el pedido para el usuario " 
+                               + "Nº" + usuario + e.getMessage());
+        } finally {
+            cerrarRecursos();
+        }
+    }
     
     public void cerrarRecursos() {
         try {

@@ -35,7 +35,7 @@ $(document).ready(function() {
                         // Cargar los artículos de la categoría seleccionada
                         cargarArticulos({ [categoriaSeleccionada]: articulosFiltrados });
                     } else {
-                        // Si la categoría seleccionada es "todos", mostrar todos los productos
+                        // Si la categoría seleccionada es "todos" se mostrarán todos los productos
                         console.log('Mostrar todos los productos');
                         titulo.innerText = "Todos los productos";
                         cargarArticulos(datosArticulos);
@@ -101,7 +101,7 @@ function agregarArticulo(articulo) {
                 <small class="tipoProducto" id="tipoProducto">${plataforma}</small>
                 <p class="precioProducto" id="precioProducto">${articulo.precio} €</p>
                 <button class="agregarProducto" id="${articulo.idArticulo}" onclick="enviarUserEmail(this)">Agregar</button>
-                <input type="hidden" id="idArticulo" name="idArticulo" value="${articulo.idArticulo}"></input>
+                <input type="hidden" id="idProducto" name="idProducto" value="${articulo.idArticulo}"></input>
             </div>
         </form>
     `;

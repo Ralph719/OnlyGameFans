@@ -1,5 +1,6 @@
 package logica;
 
+import java.time.LocalDate;
 import java.util.List;
 import persistencia.ControladorPersistencia;
 
@@ -42,6 +43,14 @@ public class Controlador {
         controlPersistencia.eliminarArticulo(carrito, articulo);
     }
     
+    public void vaciarCarrito(int carrito) {
+        controlPersistencia.vaciarCarrito(carrito);
+    }
+    
+    public void cambiarEstadoCarrito(int carrito) {
+        controlPersistencia.cambiarEstadoCarrito(carrito);
+    }
+    
     public void crearCarrito(int idUsuario) {
         controlPersistencia.crearCarrito(idUsuario);
     }
@@ -56,6 +65,15 @@ public class Controlador {
     
     public List<Articulo> buscarArticulosEnCarrito(int codigoCarrito) {
         return controlPersistencia.buscarArticulosEnCarrito(codigoCarrito);
+    }
+    
+    public double calcularTotal(int carrito) {
+        return controlPersistencia.calcularTotal(carrito);
+    }
+    
+    public void crearPedido(double pagoTotal, String direccion, 
+                            LocalDate fechaCompra, int usuario, int carrito) {
+        controlPersistencia.crearPedido(pagoTotal, direccion, fechaCompra, usuario, carrito);
     }
     
     public void cerrarRecursos() {

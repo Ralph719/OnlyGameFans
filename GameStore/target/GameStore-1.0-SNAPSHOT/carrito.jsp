@@ -63,7 +63,9 @@
                     <div id="accionesCarrito" class="accionesCarrito disabled">
                         
                         <div class="accionesIzquierda">
-                            <button id="vaciarCarrito" class="vaciarCarrito">Vaciar carrito</button>
+                            <form action="SvCarrito" method="POST" style="width: fit-content; height: fit-content;">
+                                <button id="vaciarCarrito" class="vaciarCarrito" onclick="return enviarUserAlCarrito(this)">Vaciar carrito</button>
+                            </form>
                         </div>
     
                         <div class="accionesDerecha">
@@ -71,7 +73,7 @@
                                 <p>Total: </p>
                                 <p id="total"></p>
                             </div>
-                            <a href="Envio/envio.html">
+                            <a href="envio.jsp">
                                 <button id="comprarCarrito" class="comprarCarrito">Comprar ahora</button>
                             </a>
                         </div>
@@ -90,16 +92,25 @@
             function enviarUserAlCarrito(button) {
                 if (userEmail) {
                     var xhr = new XMLHttpRequest();
-
-                    // Abrir la solicitud GET
-                    xhr.open("POST", "SvCarrito?userEmail=" + encodeURIComponent(userEmail), true);
-
-                    // Enviar la solicitud GET
-                    xhr.send();
+                    //xhr.open("POST", "SvCarrito?userEmail" + encodeURIComponent(userEmail), true);
+                    xhr.open("POST", "SvCarrito", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    
+                    xhr.onload = function() {
+                        if (xhr.status >= 200 && xhr.status < 300) {
+                            location.reload();
+                        } else {
+                            console.error('Hubo un error al vaciar el carrito:', xhr.status, xhr.statusText);
+                        }
+                    };
+                    
+                    xhr.send("action=vaciarCarrito&userEmail=" + encodeURIComponent(userEmail));
+                    return false;
                 }
+                return true;
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/carritoCompras3.js"></script>
+        <script src="js/carritoCompras8.js"></script>
     </body>
 </html>

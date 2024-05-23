@@ -1,3 +1,10 @@
+<%-- 
+    Document   : pago
+    Created on : 22 may. 2024, 20:31:57
+    Author     : steph
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,7 +16,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/pago.css">
-        <link rel="shortcut icon" href="../Logos/LogoPaginaWeb.png">
+        <link rel="shortcut icon" href="Logos/LogoFinal.png">
     </head>
     <body>
         
@@ -35,10 +42,10 @@
                 <section class="tarjeta" id="tarjeta">
                     <div class="delantera">
                         <div class="logo-marca" id="logo-marca">
-                            <img id="imgVisa" src="img/visa.jpeg" alt="" style="display: none;"> <!-- IMÁGEN DE LA TARJETA QUE ELIJAS --> 
-                            <img id="imgMastercard" src="img/mastercard.png" alt="" style="display: none;">
+                            <img id="imgVisa" src="imgs/visa.jpeg" alt="" style="display: none;"> <!-- IMÁGEN DE LA TARJETA QUE ELIJAS --> 
+                            <img id="imgMastercard" src="imgs/mastercard.png" alt="" style="display: none;">
                         </div>
-                        <img src="img/chip-tarjeta.png" class="chip" alt="">
+                        <img src="imgs/chip-tarjeta.png" class="chip" alt="">
                         <div class="datos">
                             <div class="grupo" id="numero">
                                 <p class="label">Número Tarjeta</p>
@@ -81,11 +88,11 @@
             <form action="" id="formulario-tarjeta" class="formulario-tarjeta">
                 <div class="grupo">
                     <label for="inputNumero">Número Tarjeta</label>
-                    <input type="text" id="inputNumero" maxlength="19" autocomplete="off">
+                    <input type="text" id="inputNumero" name="numero" maxlength="19" autocomplete="off">
                 </div>
                 <div class="grupo">
                     <label for="inputNombre">Nombre</label>
-                    <input type="text" id="inputNombre" maxlength="19" autocomplete="off">
+                    <input type="text" id="inputNombre" name="nombre" maxlength="19" autocomplete="off">
                 </div>
                 <div class="flexbox">
                     <div class="grupo expira">
@@ -108,13 +115,40 @@
 
                     <div class="grupo ccv">
                         <label for="inputCCV">CCV</label>
-                        <input type="text" id="inputCCV" maxlength="3">
+                        <input type="text" id="inputCCV" name="cvv" maxlength="3">
                     </div>
                 </div>
-                <button type="submit" class="btn-enviar">Continuar a resumen de compra</button>
+                <span id="advertencia" class="advertencia" style="display: none;">Debe rellenar todos los campos</span>
+                <button type="submit" class="btn-enviar" onclick="enviarDatos(this)">Continuar a resumen de compra</button>
             </form>
         </div>
-
+        
+        <script>
+            
+            function enviarDatos(button) {
+                let userEmail = localStorage.getItem("userEmail");
+                let direccion = localStorage.getItem("direccion");
+                let pais = localStorage.getItem("pais");
+                let email = localStorage.getItem("email");
+                let cpostal = localStorage.getItem("cpostal");
+                let provincia = localStorage.getItem("provincia");
+                
+                if(userEmail && direccion && pais && email && cpostal && provincia) {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "SvPedidos", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    
+                    var data = "userEmail=" + encodeURIComponent(userEmail) 
+                             + "&direccion=" + encodeURIComponent(direccion) 
+                             + "&pais=" + encodeURIComponent(pais)
+                             + "&email=" + encodeURIComponent(email)
+                             + "&cpostal=" + encodeURIComponent(cpostal)
+                             + "&provincia=" + encodeURIComponent(provincia);
+                     
+                     xhr.send(data);
+                }
+            }
+        </script>
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
         <script src="js/pago.js"></script>
     </body>
@@ -123,10 +157,10 @@
         <div class="container-footer">
             <ol>
                 <li>
-                    <a href="../RegistroUsuario/registrocuenta.html">¡Crea una cuenta ahora!</a>
+                    <a href="registrocuenta.jsp">¡Crea una cuenta ahora!</a>
                 </li>
                 <li>
-                    <a href="../CarritoDeCompras/index.html">Ver videojuegos</a>
+                    <a href="articulos.jsp">Ver videojuegos</a>
                 </li>
             </ol>
         </div>
@@ -134,10 +168,10 @@
         <div class="container-footer">
             <ol>
                 <li>
-                    <a href="../CarritoDeCompras/carrito.html">Revisa tu carrito</a>
+                    <a href="carrito.jsp">Revisa tu carrito</a>
                 </li>
                 <li>
-                    <a href="../CarritoDeCompras/index.html">Ver consolas</a>
+                    <a href="articulos.jsp">Ver consolas</a>
                 </li>
             </ol>
         </div>
@@ -179,21 +213,21 @@
 
                 <span class="facebook">
                     <a href="#">
-                        <img src="../RRSS/LogoFacebook.png" class="fb">
+                        <img src="RRSS/LogoFacebook.png" class="fb">
                     <p>Facebook</p>
                     </a>
                 </span>
                 
                 <span class="instagram">
                     <a href="#">
-                        <img src="..//RRSS/LogoInstagram.png" class="ig">
+                        <img src="RRSS/LogoInstagram.png" class="ig">
                         <p>Instagram</p>
                     </a>
                 </span>
 
                 <span class="x">
                     <a href="#">
-                        <img src="..//RRSS/LogoX.png" class="x-twitter">
+                        <img src="RRSS/LogoX.png" class="x-twitter">
                         <p>X</p>
                     </a>
                 </span>
@@ -201,6 +235,5 @@
             </div>
 
         </div>
-
     </footer>
 </html>

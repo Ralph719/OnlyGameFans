@@ -39,32 +39,50 @@ mastercardInput.addEventListener('change', () => {
 
 
 const tarjeta = document.querySelector('#tarjeta'),
-	  formulario = document.querySelector('#formulario-tarjeta'),
-	  numeroTarjeta = document.querySelector('#tarjeta .numero'),
-	  nombreTarjeta = document.querySelector('#tarjeta .nombre'),
-	  logoMarca = document.querySelector('#logo-marca'),
-	  firma = document.querySelector('#tarjeta .firma p'),
-	  mesExpiracion = document.querySelector('#tarjeta .mes'),
-	  yearExpiracion = document.querySelector('#tarjeta .year');
-	  ccv = document.querySelector('#tarjeta .ccv');
+        formulario = document.querySelector('#formulario-tarjeta'),
+        numeroTarjeta = document.querySelector('#tarjeta .numero'),
+        nombreTarjeta = document.querySelector('#tarjeta .nombre'),
+        logoMarca = document.querySelector('#logo-marca'),
+        firma = document.querySelector('#tarjeta .firma p'),
+        mesExpiracion = document.querySelector('#tarjeta .mes'),
+        yearExpiracion = document.querySelector('#tarjeta .year'),
+        ccv = document.querySelector('#tarjeta .ccv');
 
 
-// * Select del mes generado dinamicamente.
-for(let i = 1; i <= 12; i++){
-	let opcion = document.createElement('option');
-	opcion.value = i;
-	opcion.innerText = i;
-	formulario.selectMes.appendChild(opcion);
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const selectMes = document.getElementById('selectMes');
+    const selectYear = document.getElementById('selectYear');
 
-// * Select del año generado dinamicamente.
-const yearActual = new Date().getFullYear();
-for(let i = yearActual; i <= yearActual + 8; i++){
-	let opcion = document.createElement('option');
-	opcion.value = i;
-	opcion.innerText = i;
-	formulario.selectYear.appendChild(opcion);
-}
+    for (let i = 1; i <= 12; i++) {
+        const option = document.createElement('option');
+        option.value = i.toString().padStart(2, '0');
+        option.text = i.toString().padStart(2, '0');
+        selectMes.appendChild(option);
+    }
+
+    const currentYear = new Date().getFullYear();
+    for (let i = currentYear; i <= currentYear + 10; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.text = i;
+        selectYear.appendChild(option);
+    }
+
+    const formularioTarjeta = document.getElementById('formulario-tarjeta');
+    formularioTarjeta.addEventListener('submit', function (event) {
+        const inputNumero = document.getElementById('inputNumero');
+        const inputNombre = document.getElementById('inputNombre');
+        const inputCCV = document.getElementById('inputCCV');
+        const advertencia = document.getElementById('advertencia');
+
+        if (!inputNumero.value || !inputNombre.value || !selectMes.value || !selectYear.value || !inputCCV.value) {
+            advertencia.style.display = 'block';
+            event.preventDefault();
+        } else {
+            advertencia.style.display = 'none';
+        }
+    });
+});
 
 // * Input numero de tarjeta
 formulario.inputNumero.addEventListener('keyup', (e) => {

@@ -162,7 +162,7 @@
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/articulos1.js"></script>
+        <script src="js/articulos30.js"></script>
         <script src="js/buscador.js"></script>
     </body>
 </html>

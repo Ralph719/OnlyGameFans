@@ -225,29 +225,6 @@
             }
         %>
         <script>
-            fetch('http://localhost:8080/GameStore/SvRegistrarUsuario', {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Extraer el token de la respuesta
-                    return response.json();
-                } else {
-                    throw new Error('Error en la solicitud');
-                }
-            })
-            .then(data => {
-                // Almacenar el token en el almacenamiento local
-                localStorage.setItem('token', data.token);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        </script>
-        <script>
             // Función para guardar el userEmail en el localStorage
             function guardarUserEmail() {
                 var userEmailInput = document.getElementById("userEmail");
@@ -262,10 +239,10 @@
         <div class="container-footer">
             <ol>
                 <li>
-                    <a href="../RegistroUsuario/registrocuenta.html">¡Crea una cuenta ahora!</a>
+                    <a href="registrocuenta.jsp">¡Crea una cuenta ahora!</a>
                 </li>
                 <li>
-                    <a href="../CarritoDeCompras/index.html">Ver videojuegos</a>
+                    <a href="articulos.jsp">Ver videojuegos</a>
                 </li>
             </ol>
         </div>
@@ -273,10 +250,10 @@
         <div class="container-footer">
             <ol>
                 <li>
-                    <a href="../CarritoDeCompras/carrito.html">Revisa tu carrito</a>
+                    <a href="carrito.jsp">Revisa tu carrito</a>
                 </li>
                 <li>
-                    <a href="../CarritoDeCompras/index.html">Ver consolas</a>
+                    <a href="articulos.jsp">Ver consolas</a>
                 </li>
             </ol>
         </div>

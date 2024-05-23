@@ -1,10 +1,5 @@
-var userEmail = localStorage.getItem("userEmail");
-if(userEmail) {
-    console.log('Carrito del usuario: ', userEmail);
-}
-
 // Crear una función para hacer la solicitud AJAX
-function obtenerArticulosEnCarrito() {
+function obtenerArticulosEnCarrito(userEmail) {
     // Crear una instancia de XMLHttpRequest
     var xhr = new XMLHttpRequest();
 
@@ -31,7 +26,14 @@ function obtenerArticulosEnCarrito() {
 }
 
 // Llamar a la función para obtener los artículos en el carrito
-obtenerArticulosEnCarrito();
+var userEmail = localStorage.getItem("userEmail");
+if (userEmail) {
+    console.log('Carrito del usuario: ', userEmail);
+    obtenerArticulosEnCarrito(userEmail); // Llamar a la función con el correo electrónico
+}
+
+// Llamar a la función para obtener los artículos en el carrito
+//obtenerArticulosEnCarrito();
 
 // VARIABLES
 const carritoVacio = document.querySelector("#carritoVacio");
@@ -80,10 +82,11 @@ function cargarArticulosCarrito(articulosEnCarrito) {
                     <p>${(articulo.precio * articulo.cantidad).toFixed(2)} €</p>
                 </div>
                 <form action="SvCarrito" method="POST">
-                    <button class="eliminarProducto" id="${articulo.idArticulo}" onclick="enviarUserAlCarrito(this)">
+                    <button class="eliminarProducto" id="${articulo.idArticulo}" onclick="return eliminarArticulo(this)">
                         <i class="bi bi-trash3-fill"></i>
                     </button>
-                    <input type="hidden" id="idArticulo" name="idArticulo" value="${articulo.idArticulo}"></input>
+                    <input type="hidden" id="idArticulo" name="idArticulo" value="${articulo.idArticulo}">
+                    <input type="hidden" id="userEmail" name="userEmail" value="${userEmail}">
                 </form>
             `;
             contenedorArticulos.append(div);
@@ -98,4 +101,43 @@ function cargarArticulosCarrito(articulosEnCarrito) {
 
     //actualizarBotonesEliminar();
     //actualizarTotal();
+}
+
+
+function eliminarArticulo(button) {
+    // Obtener el ID del artículo
+    var idArticulo = button.id;
+    
+    // Obtener el correo electrónico del usuario del campo oculto en el formulario
+    var userEmail = document.getElementById("userEmail").value;
+    
+    if(userEmail) {
+        // Crear una instancia de XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+
+        // Configurar la solicitud POST
+        xhr.open('POST', 'SvCarrito', true);
+
+        // Configurar el encabezado Content-Type
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        // Construir los datos a enviar
+        var params = "action=eliminarArticulo&userEmail=" + encodeURIComponent(userEmail) + "&idArticulo=" + encodeURIComponent(idArticulo);
+        
+         // Configurar la función de callback para cuando la solicitud esté completa
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                console.log('Artículo eliminado del carrito');
+                // Recargar la página
+                location.reload();
+            } else {
+                console.error('Hubo un error al eliminar el artículo del carrito:', xhr.status, xhr.statusText);
+            }
+        };
+
+        // Enviar la solicitud
+        xhr.send(params);
+        return false;
+    }
+    return true;
 }
