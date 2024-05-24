@@ -8,26 +8,30 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="Logos/LogoFinal.png">
+        <link rel="shortcut icon" href="../Logos/LogoPaginaWeb.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
         <title>OnlyGameFans | Tienda gaming online</title>
     </head>
     <body>
         <header class="first">
             <div class="logo">
-                <img src="Logos/OnlyGameFansTituloInicio.png" alt="TituloLogo">
+                <img src="Logos/OnlyGameFansTituloWeb.png">
             </div>
 
             <div class="acciones">
                 <div class="containerBuscador">
 
                     <input type="text" name="buscador" class="buscador" id="buscador" placeholder="Buscar videojuegos...">
-                    <button class="botonBuscador"><i class="bi bi-search"></i></button>
                 
                 </div>
+
                 <div class="acciones-usuario">
                     <div class="user-space">
                         <a class="botonUsuario" href="inicioSesion.jsp">
@@ -40,6 +44,7 @@
                         </a>
                     </div>
                 </div>
+                
             </div>
         </header>
         <header class="second">
@@ -73,6 +78,18 @@
                     <li>
                         <img src="Logos/activisionLogo.jpg">
                     </li>
+                    <li>
+                        <img src="Logos/DevolverLogo.webp">
+                    </li>
+                    <li>
+                        <img src="Logos/SquareEnixLogo.webp">
+                    </li>
+                    <li>
+                        <img src="Logos/BethesdaLogo.jpg">
+                    </li>
+                    <li>
+                        <img src="Logos/EALogo.jpg">
+                    </li>
                     <!-- Se repiten las imagenes para crear la animación infinita del slider -->
                     <li>
                         <img src="Logos/playLogo.jpg">
@@ -99,18 +116,27 @@
                         <img src="Logos/cdprojectLogo.jpg">
                     </li>
                     <li>
-                        <img src="Logos/ubisoftLogo.jpg">
-                    </li>
-                    <li>
                         <img src="Logos/activisionLogo.jpg">
                     </li>
-                    
+                    <li>
+                        <img src="Logos/DevolverLogo.webp">
+                    </li>
+                    <li>
+                        <img src="Logos/SquareEnixLogo.webp">
+                    </li>
+                    <li>
+                        <img src="Logos/BethesdaLogo.jpg">
+                    </li>
+                    <li>
+                        <img src="Logos/EALogo.jpg">
+                    </li>
+
                 </ul>
             </div>
             <div class="icono">
                 <div class="rectangulo-icono">
                     <a href="articulos.jsp">
-                        <img src="Logos/LogoFinal.png" class="logo-icono">
+                        <img src="Logos/LogoPaginaWeb.png" class="logo-icono" title="¡Haz click aquí!">
                     </a>
                 </div>
             </div>
@@ -230,7 +256,7 @@
                         <div class="textico">
                             Cyberpunk 2077
                             <hr>
-                            <del>59,99€</del> - <b>45,99€</></b>
+                            <del id="precioAnterior">59,99€</del> - <b>45,99€</></b>
                         </div>
                     </div>
                 </div>
@@ -246,7 +272,7 @@
                         <div class="textico">
                             Bioshock Infinite
                             <hr>
-                            <del>29.99€</del> - <b>17.99€</b>
+                            <del id="precioAnterior">29.99€</del> - <b>17.99€</b>
                         </div>
                     </div>
                 </div>
@@ -262,7 +288,7 @@
                         <div class="textico">
                             Kingdom come deliverance
                             <hr>
-                            <del>29.99€</del> - <b>5.99€</b>
+                            <del id="precioAnterior">29.99€</del> - <b>5.99€</b>
                         </div>
                     </div>
                 </div>
@@ -278,7 +304,7 @@
                         <div class="textico">
                             Mafia: Definitive Edition
                             <hr>
-                            <del>39,99€</del> - <b>9.99€</b>
+                            <del id="precioAnterior">39,99€</del> - <b>9.99€</b>
                         </div>
                     </div>
                 </div>
@@ -294,7 +320,7 @@
                         <div class="textico">
                             Elden Ring
                             <hr>
-                            <del>59.99€</del> - <b>41.99€</b>
+                            <del id="precioAnterior">59.99€</del> - <b>41.99€</b>
                         </div>
                     </div>
                 </div>
@@ -310,7 +336,7 @@
                         <div class="textico">
                             Metal Gear Solid 3: Snake Eater
                             <hr>
-                            <del>59.99€</del> - <b>41.99€</b>
+                            <del id="precioAnterior">59.99€</del> - <b>41.99€</b>
                         </div>
                     </div>
                 </div>
@@ -319,6 +345,88 @@
         <script src="js/index.js"></script>
     </body>
     <footer>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="registrocuenta.jsp">¡Crea una cuenta ahora!</a>
+                </li>
+                <li>
+                    <a href="articulos.jsp">Ver videojuegos</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="carrito.jsp">Revisa tu carrito</a>
+                </li>
+                <li>
+                    <a href="articulos.jsp">Ver consolas</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="#">Política de cookie</a>
+                </li>
+                <li>
+                    <a href="#">Información sobre datos personales</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="#">Terminos de venta</a>
+                </li>
+                <li>
+                    <a href="#">Política de devoluciones</a>
+                </li>
+            </ol>
+        </div>
+
+        <div class="container-footer">
+            <ol>
+                <li>
+                    <a href="#">Política de la empresa</a>
+                </li>
+            </ol>
+        </div>
+
+        <!-- CONTENEDOR PARA LAS REDES SOCIALES -->
+        <div class="container-rrss">
+
+            <div class="rrss">
+
+                <span class="facebook">
+                    <a href="#">
+                        <img src="RRSS/LogoFacebook.png" class="fb">
+                    <p>Facebook</p>
+                    </a>
+                </span>
+                
+                <span class="instagram">
+                    <a href="#">
+                        <img src="RRSS/LogoInstagram.png" class="ig">
+                        <p>Instagram</p>
+                    </a>
+                </span>
+
+                <span class="x">
+                    <a href="#">
+                        <img src="RRSS/LogoX.png" class="x-twitter">
+                        <p>X</p>
+                    </a>
+                </span>
+
+            </div>
+
+        </div>
 
     </footer>
 </html>
