@@ -50,8 +50,10 @@ const tarjeta = document.querySelector('#tarjeta'),
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    const formularioTarjeta = document.getElementById('formulario-tarjeta');
     const selectMes = document.getElementById('selectMes');
     const selectYear = document.getElementById('selectYear');
+    const advertencia = document.getElementById('advertencia');
 
     for (let i = 1; i <= 12; i++) {
         const option = document.createElement('option');
@@ -68,18 +70,20 @@ document.addEventListener('DOMContentLoaded', function () {
         selectYear.appendChild(option);
     }
 
-    const formularioTarjeta = document.getElementById('formulario-tarjeta');
     formularioTarjeta.addEventListener('submit', function (event) {
-        const inputNumero = document.getElementById('inputNumero');
-        const inputNombre = document.getElementById('inputNombre');
-        const inputCCV = document.getElementById('inputCCV');
-        const advertencia = document.getElementById('advertencia');
+        const inputNumero = document.getElementById('inputNumero').value.trim();
+        const inputNombre = document.getElementById('inputNombre').value.trim();
+        const inputCCV = document.getElementById('inputCCV').value.trim();
+        const mes = selectMes.value;
+        const year = selectYear.value;
 
-        if (!inputNumero.value || !inputNombre.value || !selectMes.value || !selectYear.value || !inputCCV.value) {
+        if (!inputNumero || !inputNombre || !mes || !year || !inputCCV) {
             advertencia.style.display = 'block';
             event.preventDefault();
         } else {
             advertencia.style.display = 'none';
+            enviarDatos();
+            event.preventDefault(); // Evita el envío del formulario de forma tradicional
         }
     });
 });
@@ -157,3 +161,27 @@ formulario.inputCCV.addEventListener('keyup', () => {
 
 	ccv.textContent = formulario.inputCCV.value;
 });
+
+function enviarDatos() {
+    let userEmail = localStorage.getItem("userEmail");
+    let direccion = localStorage.getItem("direccion");
+    let pais = localStorage.getItem("pais");
+    let email = localStorage.getItem("email");
+    let cpostal = localStorage.getItem("cpostal");
+    let provincia = localStorage.getItem("provincia");
+
+    if (userEmail && direccion && pais && email && cpostal && provincia) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "SvPedidos", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        var data = "userEmail=" + encodeURIComponent(userEmail)
+                + "&direccion=" + encodeURIComponent(direccion)
+                + "&pais=" + encodeURIComponent(pais)
+                + "&email=" + encodeURIComponent(email)
+                + "&cpostal=" + encodeURIComponent(cpostal)
+                + "&provincia=" + encodeURIComponent(provincia);
+
+        xhr.send(data);
+    }
+}

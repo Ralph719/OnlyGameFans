@@ -85,7 +85,7 @@
             </div>
 
             <!-- Formulario -->
-            <form action="" id="formulario-tarjeta" class="formulario-tarjeta">
+            <form action="SvPedidos" method="POST" id="formulario-tarjeta" class="formulario-tarjeta">
                 <div class="grupo">
                     <label for="inputNumero">Número Tarjeta</label>
                     <input type="text" id="inputNumero" name="numero" maxlength="19" autocomplete="off">
@@ -119,38 +119,11 @@
                     </div>
                 </div>
                 <span id="advertencia" class="advertencia" style="display: none;">Debe rellenar todos los campos</span>
-                <button type="submit" class="btn-enviar" onclick="enviarDatos(this)">Continuar a resumen de compra</button>
+                <button class="btn-enviar">Continuar a resumen de compra</button>
             </form>
         </div>
-        
-        <script>
-            
-            function enviarDatos(button) {
-                let userEmail = localStorage.getItem("userEmail");
-                let direccion = localStorage.getItem("direccion");
-                let pais = localStorage.getItem("pais");
-                let email = localStorage.getItem("email");
-                let cpostal = localStorage.getItem("cpostal");
-                let provincia = localStorage.getItem("provincia");
-                
-                if(userEmail && direccion && pais && email && cpostal && provincia) {
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "SvPedidos", true);
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    
-                    var data = "userEmail=" + encodeURIComponent(userEmail) 
-                             + "&direccion=" + encodeURIComponent(direccion) 
-                             + "&pais=" + encodeURIComponent(pais)
-                             + "&email=" + encodeURIComponent(email)
-                             + "&cpostal=" + encodeURIComponent(cpostal)
-                             + "&provincia=" + encodeURIComponent(provincia);
-                     
-                     xhr.send(data);
-                }
-            }
-        </script>
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-        <script src="js/pago.js"></script>
+        <script src="js/pago1.js"></script>
     </body>
     <footer>
 

@@ -59,6 +59,10 @@ public class Controlador {
         return controlPersistencia.encontrarIdUsuario(userEmail);
     }
     
+    public String obtenerNombreCompleto(String userEmail) {
+        return controlPersistencia.obtenerNombreCompleto(userEmail);
+    }
+    
     public int encontrarCarrito(int idUsuario) {
         return controlPersistencia.encontrarCarrito(idUsuario);
     }
@@ -74,6 +78,10 @@ public class Controlador {
     public void crearPedido(double pagoTotal, String direccion, 
                             LocalDate fechaCompra, int usuario, int carrito) {
         controlPersistencia.crearPedido(pagoTotal, direccion, fechaCompra, usuario, carrito);
+    }
+    
+    public int obtenerIdPedido(int carrito) {
+        return controlPersistencia.obtenerIdPedido(carrito);
     }
     
     public void cerrarRecursos() {

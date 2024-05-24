@@ -289,6 +289,32 @@ public class ControladorPersistencia {
         return idUsuario;
     }
     
+    public String obtenerNombreCompleto(String userEmail) {
+        String nombreCompleto = "";
+
+        String consulta = "SELECT nombre_completo FROM Usuario "
+                        + "WHERE usuario = ? OR email = ?";
+
+        try {
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(consulta);
+
+            ps.setString(1, userEmail);
+            ps.setString(2, userEmail);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                nombreCompleto = rs.getString("nombre_completo");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al obtener el nombre: " + e);
+        } finally {
+            cerrarRecursos();
+        }
+        return nombreCompleto;
+    }
+    
     public void crearCarrito(int idUsuario) {
         int fila = -1;
         
@@ -639,10 +665,32 @@ public class ControladorPersistencia {
             
         } catch(SQLException e) {
             System.out.println("Error al crear el pedido para el usuario " 
-                               + "Nº" + usuario + e.getMessage());
+                               + "Nº" + usuario + ": " + e.getMessage());
         } finally {
             cerrarRecursos();
         }
+    }
+    
+    public int obtenerIdPedido(int carrito) {
+        int idPedido = 0;
+        
+        String consulta = "SELECT id_pedido FROM Pedido WHERE codigo_carrito = ?";
+        
+        try {
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(consulta);
+            ps.setInt(1, carrito);
+            
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                idPedido = rs.getInt("id_pedido");
+            }
+            
+        } catch(SQLException e) {
+            System.out.println("Error al buscar el idPedido: " + e.getMessage());
+        }
+        
+        return idPedido;
     }
     
     public void cerrarRecursos() {

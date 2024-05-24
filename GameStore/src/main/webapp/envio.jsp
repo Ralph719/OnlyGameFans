@@ -10,7 +10,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/envio2.css">
+        <link rel="stylesheet" type="text/css" href="css/envio3.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,7 @@
 
                 <div class="container-form">
 
-                    <form>
+                    <form onsubmit="return guardarDatos(event)">
 
                         <div class="container-form-child">
 
@@ -67,20 +67,16 @@
                             </div>
                             
                         </div>
-
                         <div class="contenedor">
-                            <a href="pago.jsp" style="width: fit-content">
-                                <button class="boton cinco" onclick="guardarDatos()">
-                                    <div class="icono">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-                                        </svg>
-                                    </div>
-                                    <span>Proceder con el pago</span>
-                                </button>
-                            </a>
+                            <button class="boton cinco" type="submit">
+                                <div class="icono">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                    </svg>
+                                </div>
+                                <span>Proceder con el pago</span>
+                            </button>
                         </div>
-
                     </form>
 
                 </div>
@@ -88,22 +84,7 @@
             </div>
 
         </div>
-        <script>
-            function guardarDatos() {
-                let direccion = document.getElementById("direccion").value;
-                let pais = document.getElementById("pais").value;
-                let email = document.getElementById("email").value;
-                let cpostal = document.getElementById("cp").value;
-                let provincia = document.getElementById("provincia").value;
-                
-                localStorage.setItem("direccion", direccion);
-                localStorage.setItem("pais", pais);
-                localStorage.setItem("email", email);
-                localStorage.setItem("cpostal", cpostal);
-                localStorage.setItem("provincia", provincia);
-            }
-        </script>
-        <!--<script src="js/envio.js"></script>-->
+        <script src="js/envio2.js"></script>
     </body>
 
     <footer>
