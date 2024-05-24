@@ -5,6 +5,10 @@
     font-family: cairo;
 }
 
+body {
+    background-color: rgb(37, 37, 37);
+}
+
 .first {
     width: 100%;
     display: flex;
@@ -14,6 +18,7 @@
     align-items: center;
     justify-content: center;
     z-index: 10000;
+    background-color: rgba(236, 229, 229, 0.863);
 }
 
 /* ESPACIO ONLYGAMEFANS */
@@ -24,7 +29,7 @@
 
 .logo img {
     height: 6.6rem;
-    width: 30.3rem;
+    width: 32rem;
     background-color: rgba(37, 37, 37, 0.932);
     border: .5px solid rgb(0, 0, 0);
 }
@@ -48,29 +53,7 @@
     align-items: center;
     width: 80%;
     padding: 2rem;
-}
-
-.botonBuscador {
-    position: relative;
-    display: flex;
-    align-items: center;
-    border: 0;
-    background-color: transparent;
-    padding-left: 2.5rem;
-    font-size: 1.7rem;
-
-    cursor: pointer;
-}
-
-.bi-search {
-    position: absolute;
-    transform: scale(1.4);
-
-    transition: all 0.2s ease-in-out;
-}
-
-.bi-search:hover {
-    transform: scale(1.6);
+    background-color: rgba(112, 112, 112, 0.795);
 }
 
 .buscador {
@@ -88,27 +71,33 @@ input[type="text"] {
     padding-left: 1rem;
     transition: all .2s ease-out;
     border-radius: .3rem;
-    border-bottom: .8px solid rgb(31, 82, 112);
-    border-right: .8px solid rgb(49, 99, 146);
-    border-top: .8px solid rgb(64, 117, 167);
-    border-left: .8px solid rgb(102, 146, 187);
+    border-bottom: .8px solid rgb(106, 110, 112);
+    border-right: .8px solid rgb(42, 43, 44);
+    border-top: .8px solid rgb(80, 80, 80);
+    border-left: .8px solid rgb(107, 109, 110);
+    background-color: rgb(65, 64, 64);
+    color: rgb(233, 233, 233);
+}
+
+input[type="text"]::placeholder {
+    color: rgb(233, 233, 233);
 }
 
 input[type="text"]:hover {
-    filter: drop-shadow(0px 1px 9px rgba(65, 84, 196, 0.479));
-    outline: .2px solid rgba(88, 87, 87, 0.555);
+    filter: drop-shadow(0px 1px 6px rgba(80, 79, 79, 0.753));
+    outline: .2px solid rgba(236, 231, 231, 0.555);
 }
 
 input[type="text"]:focus {
-    outline: 2px solid rgb(114, 177, 230);
+    outline: 2px solid rgb(214, 215, 216);
     border: none;
     width: 50rem;
-    color: rgb(0, 0, 0);
+    color: rgb(218, 218, 218);
 }
 
 input[type="text"]::selection {
-    color: rgb(126, 174, 236);
-    background-color: rgb(55, 63, 88);
+    color: rgb(198, 199, 201);
+    background-color: rgb(118, 119, 119);
 }
 
 .filtro {
@@ -194,11 +183,20 @@ input[type="text"]::selection {
     align-items: center;
     height: 100%;
     width: 49%;
-    background: linear-gradient(to bottom, rgba(34, 33, 33, 0.452), rgba(255, 255, 255, 0.151));
-    filter: drop-shadow(0px 1px 15px rgb(255, 255, 255));
+    background: linear-gradient(to bottom, rgba(90, 122, 224, 0.452), rgba(120, 143, 155, 0.747));
     border-top-left-radius: 5rem;
     border-top-right-radius: 5rem;
-    filter: blur(1.5px);
+    border: 1px solid rgba(52, 53, 53, 0.39);
+    border-collapse: separate;
+
+    border-inline-color: rgba(47, 81, 194, 0.938);
+    border-inline-start-width: 25px;
+    border-inline-start-style: groove;
+
+    border-inline-end: rgba(47, 81, 194, 0.938);
+    border-inline-end-style: groove;
+    border-inline-end-width: 25px;
+
     transition: .2s ease-in-out;
 }
 
@@ -219,18 +217,10 @@ input[type="text"]::selection {
 .logo-icono:hover {
     transform: scale(1.2);
     filter: blur(0px);
-    transform: rotateY(.5turn);
 }
 
 .rectangulo-icono, .logo-icono:hover {
     filter: blur(0);
-}
-
-.rectangulo-icono:hover {
-    border-bottom-left-radius: 5rem;
-    border-bottom-right-radius: 5rem;
-    border-top-left-radius: 0rem; 
-    border-top-right-radius: 0rem; 
 }
 
 /* SLIDER DEBAJO DEL LOGO */
@@ -264,19 +254,19 @@ input[type="text"]::selection {
         transform: translateX(0);
     }
     100%{
-        transform: translateX(calc(-155.68px * 9));
+        transform: translateX(calc(-151.46px * 13));
     }
 }
 
-/* ---- APARTADO PROMOCIONES, DESCUENTOS Y DEMAS ---- */
+/* ---- APARTADO PROMOCIONES, DESCUENTOS Y MAS ---- */
 .titulo {
     margin-top: 4rem;
     text-align: center;
     font-size: 40px;
     font-weight: bold;
     color: transparent;
-    background-image: linear-gradient(to left,black 40%, rgba(255, 255, 255, 0.5) 41%, white 41.5%, blue 42%, blue 64%, white 64.5%, rgba(255, 255, 255, 0.5) 65%, black 67%);    
     background-clip: text;
+    background-image: linear-gradient(to left,rgb(255, 255, 255) 40%, rgba(255, 255, 255, 0.836) 41%, rgba(255, 255, 255, 0.699) 41.5%, rgb(25, 87, 168) 42%, rgba(190, 187, 187, 0.658) 64%, rgb(29, 61, 119) 64.5%, rgba(77, 153, 197, 0.863) 65%, white 67%);    
     animation: titulo 4s linear infinite;
     animation-fill-mode: forwards;
     background-size: 200%;
@@ -294,8 +284,13 @@ input[type="text"]::selection {
     }
 }
 .semititulo {
+    margin-top: 2rem;
     text-align: center;
-    font-size: 25px;
+    font-size: 2.7rem;
+    color: rgb(231, 231, 231);
+    font-weight: 200;
+    font-family: bebas neue;
+    letter-spacing: 3px;
 }
 
 .slider-container {
@@ -365,7 +360,7 @@ button:hover {
 
 .next {
     right: 0;
-    background: linear-gradient(to left, rgb(81, 65, 218), transparent);
+    background: linear-gradient(to left, white, transparent);
 }
 
 @keyframes Entrada {
@@ -394,12 +389,15 @@ button:hover {
 /* ----- APARTADO TOP VENTAS ----- */
 .todo {
     padding: 0.3%;
-    background-color: rgb(25, 17, 58);
+    background-color: rgb(54, 54, 54);
     display: block;
     margin: 0 auto;
     width: fit-content;
     height:fit-content;
     margin-top: 2%;
+    border-radius: .3rem;
+    filter: drop-shadow(0px 0px 6px white);
+    box-shadow: 0px 1px 17px rgb(0, 0, 0);
 }
 
 .menos {
@@ -412,7 +410,7 @@ button:hover {
     width: 55vw;
     position: relative;
     overflow: hidden;
-    border: 2px solid rgb(25, 17, 58);
+    border: 2px solid rgba(126, 124, 124, 0.575);
 }
 
 /* Texto con div transparente sobre la imagen */
@@ -512,6 +510,7 @@ button:hover {
     padding-top: 5rem;
     padding-bottom: 3rem;
     margin-top: 8vh;
+    background-color: rgba(53, 53, 53, 0.863);
 }
 
 .flip-box {
@@ -577,5 +576,177 @@ button:hover {
     margin-top: 23vh;
     background-color: rgb(0, 0, 0, 0.75);
     padding: 3%;
-    font-size: smaller;
+    color: rgb(74, 218, 55);
+    font-size: 18px;
+    font-family: bebas neue;
+    font-weight: 100;
+    letter-spacing: 1.3px;
+}
+
+#precioAnterior {
+    color: rgb(214, 115, 1);
+    font-weight: 650;
+    filter: contrast(1.5);
+}
+
+footer {
+    margin-top: 48px;
+    background-color: rgb(23, 29, 29);
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer ol {
+    list-style: none;
+}
+
+footer ol li a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: cairo;
+    font-size: .9rem;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.container-footer h1 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    font-family: cairo;
+    color: rgb(199, 197, 197);
+}
+
+
+.container-footer ol {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-footer ol li {
+    padding: 1rem;
+}
+
+.container-footer ol li a {
+    transition: .09s ease-in;
+}
+
+.container-footer ol li a:hover {
+    color: rgb(253, 194, 0);
+}
+
+/* CONTENEDOR PARA LAS REDES SOCIALES */
+.container-rrss {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: center;
+}
+
+.rrss {
+    position: relative;
+    display: flex;
+    padding: .5rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.rrss a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: cairo;
+}
+
+.rrss a {
+    transition: .2s ease-in;
+}
+
+.rrss img {
+    width: 3.5rem;
+}
+
+.rrss a:hover {
+    color: rgb(253, 194, 0);
+}
+
+/* CONTENEDOR PARA FACEBOOK */
+.facebook {
+    transition: .1s ease-in;
+    padding: 2rem;
+}
+
+.facebook p {
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+}
+
+/* IMÁGEN FACEBOOK */
+.fb {
+    transition: all .2s ease-in;
+}
+
+.fb:hover {
+    filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
+}
+
+/* CONTENEDOR PARA INSTAGRAM */
+.instagram {
+    margin-right: 2rem;
+    margin-left: 2rem;
+    padding: 2rem;
+}
+
+.instagram p {
+    filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+}
+
+/* IMÁGEN INSTAGRAM */
+.ig {
+    transition: all .2s ease-in;
+}
+
+.ig:hover {
+    filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
+}
+
+/* CONTENEDOR PARA X O TWITTER COMO LO QUIERAS LLAMAR */
+.x {
+    transition: .1s ease-in;
+    padding: 2rem;
+}
+
+.x p {
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+}
+
+/* IMÁGEN X O TWITTER COMO LO QUIERAS LLAMAR */
+.x-twitter {
+    transition: all .2s ease-in;
+}
+
+.x-twitter:hover {
+    filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
+}
+
+
+@media (max-width: 768px) {
+    .boton.cinco{
+        width: 30%;
+    }
+
+    .boton.cinco span {
+        left: 18%;
+    }
 }
