@@ -59,7 +59,7 @@ public class ControladorPersistenciaTest {
         verify(dataSource, times(1)).getConnection();
         // Verificación de que se preparó la consulta adecuada
         verify(connection, times(1))
-                .prepareStatement("INSERT INTO Usuario (nombre_completo, usuario" 
+                .prepareStatement("INSERT INTO usuario (nombre_completo, usuario" 
                         + ", direccion, email, contraseña) VALUES (?, ?, ?, ?, ?)");
         // Verificación de que se llamó executeUpdate en el PreparedStatement
         verify(ps, times(1)).executeUpdate();

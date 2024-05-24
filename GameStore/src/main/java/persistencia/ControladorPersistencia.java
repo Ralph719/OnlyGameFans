@@ -28,6 +28,7 @@ public class ControladorPersistencia {
             Context initContext = new InitialContext();
             Context envContext = (Context) initContext.lookup("java:/comp/env");
             dataSource = (DataSource) envContext.lookup("jdbc/GameStoreDB");
+            System.out.println("Conexión completada");
         } catch (NamingException e) {
             System.out.println("Error al conectar con la BBDD: " + e);
         }
@@ -49,7 +50,7 @@ public class ControladorPersistencia {
         int fila = -1;
 
         // Operación
-        String insercion = "INSERT INTO Usuario (nombre_completo, usuario, direccion, email, contraseña) "
+        String insercion = "INSERT INTO usuario (nombre_completo, usuario, direccion, email, contraseña) "
                 + "VALUES (?, ?, ?, ?, ?)";
 
         try {
@@ -76,7 +77,7 @@ public class ControladorPersistencia {
     
     // Operación SELECT
     public boolean buscarUsuario(String userEmail) {
-        String consulta = "SELECT usuario, email FROM Usuario " 
+        String consulta = "SELECT usuario, email FROM usuario " 
                         + "WHERE usuario = ? OR email = ?";
         
         try {
@@ -108,7 +109,7 @@ public class ControladorPersistencia {
     
     public boolean verificarUsuario(String username) {
         
-        String consulta = "SELECT usuario FROM Usuario";
+        String consulta = "SELECT usuario FROM usuario";
         
         try {
             connection = dataSource.getConnection();
@@ -132,7 +133,7 @@ public class ControladorPersistencia {
     
     public boolean verificarEmail(String email) {
         
-        String consulta = "SELECT email FROM Usuario";
+        String consulta = "SELECT email FROM usuario";
         
         try {
             connection = dataSource.getConnection();
@@ -156,7 +157,7 @@ public class ControladorPersistencia {
     
     public boolean verificarPassword(String userEmail, String password) {
         
-        String consulta = "SELECT contraseña FROM Usuario " 
+        String consulta = "SELECT contraseña FROM usuario " 
                         + "WHERE usuario = ? OR email = ?";
         
         try {
@@ -264,7 +265,7 @@ public class ControladorPersistencia {
     public int encontrarIdUsuario(String userEmail) {
         int idUsuario = 0;
         
-        String consulta = "SELECT id_usuario FROM Usuario "
+        String consulta = "SELECT id_usuario FROM usuario "
                         + "WHERE usuario = ? OR email = ?";
 
         try {
@@ -292,7 +293,7 @@ public class ControladorPersistencia {
     public String obtenerNombreCompleto(String userEmail) {
         String nombreCompleto = "";
 
-        String consulta = "SELECT nombre_completo FROM Usuario "
+        String consulta = "SELECT nombre_completo FROM usuario "
                         + "WHERE usuario = ? OR email = ?";
 
         try {
@@ -643,7 +644,7 @@ public class ControladorPersistencia {
     
     public void crearPedido(double pagoTotal, String direccion, 
                             LocalDate fechaCompra, int usuario, int carrito) {
-        String insercion = "INSERT INTO Pedido (pago_total, direccion, " 
+        String insercion = "INSERT INTO pedido (pago_total, direccion, " 
                          + "fecha_compra, id_usuario, codigo_carrito) VALUES " 
                          + "(?, ?, ?, ?, ?)";
         int fila = -1;
@@ -674,7 +675,7 @@ public class ControladorPersistencia {
     public int obtenerIdPedido(int carrito) {
         int idPedido = 0;
         
-        String consulta = "SELECT id_pedido FROM Pedido WHERE codigo_carrito = ?";
+        String consulta = "SELECT id_pedido FROM pedido WHERE codigo_carrito = ?";
         
         try {
             connection = dataSource.getConnection();
