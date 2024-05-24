@@ -111,7 +111,7 @@ Create table `contiene`(
 	id_articulo int (10),
     cantidad tinyint (3),
     Primary key(id_articulo, codigo_carrito),
-    Foreign key (id_articulo) references articulo (id_articulo),
+    Foreign key (id_articulo) references articulo (id_articulo) ON DELETE CASCADE,
     Foreign key (codigo_carrito) references carrito_de_compras (codigo_carrito) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
@@ -129,7 +129,7 @@ Drop table if exists pedido;
 Create table `pedido`(
 	id_pedido int (10) auto_increment,
     pago_total double (7, 2) not null,
-    direccion varchar (30) not null,
+    direccion varchar (70) not null,
     fecha_compra date,
     id_usuario int (10),
     codigo_carrito int (10),
