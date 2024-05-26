@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 2 may. 2024, 13:51:47
-    Author     : steph
+    Author     : Ralph-Niky
 --%>
 <%@page import="java.util.List"%>
 <%@page import="logica.Videojuego"%>
@@ -20,13 +20,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
         <link rel="shortcut icon" href="Logos/LogoFinal.png">
         <!-- Cairo -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
         <!-- Bebas Neue -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
         <title>OnlyGameFans | Tienda gaming online</title>
@@ -71,11 +66,9 @@
                             <form action="SvCarrito" method="GET">
                                 <button type="submit" class="alCarrito" onclick="enviarUserAlCarrito(this)">
                                     <a class="botonCategoria carrito" href="carrito.jsp">
-                                        <!-----------PROBLEMA AQUÍ!!!-------->
                                         <i class="bi bi-cart2"></i>Carrito
                                     </a>
                                 </button>
-                                <span id="carritoCantidad" class="carritoCantidad">0</span>
                             </form>
                         </li>
                     </ul>
@@ -99,7 +92,7 @@
                 </div>
 
                 <div class="containerProductos" id="containerProductos">
-                
+                <!--LOS ARTÍCULOS SERÁN CARGADOS CON JAVASCRIPT-->
                 </div>
 
                 <!-- VENTANA EMERGENTE -->
@@ -114,7 +107,6 @@
 
         </div>
         
-        // Scripts para poder enviar el userEmail al js
         <script>
             var userEmail = localStorage.getItem("userEmail");
 
@@ -123,30 +115,6 @@
                 document.getElementById("userEmail").innerText = userEmail;
                 
                 console.log("Usuario/Email: ", userEmail);
-            }
-            
-            function enviarUserEmail(button) {
-                if (userEmail) {
-                    var idProducto = button.id;
-                    document.getElementById("idProducto").value = idProducto;
-
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "SvArticulos", true);
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-                    var data = "userEmail=" + encodeURIComponent(userEmail) 
-                             + "&idProducto=" + encodeURIComponent(idProducto);
-
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState == 4 && xhr.status == 200) {
-                            console.log("Operación realizada con éxito.");
-                            window.location.href = "articulos.jsp";
-                        }
-                    };
-
-                    xhr.send(data);
-                    console.log("Enviando usuario y producto: ", data);
-                }
             }
             
             function enviarUserAlCarrito(button) {
@@ -162,7 +130,7 @@
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/articulos30.js"></script>
+        <script src="js/articulos37.js"></script>
         <script src="js/buscador.js"></script>
     </body>
 </html>

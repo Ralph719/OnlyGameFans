@@ -1,7 +1,7 @@
 <%-- 
     Document   : inicioSesion
     Created on : 15 abr. 2024, 21:26:22
-    Author     : steph
+    Author     : Ralph-Niky
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

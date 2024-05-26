@@ -1,7 +1,7 @@
 <%-- 
     Document   : envio
     Created on : 22 may. 2024, 18:27:40
-    Author     : steph
+    Author     : Niky
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -86,7 +86,6 @@
         </div>
         <script src="js/envio2.js"></script>
     </body>
-
     <footer>
 
         <div class="container-footer">

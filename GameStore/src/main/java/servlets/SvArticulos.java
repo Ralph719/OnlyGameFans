@@ -50,6 +50,8 @@ public class SvArticulos extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         
         try {
             // Usuario obtenido del inicio de sesión
@@ -82,10 +84,12 @@ public class SvArticulos extends HttpServlet {
                 System.out.println("Operación realizada con éxito.");
             }
             
-            response.sendRedirect("articulos.jsp");
+            // Enviamos una respuesta al cliente indicando que la operación fue exitosa
+            response.getWriter().write("{\"status\":\"success\"}");
             
         } catch(NumberFormatException e) {
             System.out.println("Valor no encontrado para el idArticulo: " + e.getMessage());
+            response.getWriter().write("{\"status\":\"error\", \"message\":\"Invalid product ID.\"}");
         }
     }
 

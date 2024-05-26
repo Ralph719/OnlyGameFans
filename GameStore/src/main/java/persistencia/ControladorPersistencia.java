@@ -12,6 +12,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import logica.Usuario;
 import logica.Articulo;
 import logica.Consola;
@@ -28,7 +30,6 @@ public class ControladorPersistencia {
             Context initContext = new InitialContext();
             Context envContext = (Context) initContext.lookup("java:/comp/env");
             dataSource = (DataSource) envContext.lookup("jdbc/GameStoreDB");
-            System.out.println("Conexión completada");
         } catch (NamingException e) {
             System.out.println("Error al conectar con la BBDD: " + e);
         }
@@ -38,7 +39,7 @@ public class ControladorPersistencia {
         this.dataSource = dataSource;
     }
     
-    // Operación INSERT USER
+    // Registro de un nuevo usuario
     public void crearUsuario(Usuario usuario) {
         // Obtenemos los datos del usuario
         String nombreCompleto = usuario.getNombre();
@@ -75,7 +76,7 @@ public class ControladorPersistencia {
         }
     }
     
-    // Operación SELECT
+    // Verifica la existencia de un usuario basándose en el username o email ingresado
     public boolean buscarUsuario(String userEmail) {
         String consulta = "SELECT usuario, email FROM usuario " 
                         + "WHERE usuario = ? OR email = ?";
@@ -118,7 +119,7 @@ public class ControladorPersistencia {
             rs = ps.executeQuery();
             while (rs.next()) {
                 if(rs.getString("usuario").equals(username)) {
-                    System.out.println("El nombre de usuario ya existe.");
+                    System.out.println("Nombre de usuario existente.");
                     return true;
                 }
             }
@@ -131,6 +132,7 @@ public class ControladorPersistencia {
         return false; // Devuelve false si no encuentra otro nombre de usuario igual
     }
     
+    // En el registro, verifica si el email ingresado ya existe o no
     public boolean verificarEmail(String email) {
         
         String consulta = "SELECT email FROM usuario";
@@ -155,6 +157,7 @@ public class ControladorPersistencia {
         return false;
     }
     
+    // Verifica que la contraseña ingresada coincida con el username o email proporcionado
     public boolean verificarPassword(String userEmail, String password) {
         
         String consulta = "SELECT contraseña FROM usuario " 
@@ -183,7 +186,7 @@ public class ControladorPersistencia {
     }
     
     
-    // OBTENER INFORMACIÓN DE TODOS LOS VIDEOJUEGOS
+    // Devuelve una lista con todos los videojuegos y su respectiva información
     public List<Videojuego> obtenerVideojuegos() {
         List<Videojuego> listaVideojuegos = new ArrayList<>();
         Videojuego videojuego;
@@ -226,7 +229,7 @@ public class ControladorPersistencia {
     }
     
     
-    // OBTENER INFORMACIÓN DE TODOS LAS CONSOLAS
+    // Devuelve una lista con todos las consolas y su respectiva información
     public List<Consola> obtenerConsolas() {
         List<Consola> listaConsolas = new ArrayList<>();
         Consola consola;
@@ -262,6 +265,7 @@ public class ControladorPersistencia {
         return listaConsolas;
     }
     
+    // Devuelve el id de usuario asociado al username o email proporcionado
     public int encontrarIdUsuario(String userEmail) {
         int idUsuario = 0;
         
@@ -290,6 +294,7 @@ public class ControladorPersistencia {
         return idUsuario;
     }
     
+    // Devuelve el nombre de un usuario basándose en el username o email
     public String obtenerNombreCompleto(String userEmail) {
         String nombreCompleto = "";
 
@@ -316,11 +321,12 @@ public class ControladorPersistencia {
         return nombreCompleto;
     }
     
+    // Crea un nuevo carrito para un usuario en caso de que no tenga uno
     public void crearCarrito(int idUsuario) {
         int fila = -1;
         
-        String consulta = "SELECT COUNT(*) AS num_carritos FROM " 
-                        + "carrito_de_compras WHERE id_usuario = ?";
+        String consulta = "SELECT COUNT(*) AS num_carritos FROM carrito_de_compras " 
+                        + "WHERE id_usuario = ? AND estado != 'Comprado'";
         
         String crear = "INSERT INTO carrito_de_compras (estado, id_usuario) " 
                      + "VALUES (?, ?)";
@@ -354,7 +360,7 @@ public class ControladorPersistencia {
         }
     }
     
-    
+    // Devuelve el codigo de carrito que pertenece a un usuario
     public int encontrarCarrito(int idUsuario) {
         String consulta = "SELECT c.codigo_carrito FROM carrito_de_compras c " 
                         + "INNER JOIN usuario u ON u.id_usuario = c.id_usuario " 
@@ -384,11 +390,43 @@ public class ControladorPersistencia {
         return 0;
     }
     
+    public int encontrarCarritoComprado(int idUsuario) {
+        String consulta = "SELECT c.codigo_carrito FROM carrito_de_compras c " 
+                        + "INNER JOIN usuario u ON u.id_usuario = c.id_usuario " 
+                        + "WHERE c.id_usuario = ? AND c.estado = ?" 
+                        + "ORDER BY codigo_carrito DESC LIMIT ?";
+        
+        try {
+            connection = dataSource.getConnection();
+            ps = connection.prepareStatement(consulta);
+
+            ps.setInt(1, idUsuario);
+            ps.setString(2, "Comprado");
+            ps.setInt(3, 1);
+            
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                int codigoCarrito = rs.getInt("codigo_carrito");
+                System.out.println("Carrito comprado encontrado para el usuario Nº" + idUsuario);
+                return codigoCarrito;
+            } else {
+                System.out.println("Carrito no encontrado para el usuario Nº" + idUsuario);
+            }
+            
+        } catch(SQLException e) {
+            System.out.println("Error al buscar el carrito: " + e.getMessage());
+        } finally {
+            cerrarRecursos();
+        }
+        return 0;
+    }
     
+    // Devuelve todos los artículos que tiene el usuario en su carrito
     public List<Articulo> buscarArticulosEnCarrito(int codigoCarrito) {
         List<Articulo> articulosEnCarrito = new ArrayList<>();
         Articulo articulo;
 
+        // Consulta para obtener los videojuegos
         String videojuegos = "SELECT co.id_articulo, a.nombre, a.precio, co.cantidad " 
                            + "FROM contiene co INNER JOIN carrito_de_compras ca " 
                            + "ON ca.codigo_carrito = co.codigo_carrito " 
@@ -397,6 +435,7 @@ public class ControladorPersistencia {
                            + "INNER JOIN juego j ON j.id_articulo = a.id_articulo "
                            + "WHERE co.codigo_carrito = ?";
         
+        // Consulta para obtener las consolas
         String consolas = "SELECT co.id_articulo, a.nombre, a.precio, co.cantidad " 
                            + "FROM contiene co INNER JOIN carrito_de_compras ca " 
                            + "ON ca.codigo_carrito = co.codigo_carrito " 
@@ -455,7 +494,7 @@ public class ControladorPersistencia {
         return articulosEnCarrito;
     }
     
-    
+    // Agrega un artículo al carrito del usuario
     public void agregarArticulo(int carrito, int articulo) {
         int fila = -1;
         
@@ -471,15 +510,17 @@ public class ControladorPersistencia {
         
         try {
             connection = dataSource.getConnection();
-            
             ps = connection.prepareStatement(consulta);
             ps.setInt(1, carrito);
             ps.setInt(2, articulo);
 
+            // Primero consultamos si ya existe ese artículo en el carrito
             rs = ps.executeQuery();
             if(rs.next()) {
+                // Si existe entonces aumentamos la cantidad de ese artículo
                 cantidad = rs.getInt("cantidad");
                 
+                // Y actualizamos la cantidad
                 ps = connection.prepareStatement(actualizar);
                 ps.setInt(1, (cantidad + 1));
                 ps.setInt(2, carrito);
@@ -488,6 +529,7 @@ public class ControladorPersistencia {
                 fila = ps.executeUpdate();
                 
             } else {
+                // Si no existe entonces insertamos ese nuevo artículo en el carrito
                 ps = connection.prepareStatement(insercion);
                 ps.setInt(1, carrito);
                 ps.setInt(2, articulo);
@@ -507,6 +549,7 @@ public class ControladorPersistencia {
         }
     }
     
+    // Elimina un solo artículo del carrito
     public void eliminarArticulo(int carrito, int articulo) {        
         String consulta = "SELECT cantidad FROM contiene " 
                         + "WHERE codigo_carrito = ? AND id_articulo = ?";
@@ -524,8 +567,10 @@ public class ControladorPersistencia {
             ps.setInt(1, carrito);
             ps.setInt(2, articulo);
 
+            // Primero consultamos la cantidad existente de ese artículo en el carrito
             rs = ps.executeQuery();
             if(rs.next()) {
+                // Si solo existe una unidad entonces eliminamos ese registro
                 if(rs.getInt("cantidad") == 1) {
                     ps = connection.prepareStatement(eliminar);
                     ps.setInt(1, carrito);
@@ -535,7 +580,10 @@ public class ControladorPersistencia {
                     
                     System.out.println("Artículo Nº" + articulo 
                                        + " eliminado del carrito Nº" + carrito);
+                
+                // Si existe más de uno entonces solo reducimos la cantidad
                 } else if(rs.getInt("cantidad") > 1) {
+                    // Y actualizamos
                     ps = connection.prepareStatement(actualizar);
                     ps.setInt(1, carrito);
                     ps.setInt(2, articulo);
@@ -555,6 +603,7 @@ public class ControladorPersistencia {
         }
     }
     
+    // Cambia el estado de un carrito a 'Vacío' cuando se eliminan todos los artículos que contenía
     public void cambiarEstadoCarrito(int carrito) {
         String consulta = "SELECT COUNT(*) AS total_registros " 
                         + "FROM contiene WHERE codigo_carrito = ?";
@@ -571,13 +620,16 @@ public class ControladorPersistencia {
             rs = ps.executeQuery();
             
             if(rs.next()) {
+                // Si la cantidad de registros de ese carrito en la tabla 'Contiene' es cero
                 if (rs.getInt("total_registros") == 0) {
+                    // Entonces se cambiará el estado a 'Vacío'
                     ps = connection.prepareStatement(estadoVacio);
                     ps.setInt(1, carrito);
 
                     ps.executeUpdate();
                     System.out.println("Ahora el carrito Nº" + carrito + " está vacío.");
                 } else {
+                    // Si no, entonces no se realiza ninguna modificación
                     System.out.println("El carrito Nº" + carrito + " aún tiene artículos.");
                 }
             }
@@ -590,6 +642,7 @@ public class ControladorPersistencia {
         }
     }
     
+    // Elimina todos los artículos de un carrito
     public void vaciarCarrito(int carrito) {
         int fila = -1;
         
@@ -614,6 +667,7 @@ public class ControladorPersistencia {
         }
     }
     
+    // Calcula el precio total de un carrito
     public double calcularTotal(int carrito) {
         String consulta = "SELECT c.cantidad, a.precio FROM contiene c " 
                         + "INNER JOIN articulo a ON a.id_articulo = c.id_articulo " 
@@ -632,6 +686,12 @@ public class ControladorPersistencia {
                 total += rs.getInt("cantidad") * rs.getDouble("precio");
             }
             
+            // Redondeo de decimales del pago total
+            BigDecimal pagoTotal = new BigDecimal(total);
+            pagoTotal = pagoTotal.setScale(2, RoundingMode.HALF_UP);
+            
+            return pagoTotal.doubleValue();
+            
         } catch(SQLException e) {
             System.out.println("Error al calcular el total del carrito " 
                                 + "Nº" + carrito + e.getMessage());
@@ -642,6 +702,7 @@ public class ControladorPersistencia {
         return total;
     }
     
+    // Crea un nuevo registro de pedido cuando se confirma una compra
     public void crearPedido(double pagoTotal, String direccion, 
                             LocalDate fechaCompra, int usuario, int carrito) {
         String insercion = "INSERT INTO pedido (pago_total, direccion, " 
@@ -672,6 +733,7 @@ public class ControladorPersistencia {
         }
     }
     
+    // Devuelve el id de pedido de un carrito
     public int obtenerIdPedido(int carrito) {
         int idPedido = 0;
         
@@ -694,6 +756,7 @@ public class ControladorPersistencia {
         return idPedido;
     }
     
+    // Cierre de recursos
     public void cerrarRecursos() {
         try {
             if (rs != null) {

@@ -32,9 +32,10 @@ public class EmisorDeCorreos {
         
         StringBuilder articulosComprados = new StringBuilder();
         
+        // Muestra los detalles de cada artículo comprado
         int contador = 1;
         for(Articulo articulo : listaArticulos) {
-            String comprado = "\n" + contador + ". Artículo: " + articulo.getNombre() 
+            String comprado = "\n\n" + contador + ". Artículo: " + articulo.getNombre() 
                             + "\n- Cantidad: " + articulo.getCantidad()
                             + "\n- Precio unitario: " + articulo.getPrecio() + "€"
                             + "\n- Subtotal: " + articulo.getCantidad()*articulo.getPrecio() + "€";
@@ -42,12 +43,14 @@ public class EmisorDeCorreos {
             contador++;
         }
         
+        // Asunto del correo
         String asunto = "Confirmación de tu pedido en OnlyGameFans.";
         
+        // Cuerpo del correo donde se mostrará toda la información del pedido
         String cuerpo = "Hola " + nombre + ", \n" + "¡Gracias por tu compra en OnlyGameFans!" 
                + "\n\nNos complace informarte que hemos recibido tu pedido. " 
                + "A continuación, encontrarás los detalles de tu compra: " 
-               + "Número de Pedido: " + idPedido
+               + "\nNúmero de Pedido: " + idPedido
                + "\nFecha del Pedido: " + fecha.toString() 
                + "\n\nArtículos comprados: " + articulosComprados 
                + "\n\nTotal del Pedido: " + pagoTotal + "€" 
@@ -56,7 +59,7 @@ public class EmisorDeCorreos {
                + "\nSi tienes alguna pregunta o necesitas asistencia adicional, " 
                + "no dudes en contactarnos respondiendo a este correo o llamando " 
                + "a nuestro servicio de atención al cliente al 615 20 71 99." 
-               + "Gracias por comprar con nosotros.\nAtentamente,\nOnlyGameFans" 
+               + "\nGracias por comprar con nosotros.\n\nAtentamente,\n\nOnlyGameFans" 
                + "\nonlygamefans216@gmail.com" + "\n+34 615 20 71 99";
         
         try {
@@ -82,14 +85,4 @@ public class EmisorDeCorreos {
             System.out.println("Error al intentar enviar el correo: " + e.getMessage());
         }
     }
-    
-    /*public static void main(String[] args) throws MessagingException {
-        EmisorDeCorreos emailSender = new EmisorDeCorreos();
-        
-        String destinatario = "ralph.berrio.719@gmail.com";
-        String asunto = "Correo de prueba desde NetBeans";
-        String cuerpo = "Este es un correo de prueba enviado con Java.";
-        
-        //emailSender.enviarEmail(destinatario, asunto, cuerpo);
-    }*/
 }

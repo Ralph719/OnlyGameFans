@@ -1,7 +1,7 @@
 <%-- 
     Document   : pago
     Created on : 22 may. 2024, 20:31:57
-    Author     : steph
+    Author     : Niky
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,10 +12,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Método de pago | OnlyGameFans.com</title>
-        <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/pago.css">
+        <link rel="stylesheet" href="css/pago7.css">
         <link rel="shortcut icon" href="Logos/LogoFinal.png">
     </head>
     <body>
@@ -122,8 +123,73 @@
                 <button class="btn-enviar">Continuar a resumen de compra</button>
             </form>
         </div>
+
+        <!-- VENTANA EMERGENTE -->
+        <div id="carga" class="modal">
+            <div class="modal-content">
+                <p>Procesando el pago...</p>
+                <span class="carga"></span>
+            </div>
+        </div>
+        
+        <!-- VENTANA EMERGENTE DE OPCIONES -->
+        <div id="opciones" class="modal">
+            <div class="modal-opciones">
+                <div class="modal-texto">
+                    <p>Compra completada con éxito!<br></p>
+                </div>
+                <div class="contenedor-botones">
+                    <a class="izquierda" href="articulos.jsp">
+                        <button class="boton uno" type="submit">
+                            <div class="icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </div>
+                            <span>Seguir comprando</span>
+                        </button>
+                    </a>
+                    <form class="derecha" action="SvPedidos" method="GET" onsubmit="return verResumenCompra(event)">
+                        <button class="boton dos" type="submit">
+                            <div class="icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </div>
+                            <span>Ver resumen de compra</span>
+                        </button>
+                        <input type="hidden" id="userEmail" name="userEmail" value="">
+                    </form>
+                </div>
+            </div>
+        </div>
+                        
+        <!-- VENTANA EMERGENTE DEL RESUMEN DE COMPRA -->
+        <div id="resumen" class="modal">
+            <div class="modal-resumen">
+                <div id="resumen-content" class="resumen-content">
+                    <!-- El resumen de compra se cargará aquí -->
+                </div>
+                <div class="contenedor-botones">
+                    <a class="centro" href="articulos.jsp">
+                        <button class="boton uno" type="submit">
+                            <div class="icono">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </div>
+                            <span>Seguir comprando</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            var userEmail = localStorage.getItem("userEmail");
+        </script>
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-        <script src="js/pago1.js"></script>
+        <script src="js/pago8.js"></script>
     </body>
     <footer>
 
@@ -181,9 +247,7 @@
 
         <!-- CONTENEDOR PARA LAS REDES SOCIALES -->
         <div class="container-rrss">
-
             <div class="rrss">
-
                 <span class="facebook">
                     <a href="#">
                         <img src="RRSS/LogoFacebook.png" class="fb">
@@ -204,9 +268,7 @@
                         <p>X</p>
                     </a>
                 </span>
-
             </div>
-
         </div>
     </footer>
 </html>

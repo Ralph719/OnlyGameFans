@@ -1,7 +1,7 @@
 <%-- 
     Document   : registrocuenta
     Created on : 13 abr. 2024, 22:18:42
-    Author     : steph
+    Author     : Ralph-Niky
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -160,20 +160,20 @@
 
                             <div class="container-form-child-nephew">
                                 <h2 class="indx"><label>Nombre completo</label><br>
-                                <input autofocus type="text" id="name" name="nombreCompleto" 
+                                    <input autofocus type="text" id="name" name="nombreCompleto" maxlength="40" 
                                        value="<%= (request.getParameter("nombreCompleto") != null) ? request.getParameter("nombreCompleto") : "" %>"></h2>
                             </div>
     
                             <div class="container-form-child-nephew">
                                 <h2 class="indx"><label>Nombre de usuario</label><br>
-                                <input autofocus type="text" id="username" name="username" 
+                                    <input autofocus type="text" id="username" name="username" maxlength="20" 
                                        value="<%= (request.getParameter("username") != null) ? request.getParameter("username") : "" %>"></h2>
                                 <br><span id="advertenciaUsuario" class="advertencia" style="display: none;">El nombre de usuario ya existe</span>
                             </div>
         
                             <div class="container-form-child-nephew">
                                 <h2 class="indx"><label>Dirección</label><br>
-                                <input autofocus type="text" id="address" name="direccion" 
+                                    <input autofocus type="text" id="address" name="direccion" maxlength="35" 
                                        value="<%= (request.getParameter("direccion") != null) ? request.getParameter("direccion") : "" %>"></h2>
                             </div>
     
@@ -183,7 +183,7 @@
         
                             <div class="container-form-child-nephew">
                                 <h2 class="indx"><label>Correo electrónico</label><br>
-                                <input autofocus type="text" id="email" name="email" 
+                                    <input autofocus type="text" id="email" name="email" maxlength="30" 
                                        value="<%= (request.getParameter("email") != null) ? request.getParameter("email") : "" %>"></h2>
                                 <br><span id="advertenciaEmail" class="advertencia" style="display: none;">El correo electrónico ya está registrado</span>
                             </div>

@@ -67,6 +67,10 @@ public class Controlador {
         return controlPersistencia.encontrarCarrito(idUsuario);
     }
     
+    public int encontrarCarritoComprado(int idUsuario) {
+        return controlPersistencia.encontrarCarritoComprado(idUsuario);
+    }
+    
     public List<Articulo> buscarArticulosEnCarrito(int codigoCarrito) {
         return controlPersistencia.buscarArticulosEnCarrito(codigoCarrito);
     }

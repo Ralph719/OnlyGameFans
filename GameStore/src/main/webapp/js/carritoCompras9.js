@@ -25,15 +25,12 @@ function obtenerArticulosEnCarrito(userEmail) {
     xhr.send();
 }
 
-// Llamar a la función para obtener los artículos en el carrito
+
 var userEmail = localStorage.getItem("userEmail");
 if (userEmail) {
     console.log('Carrito del usuario: ', userEmail);
-    obtenerArticulosEnCarrito(userEmail); // Llamar a la función con el correo electrónico
+    obtenerArticulosEnCarrito(userEmail);
 }
-
-// Llamar a la función para obtener los artículos en el carrito
-//obtenerArticulosEnCarrito();
 
 // VARIABLES
 const carritoVacio = document.querySelector("#carritoVacio");
@@ -79,7 +76,7 @@ function cargarArticulosCarrito(articulosEnCarrito) {
                 </div>
                 <div class="subtotalProducto">
                     <small>Subtotal</small>
-                    <p>${(articulo.precio * articulo.cantidad).toFixed(2)} €</p>
+                    <p class="precioSubtotal">${(articulo.precio * articulo.cantidad).toFixed(2)} €</p>
                 </div>
                 <form action="SvCarrito" method="POST">
                     <button class="eliminarProducto" id="${articulo.idArticulo}" onclick="return eliminarArticulo(this)">
@@ -100,7 +97,18 @@ function cargarArticulosCarrito(articulosEnCarrito) {
     }
 
     //actualizarBotonesEliminar();
-    //actualizarTotal();
+    actualizarTotal();
+}
+
+function actualizarTotal() {
+    let subtotales = document.querySelectorAll(".precioSubtotal");
+    let totalCalculado = 0;
+
+    subtotales.forEach(subtotal => {
+        totalCalculado += parseFloat(subtotal.innerText.replace("€", ""));
+    });
+
+    precioTotal.innerText = `${totalCalculado.toFixed(2)}€`;
 }
 
 

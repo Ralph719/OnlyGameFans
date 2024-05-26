@@ -1,7 +1,7 @@
 <%-- 
     Document   : carrito
     Created on : 9 may. 2024, 9:55:22
-    Author     : steph
+    Author     : Ralph-Niky
 --%>
 <%@page import="java.util.List"%>
 <%@page import="logica.Articulo"%>
@@ -111,6 +111,6 @@
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/carritoCompras8.js"></script>
+        <script src="js/carritoCompras9.js"></script>
     </body>
 </html>
