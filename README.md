@@ -43,3 +43,7 @@ He agregrado un buscador a la página principal para poder filtrar a través de 
 
 Ralph: 12/05/2024
 He terminado con la creación del servlet para cargar los artículos en la página desde la base de datos, y para poder agregarlos al carrito. También he creado el servlet para obtener los artículos que se encuentran en el carrito y luego poder proceder con la compra. Además de algunas otras pequeñas modificaciones en la página y la base de datos.
+
+Ralph: 26/05/2024
+He subido la última versión de la aplicación web, con todas las funcionalidades requeridas. (Aún puede estar sujeto a posibles ajustes)
+Esto incluye el servlet para los pedidos y las funciones necesarias para completar la compra.
