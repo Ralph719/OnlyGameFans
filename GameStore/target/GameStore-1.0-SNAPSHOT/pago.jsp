@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <span id="advertencia" class="advertencia" style="display: none;">Debe rellenar todos los campos</span>
-                <button class="btn-enviar">Confirmar pago</button>
+                <button class="btn-enviar">Continuar a resumen de compra</button>
             </form>
         </div>
 
@@ -136,7 +136,7 @@
         <div id="opciones" class="modal">
             <div class="modal-opciones">
                 <div class="modal-texto">
-                    <p>Compra completada con éxito!<br></p>
+                    <p>¡Compra completada con éxito!<br></p>
                 </div>
                 <div class="contenedor-botones">
                     <a class="izquierda" href="articulos.jsp">
@@ -167,6 +167,7 @@
         <!-- VENTANA EMERGENTE DEL RESUMEN DE COMPRA -->
         <div id="resumen" class="modal">
             <div class="modal-resumen">
+                <span class="close">&times;</span>
                 <div id="resumen-content" class="resumen-content">
                     <!-- El resumen de compra se cargará aquí -->
                 </div>
@@ -185,11 +186,8 @@
             </div>
         </div>
         
-        <script>
-            var userEmail = localStorage.getItem("userEmail");
-        </script>
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-        <script src="js/pago8.js"></script>
+        <script src="js/pago10.js"></script>
     </body>
     <footer>
 

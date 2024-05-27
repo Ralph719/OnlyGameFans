@@ -32,8 +32,9 @@
 
             <aside>
                 <header class="logo">
-                    <!--<h1 class="logo-titulo">OnlyGameFans</h1>-->
-                    <img src="Logos/OnlyGameFansTitulo.png" class="img-logo">
+                    <a href="index.html">
+                        <img src="Logos/OnlyGameFansTituloWeb.png" class="img-logo">
+                    </a>
                 </header>
 
                 <div class="container-user-space">

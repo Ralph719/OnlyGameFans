@@ -236,9 +236,11 @@ function mostrarModalResumen() {
 }
 
 // CERRAR LA VENTANA EMERGENTE CUANDO SE HACE CLICK EN LA X
-spanClose.onclick = function () {
-    resumen.style.display = "none";
-};
+for (var i = 0; i < spanClose.length; i++) {
+    spanClose[i].onclick = function () {
+        resumen.style.display = "none";
+    };
+}
 
 // CERRAR LA VENTANA EMERGENTE CUANDO SE HACE CLICK FUERA DE LA VENTANA EMERGENTE
 window.onclick = function(event) {
@@ -265,7 +267,6 @@ function verResumenCompra() {
                 resumen.innerHTML = '';
                 
                 resumen.innerHTML = `
-                    <span class="close">&times;</span>
                     <h3>RESUMEN DE COMPRA</h3>
                     <p><b>ID Pedido: </b>${data.idPedido}</p>
                     <p><b>Usuario: </b>${data.nombreUsuario}</p>
