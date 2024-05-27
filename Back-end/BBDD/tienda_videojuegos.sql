@@ -10,7 +10,7 @@ Create table `usuario` (
 	id_usuario int auto_increment,
     nombre_completo varchar (40) not null,
     usuario varchar (20) not null unique,
-    direccion varchar(25) not null,
+    direccion varchar(35) not null,
     email varchar (30) not null unique,
     contraseña varchar (64) not null,
     primary key (id_usuario)
@@ -38,26 +38,26 @@ Create table `articulo`(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 Insert into articulo (nombre, precio, cantidad, disponibilidad) values
-	('The Witcher 3', 39.99, 10, true),
-    ('Returnal', 59.99, 20, true),
-    ('Elden Ring', 59.99, 15, true),
-    ('Assassins Creed Valhalla', 49.99, 25, true),
-    ('Crash Bandicoot 4', 49.99, 18, true),
+	('The Witcher 3', 39.99, 30, true),
+    ('Returnal', 59.99, 30, true),
+    ('Elden Ring', 59.99, 45, true),
+    ('Assassins Creed Valhalla', 49.99, 35, true),
+    ('Crash Bandicoot 4', 49.99, 38, true),
     ('Super Mario Wonder', 59.99, 50, true),
-    ('Overcooked 2', 39.99, 35, true),
-    ('Persona 5', 49.99, 0, false),
-    ('Spiderman 2', 59.99, 5, true),
-    ('Mortal Kombat 1', 39.99, 25, true),
-    ('Ark Ascended', 44.99, 15, true),
-    ('Splatoon 3', 49.99, 20, true),
-    ('It Takes Two', 29.99, 20, true),
-    ('Final Fantasy XV', 19.99, 15, true),
-    ('Ride 5', 44.99, 20, true),
-    ('Gran Turismo 7', 54.99, 27, true),
-    ('Final Fantasy VII Rebirth', 79.99, 30, true),
-    ('Rise Of The Ronin', 59.99, 35, true),
+    ('Overcooked 2', 39.99, 45, true),
+    ('Persona 5', 49.99, 50, true),
+    ('Spiderman 2', 59.99, 50, true),
+    ('Mortal Kombat 1', 39.99, 45, true),
+    ('Ark Ascended', 44.99, 45, true),
+    ('Splatoon 3', 49.99, 40, true),
+    ('It Takes Two', 29.99, 40, true),
+    ('Final Fantasy XV', 19.99, 45, true),
+    ('Ride 5', 44.99, 40, true),
+    ('Gran Turismo 7', 54.99, 47, true),
+    ('Final Fantasy VII Rebirth', 79.99, 50, true),
+    ('Rise Of The Ronin', 59.99, 45, true),
     ('Hogwarts Legacy', 59.99, 50, true),
-    ('Unravel Two', 39.99, 20, true),
+    ('Unravel Two', 39.99, 40, true),
     ('Mario Kart Deluxe 8', 49.99, 80, true),
     ('The Crew Motorfest', 35.99, 30, true),
     ('Cyberpunk 2077', 49.99, 77, true),
@@ -66,25 +66,25 @@ Insert into articulo (nombre, precio, cantidad, disponibilidad) values
     ('Far Cry 6', 49.99, 60, true),
     ('Super Mario 3D Worlds + Bowsers Fury', 49.99, 50, true),
     ('Borderlands 3', 49.99, 90, true),
-    ('The Leyend Of Zelda: Tears Of The Kingdom', 49.99, 40, true),
+    ('The Leyend Of Zelda: Tears Of The Kingdom', 49.99, 50, true),
     ('Super Mario Odyssey', 49.99, 60, true),
     ('Mario Strikers Battle League Football', 49.99, 50, true),
     ('Wonderlands Next Level Edition', 69.99, 60, true),
-    ('New Tales From The Borderlands', 39.99, 40, true),
+    ('New Tales From The Borderlands', 39.99, 50, true),
     ('God Of War: Ragnarok', 49.99, 50, true),
-    ('Cuphead', 39.99, 30, true),
+    ('Cuphead', 39.99, 50, true),
     ('Final Fantasy XVI', 69.99, 60, true),
     ('Kirby Y La Tierra Olvidada', 49.99, 70, true),
-    ('Gang Beasts', 24.99, 20, true),
+    ('Gang Beasts', 24.99, 40, true),
     ('Animal Crossing: New Horizons', 49.99, 50, true),
     ('Resident Evil 4 Remake', 49.99, 80, true),
     ('PlayStation 5', 499.99, 55, true),
     ('Nintendo Switch Oled', 399.99, 80, true),
-    ('Xbox Series X', 459.99, 40, true),
-    ('Asus Rog Ally', 559.99, 35, true),
-    ('PlayStation 4 Slim', 229.99, 24, true),
-    ('Xbox One', 149.99, 10, true),
-    ('SteamDeck', 519.99, 30, true);
+    ('Xbox Series X', 459.99, 50, true),
+    ('Asus Rog Ally', 559.99, 55, true),
+    ('PlayStation 4 Slim', 229.99, 44, true),
+    ('Xbox One', 149.99, 40, true),
+    ('SteamDeck', 519.99, 50, true);
 
 
 Drop table if exists carrito_de_compras;
@@ -220,7 +220,7 @@ Insert into juego values
     (4, 'Ubisoft', 4, 1),
     (5, 'Activision', 5, 2),
     (6, 'Nintendo',5 , 3),
-    (7, 'Team 17', 6, 2),
+    (7, 'Team 17', 6, 3),
     (8, 'Atlus', 3, 1),
     (9, 'Insomniac', 4, 1),
     (10, 'NetherRealm', 7, 1),
@@ -236,7 +236,7 @@ Insert into juego values
     (20, 'Coldwood Interactive', 5, 3),
     (21, 'Nintendo', 10, 3),
     (22, 'Ubisoft Ivory Tower', 10, 1),
-    (23, 'CD Projeckt Red', 8, 1),
+    (23, 'CD Projeckt Red', 8, 4),
     (24, 'Game Freak', 5, 3),
     (25, 'Game Freak', 5, 3),
     (26, 'Ubisoft', 4, 1),
@@ -313,6 +313,66 @@ BEGIN
 		AND estado = 'Vacío';
 	END IF;
 END$$
+DELIMITER ;
+
+
+-- TRIGGER: Reduce la cantidad de un artículo después de realizar un pedido
+DROP TRIGGER IF EXISTS reducir_cantidad_articulo;
+
+DELIMITER $$
+CREATE TRIGGER reducir_cantidad_articulo
+AFTER INSERT ON pedido
+FOR EACH ROW
+BEGIN
+    DECLARE done INT DEFAULT 0;
+    DECLARE nuevoId INT;
+    DECLARE nuevaCantidad INT;
+
+    -- Cursor para recorrer los artículos del carrito de compras
+    DECLARE cursor_articulos CURSOR FOR
+        SELECT c.id_articulo, c.cantidad
+        FROM contiene c
+        WHERE c.codigo_carrito = NEW.codigo_carrito;
+
+    -- Handler para finalizar el cursor
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = 1;
+
+    -- Abrir el cursor
+    OPEN cursor_articulos;
+
+    -- Loop para leer cada artículo del cursor
+    read_loop: LOOP
+        FETCH cursor_articulos INTO nuevoId, nuevaCantidad;
+        IF done THEN
+            LEAVE read_loop;
+        END IF;
+
+        -- Actualizamos la cantidad del artículo
+        UPDATE articulo
+        SET cantidad = cantidad - nuevaCantidad
+        WHERE id_articulo = nuevoId;
+
+    END LOOP;
+
+    CLOSE cursor_articulos;
+END$$
+
+DELIMITER ;
+
+
+-- TRIGGER: Aumenta la cantidad de un artículo cuando este llegue a cero. (Restock)
+DELIMITER $$
+CREATE TRIGGER aumentar_cantidad_articulo
+AFTER UPDATE ON articulo
+FOR EACH ROW
+BEGIN
+    IF NEW.cantidad <= 0 THEN
+        UPDATE articulo
+        SET cantidad = cantidad + 50
+        WHERE id_articulo = NEW.id_articulo;
+    END IF;
+END$$
+
 DELIMITER ;
 
 
