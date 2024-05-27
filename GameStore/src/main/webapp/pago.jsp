@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <span id="advertencia" class="advertencia" style="display: none;">Debe rellenar todos los campos</span>
-                <button class="btn-enviar">Continuar a resumen de compra</button>
+                <button class="btn-enviar">Confirmar pago</button>
             </form>
         </div>
 

@@ -79,6 +79,8 @@
                         </div>
                     </form>
 
+                    <small>Se enviará un correo con la confirmación del pedido a este email</small>
+
                 </div>
 
             </div>
