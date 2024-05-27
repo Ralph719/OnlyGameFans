@@ -14,8 +14,6 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
         <link rel="shortcut icon" href="Logos/LogoFinal.png">
     </head>
@@ -61,11 +59,6 @@
                     <li class="equis"></li>
                 </ul>
                 <ul>
-                    <!--<li class="triangulos">
-                        <svg width="300" height="1800">
-                            <polygon class="recta" points="50,20 95,95 5,95"/>
-                        </svg>
-                    </li>-->
                     <li class="triangulos">
                         <svg width="300" height="1700">
                             <polygon class="recta" points="50,20 95,95 5,95" style="animation-delay: 3s; animation-duration: 8s;"/>
@@ -199,17 +192,12 @@
                                 <input autofocus type="password" id="password2" name="password2" 
                                        value="<%= (request.getParameter("password2") != null) ? request.getParameter("password2") : "" %>"></h2>
                                 <br><span id="advertenciaPassword" class="advertencia" style="display: none;">Las contraseñas no coinciden</span>
-                                <!--<span class="showpwd">
-                                    <input type="checkbox" onclick="mostrarContraseña()">
-                                    <label for="contraseñaVisible">Mostrar contraseña</label>
-                                </span>-->
-                                <!-- AÑADIR ICONO/CHECKBOX PARA VER CONTRASEÑA -->
                             </div>
     
                         </div>
                     </div>
                     
-                    <span id="advertencia" class="advertencia" style="display: none;">Alguno de los campos está vacío. Debe rellenar todos.</span>
+                    <span id="advertencia" class="advertencia">Alguno de los campos está vacío. Debe rellenar todos.</span>
 
                     <button type="submit" class="boton-seis" id="boton">
                         <span>Crear cuenta</span>
@@ -282,10 +270,10 @@
         <div class="container-footer">
             <ol>
                 <li>
-                    <a href="../RegistroUsuario/registrocuenta.html">¡Crea una cuenta ahora!</a>
+                    <a href="registrocuenta.jsp">¡Crea una cuenta ahora!</a>
                 </li>
                 <li>
-                    <a href="../CarritoDeCompras/index.html">Ver videojuegos</a>
+                    <a href="articulos.jsp">Ver videojuegos</a>
                 </li>
             </ol>
         </div>
@@ -293,10 +281,10 @@
         <div class="container-footer">
             <ol>
                 <li>
-                    <a href="../CarritoDeCompras/carrito.html">Revisa tu carrito</a>
+                    <a href="carrito.jsp">Revisa tu carrito</a>
                 </li>
                 <li>
-                    <a href="../CarritoDeCompras/index.html">Ver consolas</a>
+                    <a href="articulos.jsp">Ver consolas</a>
                 </li>
             </ol>
         </div>
@@ -338,21 +326,21 @@
 
                 <span class="facebook">
                     <a href="#">
-                        <img src="../RRSS/LogoFacebook.png" class="fb">
-                        <p>Facebook</p>
+                        <img src="RRSS/LogoFacebook.png" alt="Facebook" class="fb">
+                    <p>Facebook</p>
                     </a>
                 </span>
-
+                
                 <span class="instagram">
                     <a href="#">
-                        <img src="..//RRSS/LogoInstagram.png" class="ig">
+                        <img src="RRSS/LogoInstagram.png" alt="Instragram" class="ig">
                         <p>Instagram</p>
                     </a>
                 </span>
 
                 <span class="x">
                     <a href="#">
-                        <img src="..//RRSS/LogoX.png" class="x-twitter">
+                        <img src="RRSS/LogoX.png" alt="X" class="x-twitter">
                         <p>X</p>
                     </a>
                 </span>
@@ -360,6 +348,5 @@
             </div>
 
         </div>
-
     </footer>
 </html>

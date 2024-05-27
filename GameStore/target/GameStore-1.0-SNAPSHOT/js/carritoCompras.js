@@ -1,13 +1,12 @@
-// Crear una función para hacer la solicitud AJAX
 function obtenerArticulosEnCarrito(userEmail) {
-    // Crear una instancia de XMLHttpRequest
     var xhr = new XMLHttpRequest();
 
-    // Configurar la solicitud
+    // Configuración de la solicitud
     xhr.open('GET', `SvCarrito?userEmail=${userEmail}`, true);
 
-    // Configurar la función de callback para cuando la solicitud esté completa
+    // Configuración de la función de callback para cuando la solicitud esté completa
     xhr.onload = function() {
+        console.log('Respuesta recibida del servidor');
         if (xhr.status >= 200 && xhr.status < 300) {
             // Respuesta JSON
             var articulosEnCarrito = JSON.parse(xhr.responseText);
@@ -96,7 +95,6 @@ function cargarArticulosCarrito(articulosEnCarrito) {
         carritoComprado.classList.add("disabled");
     }
 
-    //actualizarBotonesEliminar();
     actualizarTotal();
 }
 
@@ -113,26 +111,20 @@ function actualizarTotal() {
 
 
 function eliminarArticulo(button) {
-    // Obtener el ID del artículo
-    var idArticulo = button.id;
-    
-    // Obtener el correo electrónico del usuario del campo oculto en el formulario
-    var userEmail = document.getElementById("userEmail").value;
+    let idArticulo = button.id;
+    let userEmail = document.getElementById("userEmail").value;
     
     if(userEmail) {
-        // Crear una instancia de XMLHttpRequest
         var xhr = new XMLHttpRequest();
 
-        // Configurar la solicitud POST
+        // Configuración de la solicitud POST
         xhr.open('POST', 'SvCarrito', true);
-
-        // Configurar el encabezado Content-Type
+        
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        // Construir los datos a enviar
+        // Datos a enviar
         var params = "action=eliminarArticulo&userEmail=" + encodeURIComponent(userEmail) + "&idArticulo=" + encodeURIComponent(idArticulo);
         
-         // Configurar la función de callback para cuando la solicitud esté completa
         xhr.onload = function() {
             if (xhr.status >= 200 && xhr.status < 300) {
                 console.log('Artículo eliminado del carrito');

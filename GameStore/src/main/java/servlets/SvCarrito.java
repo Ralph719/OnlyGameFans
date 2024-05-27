@@ -32,12 +32,16 @@ public class SvCarrito extends HttpServlet {
         }
 
         if (controlador.buscarUsuario(userEmail)) {
+            // Obtención del id del usuario
             int idUsuario = controlador.encontrarIdUsuario(userEmail);
 
+            // Crea un nuevo carrito para el usuario si no tiene uno
             controlador.crearCarrito(idUsuario);
 
+            // Obtención del carrito del usuario
             int codigoCarrito = controlador.encontrarCarrito(idUsuario);
 
+            // Lista de los artículos que contiene el carrito del usuario
             List<Articulo> articulosEnCarrito = controlador.buscarArticulosEnCarrito(codigoCarrito);
 
             // Convertimos la lista a un formato JSON y lo enviamos al js
@@ -63,6 +67,7 @@ public class SvCarrito extends HttpServlet {
             return;
         }
         
+        // Dependiendo de la acción seleccionada se eliminará un artículo del carrito o se vaciará
         try {
             switch (accion) {
                 case "eliminarArticulo":
@@ -87,6 +92,7 @@ public class SvCarrito extends HttpServlet {
             String userEmail = request.getParameter("userEmail");
             System.out.println("Usuario obtenido: " + userEmail);
 
+            // Obtiene el artículo a eliminar
             String articulo = request.getParameter("idArticulo");
             int idArticulo = Integer.parseInt(articulo);
             System.out.println("Eliminando artículo Nº" + idArticulo);
@@ -98,7 +104,10 @@ public class SvCarrito extends HttpServlet {
             System.out.println("IdUsuario: " + idUsuario);
             System.out.println("Carrito Nº" + codigoCarrito);
 
+            // Elimina el artículo del carrito
             controlador.eliminarArticulo(codigoCarrito, idArticulo);
+            /* Y cambia el estado del carrito a 'Vacío'
+            dependiendo de si quedó así después de esta acción*/
             controlador.cambiarEstadoCarrito(codigoCarrito);
 
         } catch (NullPointerException e) {
@@ -112,8 +121,10 @@ public class SvCarrito extends HttpServlet {
         try {
             String userEmail = request.getParameter("userEmail");
             int idUsuario = controlador.encontrarIdUsuario(userEmail);
+            // Obtiene el carrito del que se eliminarán todos sus artículos
             int codigoCarrito = controlador.encontrarCarrito(idUsuario);
 
+            // Vacía el carrito y cambia su estado a 'Vacío'
             controlador.vaciarCarrito(codigoCarrito);
             controlador.cambiarEstadoCarrito(codigoCarrito);
             

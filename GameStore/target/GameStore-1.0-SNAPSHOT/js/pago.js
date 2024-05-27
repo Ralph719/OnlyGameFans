@@ -5,7 +5,7 @@ close_button.addEventListener('click', function (e) {
 });
 
 
-// OBTENER INFORMACIÓN DE LOS INPUTS
+// Datos del input
 const visaInput = document.getElementById('visa');
 const mastercardInput = document.getElementById('mastercard');
 
@@ -219,13 +219,14 @@ var spanClose = document.getElementsByClassName("close");
 function mostrarModalCarga() {
     carga.style.display = "flex";
 
-    // CERRAR LA VENTANA EMERGENTE DESPUÉS DE 2 SEGUNDOS
+    // La ventana se cierra después de dos segundos
     setTimeout(function () {
         carga.style.display = "none";
         mostrarModalOpciones();
     }, 2000);
 }
 
+// ABRIR LA VENTANA EMERGENTE DE OPCIONES
 function mostrarModalOpciones() {
     opciones.style.display = "flex";
 }

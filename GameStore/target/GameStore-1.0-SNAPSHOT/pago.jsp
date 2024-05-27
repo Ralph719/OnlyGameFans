@@ -16,7 +16,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css?family=Lato|Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/pago7.css">
+        <link rel="stylesheet" href="css/pago.css">
         <link rel="shortcut icon" href="Logos/LogoFinal.png">
     </head>
     <body>
@@ -119,8 +119,8 @@
                         <input type="text" id="inputCCV" name="cvv" maxlength="3">
                     </div>
                 </div>
-                <span id="advertencia" class="advertencia" style="display: none;">Debe rellenar todos los campos</span>
-                <button class="btn-enviar">Continuar a resumen de compra</button>
+                <span id="advertencia" class="advertencia">Debe rellenar todos los campos</span>
+                <button class="btn-enviar">Confirmar pago</button>
             </form>
         </div>
 
@@ -187,7 +187,7 @@
         </div>
         
         <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-        <script src="js/pago10.js"></script>
+        <script src="js/pago.js"></script>
     </body>
     <footer>
 
@@ -245,28 +245,32 @@
 
         <!-- CONTENEDOR PARA LAS REDES SOCIALES -->
         <div class="container-rrss">
+
             <div class="rrss">
+
                 <span class="facebook">
                     <a href="#">
-                        <img src="RRSS/LogoFacebook.png" class="fb">
+                        <img src="RRSS/LogoFacebook.png" alt="Facebook" class="fb">
                     <p>Facebook</p>
                     </a>
                 </span>
                 
                 <span class="instagram">
                     <a href="#">
-                        <img src="RRSS/LogoInstagram.png" class="ig">
+                        <img src="RRSS/LogoInstagram.png" alt="Instragram" class="ig">
                         <p>Instagram</p>
                     </a>
                 </span>
 
                 <span class="x">
                     <a href="#">
-                        <img src="RRSS/LogoX.png" class="x-twitter">
+                        <img src="RRSS/LogoX.png" alt="X" class="x-twitter">
                         <p>X</p>
                     </a>
                 </span>
+
             </div>
+
         </div>
     </footer>
 </html>

@@ -37,9 +37,10 @@ public class SvPedidos extends HttpServlet {
             double pagoTotal = controlador.calcularTotal(carritoComprado);
             String nombreCompleto = controlador.obtenerNombreCompleto(userEmail);
             int idPedido = controlador.obtenerIdPedido(carritoComprado);
+            // Lista de los artículos del carrito comprado
             List<Articulo> articulos = controlador.buscarArticulosEnCarrito(carritoComprado);
 
-            // Creación de los objetos JSON con los datos
+            // Creación de los objetos JSON con los datos que se enviarán al JS
             JsonObject jsonResponse = new JsonObject();
             jsonResponse.addProperty("idPedido", idPedido);
             jsonResponse.addProperty("nombreUsuario", nombreCompleto);
@@ -69,6 +70,7 @@ public class SvPedidos extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        // Obtención de los datos del envío
         String userEmail = request.getParameter("userEmail");
         String direccion = request.getParameter("direccion");
         String pais = request.getParameter("pais");
@@ -76,7 +78,9 @@ public class SvPedidos extends HttpServlet {
         String provincia = request.getParameter("provincia");
         String email = request.getParameter("email");
 
-        if (userEmail == null || direccion == null || pais == null || cpostal == null || provincia == null || email == null) {
+        // Verificación de campos vacíos
+        if (userEmail == null || direccion == null || pais == null 
+            || cpostal == null || provincia == null || email == null) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Faltan parámetros necesarios.");
             return;
         }
@@ -87,6 +91,7 @@ public class SvPedidos extends HttpServlet {
         provincia = provincia.trim();
         email = email.trim();
         
+        // Dirección que se almacena finalmente en la BBDD
         String direccionCompleta = direccion + ", " + cpostal + ", " 
                                  + provincia + ", " + pais;
         
@@ -98,13 +103,16 @@ public class SvPedidos extends HttpServlet {
             double pagoTotal = controlador.calcularTotal(codigoCarrito);
             String nombreCompleto = controlador.obtenerNombreCompleto(userEmail);
             LocalDate fechaCompra = LocalDate.now();
+            // Lista de los artículos del carrito a comprar
             List<Articulo> articulos = controlador.buscarArticulosEnCarrito(codigoCarrito);
 
-            controlador.crearPedido(pagoTotal, direccionCompleta, fechaCompra,
-                    idUsuario, codigoCarrito);
+            // Creación del pedido
+            controlador.crearPedido(pagoTotal, direccionCompleta, 
+                                    fechaCompra,idUsuario, codigoCarrito);
             
             int idPedido = controlador.obtenerIdPedido(codigoCarrito);
             
+            // Envío del correo con los datos correspondientes
             correos.enviarEmail(email, nombreCompleto, idPedido, 
                                 direccionCompleta, articulos, 
                                 fechaCompra, pagoTotal);

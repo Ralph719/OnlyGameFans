@@ -10,7 +10,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/envio3.css">
+        <link rel="stylesheet" type="text/css" href="css/envio.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,6 +67,7 @@
                             </div>
                             
                         </div>
+                        <span id="advertencia" class="advertencia">Debe rellenar todos los campos</span>
                         <div class="contenedor">
                             <button class="boton cinco" type="submit">
                                 <div class="icono">
@@ -86,7 +87,7 @@
             </div>
 
         </div>
-        <script src="js/envio2.js"></script>
+        <script src="js/envio.js"></script>
     </body>
     <footer>
 

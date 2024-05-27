@@ -208,13 +208,14 @@ input[type="text"]:hover {
 }
 
 .advertencia {
-    position: relative;
-    margin: 1rem 0rem 0.5rem 0rem;
-    color: red;
-    font-size: 18px;
-}
-.disabled {
-    display: none;
+  display: none;
+  position: relative;
+  text-align: center;
+  margin: 4px 20px 20px 20px;
+  font-family: Cairo;
+  color: red;
+  font-size: 18.5px;
+  font-weight: bold;
 }
 
 small {
@@ -227,13 +228,14 @@ small {
     width: 100%;
 }
 
-
+/*---<PIE DE PÁGINA>---*/
 footer {
     margin-top: 48px;
     background-color: rgb(23, 29, 29);
     height: fit-content;
     display: flex;
     justify-content: space-between;
+    padding-left: 1.5rem;
 }
 
 footer ol {
@@ -253,10 +255,8 @@ footer ol li a {
     position: relative;
     width: fit-content;
     height: fit-content;
-    justify-content: center;
-    text-align: center;
+    justify-content: left;
     align-items: center;
-
 }
 
 .container-footer h1 {

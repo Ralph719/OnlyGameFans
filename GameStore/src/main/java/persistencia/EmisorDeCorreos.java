@@ -23,22 +23,24 @@ public class EmisorDeCorreos {
     public void enviarEmail(String destinatario, String nombre, int idPedido, 
                             String direccionEnvio, List<Articulo> listaArticulos, 
                             LocalDate fecha, double pagoTotal) throws MessagingException{
-        // Configurar las propiedades
+        // Configuración de las propiedades
         Properties ppt = new Properties();
         ppt.put("mail.smtp.host", host);
         ppt.put("mail.smtp.auth", "true");
         ppt.put("mail.smtp.port", port);
         ppt.put("mail.smtp.starttls.enable", "true");
+        ppt.put("mail.mime.charset", "UTF-8");
         
         StringBuilder articulosComprados = new StringBuilder();
         
         // Muestra los detalles de cada artículo comprado
         int contador = 1;
         for(Articulo articulo : listaArticulos) {
-            String comprado = "\n\n" + contador + ". Artículo: " + articulo.getNombre() 
-                            + "\n- Cantidad: " + articulo.getCantidad()
-                            + "\n- Precio unitario: " + articulo.getPrecio() + "€"
-                            + "\n- Subtotal: " + articulo.getCantidad()*articulo.getPrecio() + "€";
+            String comprado = "<br><p>" + contador + ". Artículo: <strong>" 
+                            + articulo.getNombre() + "</strong>"
+                            + "<br>- Cantidad: " + articulo.getCantidad()
+                            + "<br>- Precio unitario: " + articulo.getPrecio() + "€"
+                            + "<br>- Subtotal: " + (articulo.getCantidad() * articulo.getPrecio()) + "€</p>";
             articulosComprados.append(comprado);
             contador++;
         }
@@ -47,23 +49,31 @@ public class EmisorDeCorreos {
         String asunto = "Confirmación de tu pedido en OnlyGameFans.";
         
         // Cuerpo del correo donde se mostrará toda la información del pedido
-        String cuerpo = "Hola " + nombre + ", \n" + "¡Gracias por tu compra en OnlyGameFans!" 
-               + "\n\nNos complace informarte que hemos recibido tu pedido. " 
-               + "A continuación, encontrarás los detalles de tu compra: " 
-               + "\nNúmero de Pedido: " + idPedido
-               + "\nFecha del Pedido: " + fecha.toString() 
-               + "\n\nArtículos comprados: " + articulosComprados 
-               + "\n\nTotal del Pedido: " + pagoTotal + "€" 
-               + "\nDirección del envío: " + direccionEnvio
-               + "\n\nEsperamos que disfrutes de tu compra." 
-               + "\nSi tienes alguna pregunta o necesitas asistencia adicional, " 
-               + "no dudes en contactarnos respondiendo a este correo o llamando " 
-               + "a nuestro servicio de atención al cliente al 615 20 71 99." 
-               + "\nGracias por comprar con nosotros.\n\nAtentamente,\n\nOnlyGameFans" 
-               + "\nonlygamefans216@gmail.com" + "\n+34 615 20 71 99";
+        String cuerpo = "<html>"
+                + "<body>"
+                + "<p>Hola <strong>" + nombre + "</strong>,</p>"
+                + "<p>¡Gracias por tu compra en <strong>OnlyGameFans</strong>!</p>"
+                + "<p>Nos complace informarte que hemos recibido tu pedido. " 
+                + "A continuación, encontrarás los detalles de tu compra:</p>"
+                + "<p><strong>Número de Pedido:</strong> " + idPedido + "</p>"
+                + "<p><strong>Fecha del Pedido:</strong> " + fecha.toString() + "</p>"
+                + "<p><strong>Artículos comprados:</strong> " + articulosComprados.toString() + "</p>"
+                + "<p><strong>Total del Pedido:</strong> " + pagoTotal + "€</p>"
+                + "<p><strong>Dirección del envío:</strong> " + direccionEnvio + "</p>"
+                + "<p>Esperamos que disfrutes de tu compra.<br>" 
+                + "Si tienes alguna pregunta o necesitas asistencia adicional, " 
+                + "no dudes en contactarnos respondiendo a este correo o llamando " 
+                + "a nuestro servicio de atención al cliente al <strong>615 20 71 99</strong>.</p>"
+                + "<p>Gracias por comprar con nosotros.</p>"
+                + "<p>Atentamente,</p>"
+                + "<p><strong>OnlyGameFans</strong></p>"
+                + "<p>onlygamefans216@gmail.com</p>"
+                + "<p>+34 615 20 71 99</p>"
+                + "</body>"
+                + "</html>";
         
         try {
-            // Crear sesión
+            // Creación de la sesión
             Session session = Session.getInstance(ppt, new Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
@@ -71,14 +81,14 @@ public class EmisorDeCorreos {
                 }
             });
 
-            // Crear mensaje
+            // Creación del mensaje
             Message mensaje = new MimeMessage(session);
             mensaje.setFrom(new InternetAddress(emisor));
             mensaje.setRecipient(Message.RecipientType.TO, new InternetAddress(destinatario));
             mensaje.setSubject(asunto);
-            mensaje.setText(cuerpo);
+            mensaje.setContent(cuerpo, "text/html; charset=UTF-8");
 
-            // Enviar el mensaje
+            // Envio del mensaje
             Transport.send(mensaje);
             System.out.println("Correo enviado exitosamente.");
         } catch(AuthenticationFailedException | SendFailedException e) {

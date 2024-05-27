@@ -969,10 +969,12 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 .advertencia {
+    display: none;
     position: relative;
     margin-top: 20px;
     color: red;
     font-size: 18px;
+    font-family: prompt;
 }
 .disabled {
     display: none;
@@ -1143,12 +1145,14 @@ input[type="text"]:focus, input[type="password"]:focus {
     }
 }
 
+/*---<PIE DE PÁGINA>---*/
 footer {
     margin-top: 48px;
     background-color: rgb(23, 29, 29);
     height: fit-content;
     display: flex;
     justify-content: space-between;
+    padding-left: 1.5rem;
 }
 
 footer ol {
@@ -1168,10 +1172,8 @@ footer ol li a {
     position: relative;
     width: fit-content;
     height: fit-content;
-    justify-content: center;
-    text-align: left;
+    justify-content: left;
     align-items: center;
-
 }
 
 .container-footer h1 {

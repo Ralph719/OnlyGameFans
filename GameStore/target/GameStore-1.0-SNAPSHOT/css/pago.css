@@ -322,6 +322,7 @@ label {
 }
 
 .advertencia {
+  display: none;
   position: relative;
   text-align: center;
   margin: 4px 20px 20px 20px;
@@ -329,9 +330,6 @@ label {
   color: red;
   font-size: 18.5px;
   font-weight: bold;
-}
-.disabled {
-  display: none;
 }
 
 /*---<VENTANA DE CARGA>---*/
@@ -633,149 +631,151 @@ label {
 
 /*---<PIE DE PÁGINA>---*/
 footer {
-  background-color: rgb(23, 29, 29);
-  height: fit-content;
-  display: flex;
-  justify-content: space-between;
+    margin-top: 48px;
+    background-color: rgb(23, 29, 29);
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1.5rem;
 }
 
 footer ol {
-  list-style: none;
+    list-style: none;
 }
 
 footer ol li a {
-  text-decoration: none;
-  color: whitesmoke;
-  font-family: cairo;
-  font-size: 0.9rem;
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: cairo;
+    font-size: .9rem;
 }
 
 .container-footer {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: fit-content;
-  height: fit-content;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    justify-content: left;
+    align-items: center;
 }
 
 .container-footer h1 {
-  font-weight: 800;
-  font-size: 2.5rem;
-  font-family: cairo;
-  color: rgb(199, 197, 197);
+    font-weight: 800;
+    font-size: 2.5rem;
+    font-family: cairo;
+    color: rgb(199, 197, 197);
 }
 
+
 .container-footer ol {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .container-footer ol li {
-  padding: 1rem;
+    padding: 1rem;
 }
 
 .container-footer ol li a {
-  transition: 0.09s ease-in;
+    transition: .09s ease-in;
 }
 
 .container-footer ol li a:hover {
-  color: rgb(253, 194, 0);
+    color: rgb(253, 194, 0);
 }
 
 /* CONTENEDOR PARA LAS REDES SOCIALES */
 .container-rrss {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  width: 30%;
-  justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: center;
 }
 
 .rrss {
-  position: relative;
-  display: flex;
-  padding: 0.5rem;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
+    position: relative;
+    display: flex;
+    padding: .5rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .rrss a {
-  text-decoration: none;
-  color: whitesmoke;
-  font-family: cairo;
+    text-decoration: none;
+    color: whitesmoke;
+    font-family: cairo;
 }
 
 .rrss a {
-  transition: 0.2s ease-in;
+    transition: .2s ease-in;
 }
 
 .rrss img {
-  width: 3.5rem;
+    width: 3.5rem;
 }
 
 .rrss a:hover {
-  color: rgb(253, 194, 0);
+    color: rgb(253, 194, 0);
 }
 
 /* CONTENEDOR PARA FACEBOOK */
 .facebook {
-  transition: 0.1s ease-in;
-  padding: 2rem;
+    transition: .1s ease-in;
+    padding: 2rem;
 }
 
 .facebook p {
-  filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
 }
 
 /* IMÁGEN FACEBOOK */
 .fb {
-  transition: all 0.2s ease-in;
+    transition: all .2s ease-in;
 }
 
 .fb:hover {
-  filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
+    filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
 }
 
 /* CONTENEDOR PARA INSTAGRAM */
 .instagram {
-  margin-right: 2rem;
-  margin-left: 2rem;
-  padding: 2rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    padding: 2rem;
 }
 
 .instagram p {
-  filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
+    filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
 }
 
 /* IMÁGEN INSTAGRAM */
 .ig {
-  transition: all 0.2s ease-in;
+    transition: all .2s ease-in;
 }
 
 .ig:hover {
-  filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
+    filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
 }
 
 /* CONTENEDOR PARA X O TWITTER COMO LO QUIERAS LLAMAR */
 .x {
-  transition: 0.1s ease-in;
-  padding: 2rem;
+    transition: .1s ease-in;
+    padding: 2rem;
 }
 
 .x p {
-  filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
+    filter: drop-shadow(0px 1px 5px rgb(255, 255, 255));
 }
 
 /* IMÁGEN X O TWITTER COMO LO QUIERAS LLAMAR */
 .x-twitter {
-  transition: all 0.2s ease-in;
+    transition: all .2s ease-in;
 }
 
 .x-twitter:hover {
-  filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
+    filter: drop-shadow(0px 1px 5.7px rgb(255, 255, 255));
 }

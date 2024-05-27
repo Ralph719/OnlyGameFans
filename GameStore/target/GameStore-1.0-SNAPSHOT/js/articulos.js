@@ -11,7 +11,7 @@ $(document).ready(function () {
             console.log('Datos recibidos:', datosArticulos);
             cargarArticulos(datosArticulos);
 
-            // Variables dentro del éxito de la solicitud AJAX para asegurarse de que estén definidas
+            // Variables dentro de la solicitud AJAX
             const categorias = document.querySelectorAll(".botonCategoria");
             const titulo = document.querySelector("#tituloPrincipal");
 
@@ -26,12 +26,12 @@ $(document).ready(function () {
                     const articulosFiltrados = datosArticulos[categoriaSeleccionada];
 
                     if (categoriaSeleccionada !== "todos") {
-                        console.log('Artículos filtrados:', articulosFiltrados);
+                        //console.log('Artículos filtrados:', articulosFiltrados);
                         titulo.innerText = categoriaSeleccionada.charAt(0).toUpperCase() + categoriaSeleccionada.slice(1);
                         contenedorArticulos.innerHTML = "";
                         cargarArticulos({[categoriaSeleccionada]: articulosFiltrados});
                     } else {
-                        console.log('Mostrar todos los productos');
+                        //console.log('Mostrar todos los productos');
                         titulo.innerText = "Todos los productos";
                         cargarArticulos(datosArticulos);
                     }
@@ -70,7 +70,6 @@ $(document).ready(function () {
         });
     });
 
-    // Variables fuera del AJAX para que estén disponibles globalmente
     const contenedorArticulos = document.querySelector("#containerProductos");
 
     // FUNCIÓN PARA CARGAR LOS ARTICULOS EN LA PÁGINA

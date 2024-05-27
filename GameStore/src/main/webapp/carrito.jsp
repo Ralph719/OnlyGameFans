@@ -111,6 +111,6 @@
             }
         </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/carritoCompras9.js"></script>
+        <script src="js/carritoCompras.js"></script>
     </body>
 </html>

@@ -26,22 +26,9 @@ public class Encriptador {
             return hexString.toString();
             
         } catch (NoSuchAlgorithmException e) {
-            System.out.println("Error al intentar encriptar el password. Error: " + e);
+            System.out.println("Error al intentar encriptar la contraseña: " 
+                                + e.getMessage());
             return null;
         }
     }
-    
-    /*public static void main(String[] args) {
-        String usu1 = "pedro";
-        String usu2 = "sara";
-        String usu3 = "alex";
-        String usu4 = "juan";
-        String usu5 = "cristina";
-        
-        System.out.println(hashPassword(usu1));
-        System.out.println(hashPassword(usu2));
-        System.out.println(hashPassword(usu3));
-        System.out.println(hashPassword(usu4));
-        System.out.println(hashPassword(usu5));
-    }*/
 }

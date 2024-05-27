@@ -13,10 +13,10 @@ public class GeneradorToken {
         // Generar una clave segura para HS256
         SecretKey claveSegura = Keys.secretKeyFor(SignatureAlgorithm.HS256);
         
-        // Convertir la clave segura a una cadena
+        // Conversión de la clave a una cadena
         String claveSecreta = Base64.getEncoder().encodeToString(claveSegura.getEncoded());
         
-        // Generar el token JWT con la clave segura
+        // Generación del token JWT con la clave
         return Jwts.builder()
                 // El usuario del token es el correo electrónico del usuario
                 .setSubject(userEmail)
