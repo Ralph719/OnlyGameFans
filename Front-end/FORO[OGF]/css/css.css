@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(10, 23, 49);
+}
+
+h1 {
+    color: rgb(15, 43, 134);
+    font-family: bebas neue;
+    letter-spacing: 12px;
+    font-size: 6rem;
+    text-align: center;
+    -webkit-text-stroke: .1px whitesmoke;
+
+}
+
+h2 {
+    color: rgb(255, 255, 255);
+    font-size: 4.7rem;
+    font-weight: 300;
+    letter-spacing: 5px;
+    text-align: center;
+    font-family: bebas neue;
+}
+
+div {
+    margin-bottom: 2rem;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dudas {
+    border: 2px solid green;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="text"] {
+    font-size: 15px;
+    font-family: cairo;
+    color: white;
+    border: 2px solid rgb(127, 128, 127);
+    padding: 5rem;
+    border-radius: 5px;
+    margin: 1.5rem;
+    width: 50%;
+}
+
+button {
+    padding: .5rem 1.5rem .5rem 1.5rem;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    font-family: cairo;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+button:hover {
+    padding: .5rem 2rem .5rem 2rem;
+    font-weight: 800;
+    border-radius: 5%;
+}
+
+.preguntas-comunes {
+    font-family: cairo;
+    color: white;
+    padding: 2rem;
+    border: 2px solid red;
+}
+
+.preguntas {
+    border: 2px solid green;
+    padding: 1rem;
+    font-size: 20px;
+}
+
+summary {
+    list-style: none;
+    cursor: default;
+}
+
+details {
+    cursor: pointer;
+    color: rgb(111, 221, 101);
+    margin-bottom: .5rem;
+}
+
+hr {
+    border: 1px solid rgb(255, 255, 255);
+    border-style: dashed;
+    border-radius: 50%;
+}
