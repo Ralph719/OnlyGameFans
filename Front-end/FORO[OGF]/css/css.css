@@ -5,14 +5,34 @@
     background-color: rgb(10, 23, 49);
 }
 
+.intro {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 h1 {
+    padding: 2rem;
     color: rgb(15, 43, 134);
     font-family: bebas neue;
     letter-spacing: 12px;
     font-size: 6rem;
     text-align: center;
     -webkit-text-stroke: .1px whitesmoke;
+}
 
+.OGFLOGO {
+    display: flex;
+    flex-direction: column;
+    width: 5rem;
+    margin-bottom: 2rem;
+    transition: .3s;
+}
+
+.OGFLOGO:hover {
+    transform: rotate(180deg);
 }
 
 h2 {
@@ -25,14 +45,17 @@ h2 {
 }
 
 div {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem !important;
     width: 70%;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    border: .2rem solid whitesmoke;
+    border-radius: 2rem;
+    border-style: dotted;
 }
 
 .dudas {
-    border: 2px solid green;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -44,7 +67,7 @@ input[type="text"] {
     font-size: 15px;
     font-family: cairo;
     color: white;
-    border: 2px solid rgb(127, 128, 127);
+    border: 2px solid rgba(173, 173, 173, 0.562);
     padding: 5rem;
     border-radius: 5px;
     margin: 1.5rem;
@@ -73,13 +96,17 @@ button:hover {
     font-family: cairo;
     color: white;
     padding: 2rem;
-    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .preguntas {
-    border: 2px solid green;
-    padding: 1rem;
+    padding: 1.5rem;
     font-size: 20px;
+    margin-top: 2rem;
+    border-style:groove;
 }
 
 summary {
